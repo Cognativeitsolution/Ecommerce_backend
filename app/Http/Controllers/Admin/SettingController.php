@@ -46,7 +46,6 @@ class SettingController extends Controller
         if (!empty($search)) {
             $record = Setting::where('settings.contact_email', 'like', '%'.$search.'%')
                 ->orWhere('settings.contact_number', 'like', '%'.$search.'%')
-                ->orWhere('settings.contact_whatsapp', 'like', '%'.$search.'%')
                 ->orderBy('settings.id','DESC')
                 ->get();
                 return view('settings.index', compact('record') );

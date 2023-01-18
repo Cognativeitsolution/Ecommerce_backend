@@ -72,7 +72,6 @@
                         <th>ID</th>
                         <th>Email</th>
                         <th style="text-align:center;">Contact</th>
-                        <th style="text-align:center;">WhatsApp Contact</th>
                         <th style="text-align:center;">Created</th>
                         <th style="text-align:center;">Updated</th>
                         <th width="150" style="text-align:center;">Action</th>
@@ -92,7 +91,6 @@
                           <td>{{ $setting->id }}</td>
                           <td>{{ $setting->contact_email }}</td>
                           <td style="text-align:center;">{{ $setting->contact_number }}</td>
-                          <td style="text-align:center;">{{ $setting->contact_whatsapp }}</td>
                         
                           <td style="text-align:center;">{{ $setting->created_at->format('Y-m-d H:i:s') }}</td>
                           <td style="text-align:center;">{{ $setting->updated_at->format('Y-m-d H:i:s') }}</td>

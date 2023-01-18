@@ -64,25 +64,12 @@
               <label for="contact_email">Contact Email</label>
               <input type="email" id="contact_email" name="contact_email" value="{{ $record->contact_email }}" class="form-control" required="required">
               @error('contact_email')<div class="error">{{ $message }}</div>@enderror
-            </div>
-          
+            </div>          
 
             <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
               <label for="contact_number">Contact Number</label>
               <input type="text" id="contact_number" name="contact_number" value="{{ $record->contact_number }}" class="form-control" required="required">
               @error('contact_number')<div class="error">{{ $message }}</div>@enderror
-            </div>
-
-            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
-              <label for="contact_whatsapp">Contact WhatsApp</label>
-              <input type="text" id="contact_whatsapp" name="contact_whatsapp" value="{{ $record->contact_whatsapp }}" class="form-control">
-              @error('contact_whatsapp')<div class="error">{{ $message }}</div>@enderror
-            </div>
-
-            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
-              <label for="linkedin_account_link">Linkedin URL</label>
-              <input type="text" id="linkedin_account_link" name="linkedin_account_link" value="{{ $record->linkedin_account_link }}" class="form-control">
-              @error('linkedin_account_link')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
@@ -98,9 +85,21 @@
             </div>
 
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <label for="google_account_link">Twitter URL</label>
+              <input type="text" id="twitter_account_link" name="twitter_account_link" value="{{ $record->twitter_account_link }}" class="form-control">
+              @error('twitter_account_link')<div class="error">{{ $message }}</div>@enderror
+            </div>
+            
+            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
               <label for="google_account_link">Google Plus URL</label>
-              <input type="text" id="youtube_account_link" name="youtube_account_link" value="{{ $record->youtube_account_link }}" class="form-control">
-              @error('youtube_account_link')<div class="error">{{ $message }}</div>@enderror
+              <input type="text" id="google_plus_account_link" name="google_plus_account_link" value="{{ $record->google_plus_account_link }}" class="form-control">
+              @error('google_plus_account_link')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <label for="google_account_link">Pinterest URL</label>
+              <input type="text" id="pinterest_account_link" name="pinterest_account_link" value="{{ $record->pinterest_account_link }}" class="form-control">
+              @error('pinterest_account_link')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
@@ -110,9 +109,9 @@
             </div>
             
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
-              <label for="branch">Branch</label>
-              <input type="text" id="branch" name="branch" value="{{ $record->branch }}" class="form-control">
-              @error('branch')<div class="error">{{ $message }}</div>@enderror
+              <label for="disclaimer">Disclaimer</label>
+              <textarea name="disclaimer" id="disclaimer" cols="30" rows="10" class="form-control">{{ $record->disclaimer }}</textarea>
+              @error('disclaimer')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">

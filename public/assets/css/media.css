@@ -1,377 +1,244 @@
-/* Custom Media Query */
 @media (max-width:1024px) {
-	.mvg_grid-wrapper {
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));	
+	.sb_main-wrapper {
+		flex-direction: column;
 	}
 
-	.prod_grid_container {
-		grid-template-columns: repeat(2, 1fr);
+	.ss_coupon-container {
+		flex-direction: column;
+	}
+	.ss_sidebar {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(500px,1fr));
 	}
 
-	/* blog */
-	.blog-content {
-		padding: 15px 20px 15px 20px;
+	.coupon_sidebar-related {
+		width: 330px;
 	}
 
-	.blog-content p {
-		line-height: 20px;
-	}
+	
 
-	button.btn.btn_veiw_more {
-		padding: 5px 10px;
-	}
 
-	.main_container {
-		width: auto;
-	}
-
-	.main_card-container {
-		margin-left: inherit;
-	}
-
-	.service_db-content {
-		min-width: 800px;
-		left: -30rem;
-	}
-
-	.service_db-content {
-		position: fixed;
-		min-width: 100%;
-		left: 0;
-		right: 0;
-	}
-
-	.footer_social_content>h1 {
-		font-size: 16px;
-	}
-
-	.footer_down-wrapper {
-		grid-gap: 20px;
-	}
 }
-
 
 @media (max-width:992px) {
-    
-    .wwa_grid-container {
-		flex-direction: column;
-	    align-items: start;
-	}
-    
-    .oc_grid-container {
-     justify-items: center;
-}
-    
-    
-	.upper_flex-wrapper {
-		justify-content: center;
-		grid-gap: 10px;
+	.head_search_bar {
+		flex: 0 0 460px;
 	}
 
-
-	.col-1,.col-2,.col-3 {
-		flex: 1 !important;
+	.f_a_q_container {
+		background: inherit !important;
 	}
 
-	.tech_grid-item.col-4,.tech_grid-item.col-5 {
-		flex: 0 0 28.33%;
-	}
-
-}
-
-@media (max-width:900px) {
-
-	/* index.html styling */
-	/* banner slider */
-	.h-banner-content {
-		/*transform: translate(-50%, -50%);*/
-		/*text-align: inherit;*/
-		width:80%;
-		left:10%;
-	}
-	.wwa_img-wrapper{
-		width:100%;
-	}
-	
-	.wwa_grid-container {
-		flex-wrap: wrap;
-	}
-
-
-	.primary_menu {
-		display: none;
-	}
-
-	.menu_toggle-button {
-		display: block;
-	}
-
-	.footer-col h4 {
-		margin-bottom: 20px;
-	}
-
-	.foo_links {
-		margin-top: 10px;
-	}
-
-	/* sign-up page */
-	.sign_up-flex-wrapper {
-		grid-template-columns: repeat(1, 1fr);
-		grid-gap: 0;
-	}
-
-	.log_in-banner-container {
-		display: none;
-	}
-
-	.connection_box {
-		flex-direction: column;
-        align-items: self-start;
-	}
-}
-
-@media(max-width: 767px) {
-    .secondary_about_slider,
-	.secondary_career_slider {
-		height: 100px;
-	}
-	
-	.related_head {
-		text-align: center;
-	}
-	.sb-grid-container {
-		flex-direction: column;
-	}
-	.sign_up-flex-wrapper {
-		grid-gap: 0;
-	}
-	/* index tab menu */
-	.nav_un-list li {
-		padding: 1.2em 2em;
-	}
-
-	.short_intro_grid-wrapper {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	/* ABOUT US */
-	.prod_grid_container {
-		grid-template-columns: repeat(1, 1fr);
-	}
-
-	.main_container {
-		flex-direction: column;
-		justify-content: flex-start;
-	}
-
-	.main_card-container {
-		margin-left: 0;
-	}
-
-	.footer-col {
-		flex: 0 0 45%;
-	}
-
-	.footer-col ul li a {
-		font-size: 13px;
-	}
-
-	/* Career page */
-	.secondary_heading {
+	.f_a_q_wrapper {
 		width: 100%;
 	}
 
-	.cand_ability-wrapper {
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	/* About Us */
+	.progress_container {
+		flex-direction: column;
 	}
 
-	.cand_ability-item {
-		justify-content: flex-start;
+	.left_icon {
+		flex: 0 0 240px;
+		row-gap: 0px;
 	}
 
-	/* sign-up screen */
-	.link_google,
-	.link_linkedin {
-		font-size: 16px;
+	.about_us-wrapper {
+		flex-direction: column-reverse;
 	}
 
-	.connection_box {
+	.au_sidebar {
+		width: 100%;
+		flex: 0 0 auto;
+		margin-top: 0;
+		box-shadow: none;
+		border-radius: 10px;
+		min-height: auto;
+	}
+
+	.abu_wrpr {
+		flex-direction: row;
+	}
+
+	.abu_item {
+		border: 1px solid #0001;
+		border-left: 0;
+		flex: 1;
+		justify-content: center;
+	}
+
+	.au_item {
+		border: 1px solid #0001;
+		border-left: 0;
+		flex: 1;
+		justify-content: center;
+	}
+
+	.contact_us_img {
+		display: none;
+	}
+
+	.store_head {
+		flex-direction: column-reverse;
+		align-items: inherit;
+	}
+
+	.latest_post-item {
+		flex-direction: column;
+		align-items: center;
+		grid-gap: 20px;
+	}
+
+	.lpi_img {
+		width: 450px;
+		flex: 0 0 230px;
+		margin-left: 15px;
+		margin-top: 15px;
+	}
+
+	.banner_two.blog_img {
+		transform: translate(-25px, -25px);
+	}
+
+	.lpi_content {
+		text-align: center;
+	}
+
+
+}
+
+@media (max-width:768px) {
+
+	.toggle_menu {
+		display: block;
+	}
+
+	.main_menu {
+		display: none;
+	}
+
+	.btn_head_wrapper {
+		display: none;
+	}
+
+	.head_search_bar {
+		flex: 1;
+	}
+
+	.category_item-link {
+		grid-gap: 10px;
+		font-size: 18px;
+		padding: 10px;
+	}
+
+	.input {
+		max-width: 100%;
+	}
+
+	#reply_form {
+		max-width: 100%;
+	}
+
+	.coupon_dis {
+		display: none;
+	}
+
+	.coupon.coupon_card {
 		flex-direction: column;
 		align-items: flex-start;
 	}
 
-	/* service */
-	.upper_flex-wrapper {
-		flex-direction: column;
+	.ss_info {
+		grid-gap: 20px;
 	}
 
-	.col-1,
-	.col-2,
-	.col-3 {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
-
-	.below_flex-wrapper {
-		flex-direction: column;
-	}
-
-	.tech_grid-item.col-4,
-	.tech_grid-item.col-5 {
-		max-width: 100%;
+	.st.st_uses {
+		flex: 0 0 auto;
 	}
 }
 
 @media (max-width:600px) {
-
-	/* index.html styling */
-	/* banner content */
-
-	.h-banner-content h2 {
-
-		text-align: center;
-	}
-
-
-	/* ABOUT US */
-	/* .prod_grid_container {
-		grid-template-columns: repeat(2, 1fr);
-	} */
-
-	.page-title {
-		width: 100%;
-	}
-
-	.secondary_about_slider {
-		height: 100px;
-	}
-
-	input#fname,
-	input#user_mail,
-	.comment-field {
-		text-indent: 5px;
-	}
-
-	.footer-col h4 {
-		margin-bottom: 25px;
-	}
-
-	.footer-col ul li:not(:last-child) {
-		margin-bottom: 5px;
-	}
-
-	/* career page */
-	.experience_cand-item {
-		flex-direction: column;
-	}
-
-	.hiring_process-grid-container {
-		grid-template-columns: repeat(1, 1fr);
-	}
-
-	.link_google>img {
-		left: 15px;
-		width: 3rem;
-		height: 3rem;
-		top: 10px;
-	}
-	
-}
-
-@media(max-width: 574px) {
-	/* index get qoute btn */
-
-	/* sidebar_menu */
-	.close_menu-img {
-		width: 2rem;
-		height: 2rem;
-	}
-
-	.bar_menu-img {
-		width: 3rem;
-		height: 3rem;
-	}
-
-	.sidebar_container {
-		width: 300px;
-	}
-
-	.sidebar_list {
-		padding: 8px 6px;
-	}
-
-	.bar-btn {
-		padding: 8px 15px;
-	}
-
-	.mm-menu-container {
+	.cat_head_viewmore-btn {
 		display: none;
 	}
 
-	.footer-col {
-		flex: 0 0 100%;
+	.ss_profile-content h2 {
+		font-size: 22px;
 	}
-
-	/* Sign up screen */
-	.sign_up-banner-container {
-		width: 100%;
-		min-width: 100%;
-	}
-
-	.sp_banner-content {
-		width: 100%;
-	}
-
-	.sign_up-form-container {
-		min-width: 100%;
-		justify-self: right;
-	}
-
-	.link_google,
-	.link_linkedin {
-		padding: 8px 14px;
-		font-size: 17px;
-	}
-
-	.link_google>img {
-		top: 7px;
+	.ss_coupon-code {
+		width: auto;
+		padding: 5px 15px;
 	}
 }
 
-@media (max-width:425px) {
-
-	.secondary_about_slider,
-	.secondary_career_slider {
-		height: 130px;
+@media (max-width:500px) {
+	.left_icon {
+		display: none;
 	}
 
-	.arrows-two:after {
-	font-size: 30px !important;
-	height:40px !important;
+	.why_we {
+		padding: 10px 0 0 0;
+	}
+
+	.search_result_box {
+		left: 0;
+	}
+
+	.lpi_img {
+		height: 200px;
+		width: 100%;
+		flex: 0 0 200px;
+		border-width: 10px;
+		margin: 25px 0 0 0;
+	}
+
+	.banner_two.blog_img {
+		transform: translate(-50%, -30px);
+		left: 50%;
+		max-width: calc(100% - 40px);
+	}
+
+	.ss_coupon-code {
+		padding: 5px 15px;
+	}
+
+	.ss_sidebar {
+		grid-template-columns: repeat(auto-fill, minmax(100%,1fr));
+	}
+
+
+}
+
+
+@media (max-width:425px) {
+	.info_wrapper {
+		flex-direction: column;
+	}
+
+	.info_item {
+		flex: inherit;
+		width: 100%;
+	}
+
+	.ss_info {
+		flex-direction: column;
+		grid-gap: 5px;
+		align-items: flex-start;
+	}
+
+	.ss_profile-content p {
+		font-size: 13px;
+	}
+
+	.rating-stars {
+		flex-direction: column;
+		align-items: flex-start;
 	}
 	
 }
 
-@media (max-width:375px) {
+/* Media Query */
 
-	.arrows-two:after {
-	font-size: 30px !important;
-}
-input#fullname,
-input#email,
-.comment-field {
-	text-indent: 0;
-}
-}
-
-@media (max-width:1200px) {
-	.main_container {
-		max-width: 700px;
-	}
-}
-
-/* Std Media Query */
 @media (min-width: 992px) {
 	.container {
 		width: 970px;
@@ -384,6 +251,7 @@ input#email,
 	}
 }
 
+
 @media (max-width: 1400px) {
 	.container {
 		width: 90%;
@@ -393,7 +261,6 @@ input#email,
 @media (min-width: 1300px) {
 	.container {
 		width: 1300px;
-		max-width: 100%;
 	}
 }
 

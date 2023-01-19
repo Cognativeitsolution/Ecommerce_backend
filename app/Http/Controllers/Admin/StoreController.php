@@ -34,7 +34,6 @@ class StoreController extends Controller
     }
     public function index()
     {
-
         $search = request('search');
 
         if (!empty($search)) {

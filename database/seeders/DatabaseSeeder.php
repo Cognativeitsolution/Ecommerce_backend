@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PageMetasSeeder::class);
         $this->call(StoreSeeder::class);
         $this->call(MetaStoresSeeder::class);
+        $this->call(CouponSeeder::class);
         
     }
 }

@@ -55,6 +55,10 @@ class PermissionTableSeeder extends Seeder
             'store-create',
             'store-edit',
             'store-delete',
+            'coupon-list',
+            'coupon-create',
+            'coupon-edit',
+            'coupon-delete',
         ];
      
         foreach ($permissions as $permission) {

@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\ContactusCotroller;
 use App\Http\Controllers\Admin\StoreController;
+use App\Http\Controllers\Admin\CouponController;
 
 use App\Http\Controllers\JobController as WebJobController;
 use App\Http\Controllers\BlogController as WebBlogController;
@@ -94,6 +95,7 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::post('admin/contact_us/multi_delete', [ContactusCotroller::class, 'multi_delete'])->name('contactus.multi_delete');
     Route::resource('admin/sliders', SliderController::class);
     Route::resource('admin/stores', StoreController::class);
+    Route::resource('admin/coupons', CouponController::class);
     Route::resource('admin/blogs', BlogController::class);
     Route::resource('admin/settings', SettingController::class);
     Route::resource('admin/pages', PageController::class);

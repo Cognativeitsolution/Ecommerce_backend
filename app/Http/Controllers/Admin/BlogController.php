@@ -131,7 +131,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        $record = Blog::select('blogs.id', 'blogs.name', 'blogs.title', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')
+        $record = Blog::select('blogs.id', 'blogs.name', 'blogs.title', 'blogs.reading_time', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')
                 ->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
                 ->where('blogs.id', $blog->id)
                 ->first();

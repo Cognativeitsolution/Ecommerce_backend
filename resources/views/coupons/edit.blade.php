@@ -28,14 +28,14 @@
             <div class="col-sm-4"></div>
 
             <div class="col-sm-4">
-              <a href="{{ route('blogs.index') }}" class="btn btn-block btn-primary">View Blog</a>
+              <a href="{{ route('stores.index') }}" class="btn btn-block btn-primary">View Stores</a>
             </div>
 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-              <li class="breadcrumb-item">Edit Blog</li>
+              <li class="breadcrumb-item">Edit Store</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -52,7 +52,7 @@
 
       <div class="card">    
         <div class="card-body">
-          <form name="edit-blog-post-form" id="edit-blog-post-form" method="post" enctype="multipart/form-data" action="{{ route('blogs.update', $record->id) }}">
+          <form name="edit-store-form" id="edit-store-form" method="post" enctype="multipart/form-data" action="{{ route('stores.update', $record->id) }}">
           @method('PATCH')
           @csrf
           <div class="row">
@@ -127,40 +127,76 @@
             </div>
 
             <div class="form-group">
-              <label for="reading_time">Reading Time</label>
-              <input type="text" id="reading_time" name="reading_time" value="{{ $record->reading_time }}" class="form-control" >
-            </div>
-
-            <div class="form-group">
-              <label>Select Related Blog</label>
-              <select name="related_blogs[]" class="form-control select2" multiple="multiple" data-placeholder="Select a Blog" >
+              <label>Select Related</label>
+              <select name="related_stores[]" class="form-control select2" multiple="multiple" data-placeholder="Select a related" >
       
-                @foreach($blogs as $blog)
-                  <option value={{ $blog->id }} <?php if(in_array($blog->id, $related_blog_ids)){
+                @foreach($stores as $data)
+                  <option value={{ $data->id }} <?php if(in_array($data->id, $related_store_ids)){
                     echo 'selected';
-                    }?> >{!! Str::words( $blog->title, 5, ' ..') !!}</option>
+                    }?> >{!! Str::words( $data->name, 5, ' ..') !!}</option>
                 @endforeach
       
               </select>
             </div>
 
             <div class="form-group">
-              <label for="blog_image">Blog Image</label>
-              <input type="file" class="form-control" id="blog_image" name="blog_image" class="form-control" >
+              <label for="image">Image</label>
+              <input type="file" class="form-control" id="image" name="image" class="form-control" >
             </div>
 
-            @if( !empty($record->blog_image) )
+            @if( !empty($record->image) )
             <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
-              <strong>Thumbnail Blog Image </strong>
+              <strong>Thumbnail Image </strong>
               <br/>
-              <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}" >
+              <img src="{{ url('/thumbnail/') }}/{{ $record->image }}" >
             </div>
             @endif
 
             <div class="form-group">
+              <label for="banner_image">Banner Image</label>
+              <input type="file" class="form-control" id="banner_image" name="banner_image" class="form-control" >
+            </div>
+
+            @if( !empty($record->banner_image) )
+            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
+              <strong>Thumbnail Banner Image </strong>
+              <br/>
+              <img src="{{ url('/thumbnail/') }}/{{ $record->banner_image }}" >
+            </div>
+            @endif
+
+            <hr>
+            <h4>Select Type</h4>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" {{ $record->type == 1 ? 'checked' : '' }} value=1 class="form-check-input" checked="checked" name="type">Store
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" {{ $record->type == 2 ? 'checked' : '' }} value=2 class="form-check-input" name="type">Category
+              </label>
+            </div>
+
+            <hr>
+            <h4>Top / Popular Section</h4>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" name="top" class="form-check-input"  value=1 {{ $record->top == 1 ? 'checked' : '' }}>Top
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" name="popular" class="form-check-input" value=1 {{ $record->popular == 1 ? 'checked' : '' }}>Popular
+              </label>
+            </div>
+
+            <hr>
+            <h4>Status</h4>
+            <div class="form-group">
               <div class="custom-control custom-switch">
               <input type="checkbox" name="status" {{ $record->status == 1 ? 'checked' : 'no' }} class="custom-control-input" id="customSwitch1">
-              <label class="custom-control-label" for="customSwitch1">Show Blog</label>
+              <label class="custom-control-label" for="customSwitch1">Show</label>
               </div>
             </div>
 
@@ -182,7 +218,7 @@
               @error('meta_description')<div class="error">{{ $message }}</div>@enderror
             </div>
                 
-            @can('blog-edit')
+            @can('store-edit')
             <button type="submit" class="btn btn-primary">Update</button>
             @endcan
           </form>

@@ -2,6 +2,8 @@
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/date.css') }}" type="text/css"> -->
+  <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
   <style>
     .error{
@@ -29,7 +31,7 @@
             <div class="col-sm-4"></div>
 
             <div class="col-sm-4">
-              <a href="{{ route('blogs.index') }}" class="btn btn-block btn-primary">View Blogs</a>
+              <a href="{{ route('coupons.index') }}" class="btn btn-block btn-primary">View Coupons</a>
             </div>
 
           </div><!-- /.col -->
@@ -37,7 +39,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-              <li class="breadcrumb-item">Add Blog</li>
+              <li class="breadcrumb-item">Add Coupon</li>
             </ol>
           </div><!-- /.col -->
 
@@ -55,19 +57,19 @@
 
       <div class="card">        
         <div class="card-body">
-          <form name="add-blog" id="add-blog" method="post" enctype="multipart/form-data" action="{{ route('blogs.store')}}">
+          <form name="add-coupon" id="add-coupon" method="post" enctype="multipart/form-data" action="{{ route('coupons.store')}}">
             @csrf
-
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" value="{{ old('name') }}" class="form-control" >
-              @error('name')<div class="error">{{ $message }}</div>@enderror
-            </div>
 
             <div class="form-group">
               <label for="title">Title</label>
               <input type="text" id="title" name="title" value="{{ old('title') }}" class="form-control" >
               @error('title')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group">
+              <label for="coupon_code">Coupon Code</label>
+              <input type="text" id="coupon_code" name="coupon_code" value="{{ old('coupon_code') }}" class="form-control" >
+              @error('coupon_code')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="form-group">
@@ -128,43 +130,67 @@
             </div>
 
             <div class="form-group">
-              <label for="reading_time">Reading Time</label>
-              <input type="text" id="reading_time" name="reading_time" value="{{ old('reading_time') }}" class="form-control" >
-              @error('reading_time')<div class="error">{{ $message }}</div>@enderror
-            </div>
-            
-            <div class="form-group">
-              <label>Select Related Blog</label>
-              <select name="related_blogs[]" class="form-control select2" multiple="multiple" data-placeholder="Select a Blog" >
-
-                @foreach($blogs as $blog)
-                  <option value={{ $blog->id }}>{!! Str::words( $blog->title, 5, ' ..') !!}</option>
+              <label>Select Store / Category</label>
+              <select name="store_id" class="form-control" data-placeholder="Select here ..." >
+                
+                @foreach($stores as $data)
+                  <option value={{ $data->id }}>{!! Str::words( $data->name, 5, ' ..') !!}</option>
                 @endforeach
 
               </select>
             </div>
 
             <div class="form-group">
-              <label for="blog_image">Blog Image</label>
-              <input type="file" class="form-control" id="blog_image" name="blog_image" class="form-control" >
-              @error('blog_image')<div class="error">{{ $message }}</div>@enderror
+              <label for="image">Image</label>
+              <input type="file" class="form-control" id="image" name="image" class="form-control" >
+              @error('image')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group">
+              <label for="banner_image">Banner Image</label>
+              <input type="file" class="form-control" id="banner_image" name="banner_image" class="form-control" >
+              @error('banner_image')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group">
+              <label for="start_date">Start Date</label>
+              <input class="form-control datepicker" id="start_date" name="start_date" class="form-control" require="required">
+              @error('start_date')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group">
+              <label for="expire_date">Expire Date</label>
+              <input class="form-control datepicker2" id="expire_date" name="expire_date" class="form-control" require="required">
+              @error('expire_date')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+
+
+            <!-- <input id="datepicker" class="datepicker" width="276" /> -->
+
+
+            <hr>
+            <div class="form-group">
+              <label for="redirect_site_name">Redirect Site Name</label>
+              <input type="text" id="redirect_site_name" name="redirect_site_name" value="{{ old('redirect_site_name') }}" class="form-control" >
+              @error('redirect_site_name')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group">
+              <label for="redirect_site_url">Redirect Site URL</label>
+              <input type="text" id="redirect_site_url" name="redirect_site_url" value="{{ old('redirect_site_url') }}" class="form-control" >
+              @error('redirect_site_url')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <hr>
-            <h3>Seo Section </h3>
-
-            <div class="form-group">
-              <label for="meta_keywords">Meta Keywords</label>
-              <input type="text" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords') }}" class="form-control" placeholder="Enter minimum 3 characters and maximum 160 characters">
-              @error('meta_keywords')<div class="error">{{ $message }}</div>@enderror
+            <h4>Featured Coupon</h4>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" name="featured" value=1>&nbsp; Yes
+              </label>
             </div>
 
-            <div class="form-group">
-              <label for="meta_description">Meta Description</label>
-              <input type="text" id="meta_description" name="meta_description" value="{{ old('meta_description') }}" class="form-control" placeholder="Enter minimum 3 characters and maximum 160 characters">
-              @error('meta_description')<div class="error">{{ $message }}</div>@enderror
-            </div>
-
+            <hr>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
@@ -176,10 +202,20 @@
 
 @section('js')
   <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+  <script src="{{ asset('plugins/datepicker/js/date.js') }}" type="text/javascript"></script>
   <script>
     $(function () {
-      //Initialize Select2 Elements
       $('.select2').select2();      
     });
-  </script>
+
+    $('.datepicker').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+
+    $('.datepicker2').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+</script>
+
+
 @endsection

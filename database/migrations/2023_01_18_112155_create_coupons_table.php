@@ -34,6 +34,7 @@ class CreateCouponsTable extends Migration
             $table->smallInteger('views')->default(0);
             $table->tinyInteger('code')->default(1);
             $table->tinyInteger('featured')->default(0);
+            $table->tinyInteger('latest')->default(0);
 
             $table->unsignedBigInteger('store_id');
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');            

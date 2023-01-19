@@ -12,10 +12,7 @@ use Illuminate\Http\Request;
 
 use App\Helpers\helper as Helper;
 use App\Http\Controllers\Controller;
-
-use App\Models\Blog;
-use App\Models\StoreRelated;
-use App\Models\MetaStores;
+use File;
 
 class CouponController extends Controller
 {
@@ -40,6 +37,7 @@ class CouponController extends Controller
 
         if (!empty($search)) {
             $record = Coupon::where('coupons.title', 'like', '%'.$search.'%')
+                ->orWhere('coupons.coupon_code', 'like', '%'.$search.'%')
                 ->orWhere('coupons.short_description', 'like', '%'.$search.'%')
                 ->orWhere('coupons.long_description', 'like', '%'.$search.'%')
                 ->orderBy('coupons.id','DESC')
@@ -76,9 +74,9 @@ class CouponController extends Controller
      */
     public function store(StoreCouponRequest $request)
     {
-//        Change date format
-//        $start_date = \Carbon\Carbon::createFromFormat('Y-m-d', $request->start_date )->format('Y-m-d');
-//        dd( $start_date );
+        $request['start_date'] = date('Y-m-d', strtotime($request->start_date));
+        $request['expire_date'] = date('Y-m-d', strtotime($request->expire_date));
+        $request['verified_on'] = date('Y-m-d', strtotime($request->start_date));
 
         $coupon = Coupon::create($request->all());
 
@@ -129,7 +127,17 @@ class CouponController extends Controller
      */
     public function edit(Coupon $coupon)
     {
-        //
+        $record = Coupon::find($coupon->id);
+        $stores = Store::select('id', 'name')->get();
+
+        $logs = Logs::get_logs_details(Coupon::getTableName(), $coupon->id);
+
+        if($record != false){
+            return view('coupons.edit', compact('record','logs','stores'));
+        }else{
+            abort(404);
+        }
+
     }
 
     /**
@@ -141,7 +149,43 @@ class CouponController extends Controller
      */
     public function update(UpdateCouponRequest $request, Coupon $coupon)
     {
-        //
+        $request['featured'] = $request->featured == "1" ? 1 : 0 ;
+        $request['latest'] = $request->latest == "1" ? 1 : 0 ;
+
+        $request['start_date'] = date('Y-m-d', strtotime($request->start_date));
+        $request['expire_date'] = date('Y-m-d', strtotime($request->expire_date));
+        $request['verified_on'] = date('Y-m-d', strtotime($request->start_date));
+
+        $coupon = Coupon::find($coupon->id);
+
+        $coupon->update($request->all());
+
+        if(isset($request['image'])){
+
+            $image = Helper::upload_image($request->file('image'));
+
+            $data2 = array(
+                'image'        => $image,
+            );
+
+            $coupon->update($data2);
+
+        }
+
+        if(isset($request['banner_image'])){
+
+            $banner_image = Helper::upload_banner_image($request->file('banner_image'));
+
+            $data2 = array(
+                'banner_image'        => $banner_image,
+            );
+
+            $coupon->update($data2);
+
+        }
+
+        Logs::add_log(Coupon::getTableName(), $coupon->id, $request->all(), 'edit', 1);
+        return redirect()->route('coupons.index')->with('success','Record Updated !');
     }
 
     /**
@@ -152,6 +196,17 @@ class CouponController extends Controller
      */
     public function destroy(Coupon $coupon)
     {
-        //
+        $coupon = Coupon::find($coupon->id);
+
+        $image = public_path("images\\") .$coupon->image ;
+        $banner_image = public_path("images\\") .$coupon->banner_image ;
+
+        if(File::exists($image)) {
+            File::delete($image);
+            File::delete($banner_image);
+        }
+
+        $coupon->delete();
+        return redirect()->route('coupons.index')->with('success', 'Record Deleted !');
     }
 }

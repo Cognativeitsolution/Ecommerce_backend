@@ -20,10 +20,10 @@ class CouponSeeder extends Seeder
         for($i = 1; $i<=30; $i++){
 
             $coupon = new Coupon;
-            $coupon->title = $faker->text(100);
+            $coupon->title = $faker->realText(40);
 
-            $coupon->short_description = $faker->realText(100);
-            $coupon->long_description = $faker->paragraph(60);
+            $coupon->short_description = $faker->realText(70);
+            $coupon->long_description = $faker->paragraph(10);
             $coupon->coupon_code = rand(99999,1000000);
             $coupon->start_date = now();
             $coupon->verified_on = now();
@@ -38,6 +38,8 @@ class CouponSeeder extends Seeder
 
             $coupon->store_id = $faker->numberBetween(1,10);
             $coupon->code = $faker->numberBetween(0,1);
+            $coupon->featured = $faker->numberBetween(0,1);
+            $coupon->latest = $faker->numberBetween(0,1);
 
             $coupon->save();
         }

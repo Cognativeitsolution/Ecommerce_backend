@@ -18,6 +18,14 @@
 @endsection
 
 @section('content')
+
+<?php
+              // echo "<pre>";
+              // print_r( $tags );
+              // die();
+              ?>
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -130,6 +138,22 @@
               <label for="reading_time">Reading Time</label>
               <input type="text" id="reading_time" name="reading_time" value="{{ $record->reading_time }}" class="form-control" >
             </div>
+
+            <div class="form-group">
+              <label>Tags</label>
+              
+              <select name="tags[]" class="form-control select2" multiple="multiple" data-placeholder="Select a tag" >
+      
+                @foreach($tags as $tag)
+                  <option value={{ $tag->id }} <?php if(in_array($tag->id, $blogTag)){
+                    echo 'selected';
+                    }?> >{{ $tag->name }}</option>
+                @endforeach
+
+              </select>
+              
+            </div>
+
 
             <div class="form-group">
               <label>Select Related Blog</label>

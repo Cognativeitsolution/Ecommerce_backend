@@ -101,6 +101,15 @@
               </li>
               @endcan
 
+              @can('tag-list')
+              <li class="nav-item">
+                <a href="{{ url('/admin/tags')}}" class="nav-link {{ Request::is('admin/tags') ? 'active' : '' }}">
+                  <i class="fa fa-tags nav-icon"></i>
+                  <p>Tags</p>
+                </a>
+              </li>
+              @endcan
+
               @can('blog-list')
               <li class="nav-item">
                 <a href="{{ url('/admin/blogs')}}" class="nav-link {{ Request::is('admin/blogs') ? 'active' : '' }}">

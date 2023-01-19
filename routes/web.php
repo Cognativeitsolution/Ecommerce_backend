@@ -25,6 +25,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\ContactusCotroller;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\TagController;
 
 use App\Http\Controllers\JobController as WebJobController;
 use App\Http\Controllers\BlogController as WebBlogController;
@@ -101,6 +102,7 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/pages', PageController::class);
     Route::resource('admin/services', ServiceController::class);
     Route::resource('admin/admins', AdminsController::class);
+    Route::resource('admin/tags', TagController::class);
 
 });
 

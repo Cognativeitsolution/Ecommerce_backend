@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 
 @section('css')
-  <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
-  <!-- <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/date.css') }}" type="text/css"> -->
+   <!-- <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/date.css') }}" type="text/css"> -->
   <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
   <style>
@@ -165,10 +164,6 @@
             </div>
 
 
-
-            <!-- <input id="datepicker" class="datepicker" width="276" /> -->
-
-
             <hr>
             <div class="form-group">
               <label for="redirect_site_name">Redirect Site Name</label>
@@ -183,10 +178,31 @@
             </div>
 
             <hr>
-            <h4>Featured Coupon</h4>
+            <h4>Select Code / Deal</h4>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" value=1 class="form-check-input" checked="checked" name="code">Code
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" value=0 class="form-check-input" name="code">Deal
+              </label>
+            </div>
+
+            <hr>
+            <h5>Featured Coupon</h5>
             <div class="form-check">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" name="featured" value=1>&nbsp; Yes
+              </label>
+            </div>
+
+            <hr>
+            <h5>Latest Coupon</h5>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" name="latest" value=1>&nbsp; Yes
               </label>
             </div>
 
@@ -201,12 +217,8 @@
 @endsection
 
 @section('js')
-  <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-  <script src="{{ asset('plugins/datepicker/js/date.js') }}" type="text/javascript"></script>
+   <script src="{{ asset('plugins/datepicker/js/date.js') }}" type="text/javascript"></script>
   <script>
-    $(function () {
-      $('.select2').select2();      
-    });
 
     $('.datepicker').datepicker({
         uiLibrary: 'bootstrap4'

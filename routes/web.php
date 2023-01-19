@@ -17,7 +17,8 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ContactusCotroller;
 use App\Http\Controllers\Admin\StoreController;
-use App\Http\Controllers\JobController as WebJobController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\BlogController as WebBlogController;
 use App\Http\Controllers\PagesController as WebPagesController;
 use App\Http\Controllers\WebStoresController;
@@ -51,11 +52,14 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::post('admin/contact_us/multi_delete', [ContactusCotroller::class, 'multi_delete'])->name('contactus.multi_delete');
     Route::resource('admin/sliders', SliderController::class);
     Route::resource('admin/stores', StoreController::class);
+    Route::resource('admin/coupons', CouponController::class);
     Route::resource('admin/blogs', BlogController::class);
     Route::resource('admin/settings', SettingController::class);
     Route::resource('admin/pages', PageController::class);
     Route::resource('admin/services', ServiceController::class);
     Route::resource('admin/admins', AdminsController::class);
+    Route::resource('admin/tags', TagController::class);
+
 });
 
 Route::middleware([IsUser::class])->group(function(){
@@ -63,6 +67,5 @@ Route::middleware([IsUser::class])->group(function(){
 });
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/thank_you', [WebJobController::class, 'thank_you'])->name('thank_you');
     Route::resource('admin/roles', RoleController::class);
 });

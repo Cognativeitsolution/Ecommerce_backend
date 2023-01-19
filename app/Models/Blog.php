@@ -35,4 +35,9 @@ class Blog extends Model
         return with(new static)->getTable();
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class)->as('tags');
+    }
+
 }

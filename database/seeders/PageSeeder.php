@@ -17,38 +17,24 @@ class PageSeeder extends Seeder
     {
         $pages = [
             [
-                'name'=>'About Us',
-                'title'=>'About Us',
-                'slug'=> 'about-us',
-                'short_description'=> "About Us Short Description",
-                'long_description'=> "About Us Long Description",
-            ],
-
-            [
-                'name'=>'Products And Service',
-                'title'=>'Products And Service',
-                'slug'=> 'products-and-service',
-                'short_description'=> "Short Description",
-                'long_description'=> "Long Description",
-            ],
-            [
-                'name'=>'Useful Links',
-                'title'=>'Useful Links',
-                'slug'=> 'useful-links',
-                'short_description'=> "Short Description",
-                'long_description'=> "Long Description",
+                'name'=>'More Links',
+                'title'=>'More Links',
+                'slug'=> 'more-links',
+                'short_description'=> "More Links Short Description",
+                'long_description'=> "More Links Long Description",
             ]
 
         ];
+
         foreach ($pages as $key => $value) {
             Page::create($value);
         }
 
         $faker = \Faker\Factory::create();
-        for($i = 1; $i<=7; $i++){
+        for($i = 1; $i<=3; $i++){
 
             $page = new Page;
-            $page->parent_id = $faker->numberBetween(1,3);
+            $page->parent_id = 1 ;
             $page->name = $faker->name();
             $page->title = $faker->words(4, true);
             $page->short_description = $faker->text(80);

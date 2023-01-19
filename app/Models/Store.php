@@ -30,12 +30,21 @@ class Store extends Model
         return $this->hasOne(MetaStores::class);
     }
 
-
     public static function getTableName()
     {
         return with(new static)->getTable();
     }
 
+    public function coupon(){
+        return $this->hasMany(Coupon::class);
+    }
 
+    public function code(){
+        return $this->hasMany(Coupon::class)->where('code', 1);
+    }
+
+    public function deal(){
+        return $this->hasMany(Coupon::class)->where('code', 0);
+    }
 
 }

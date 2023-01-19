@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Models\Logs;
 use App\Models\BlogMetas;
 use App\Models\BlogRelated;
@@ -13,6 +14,7 @@ use App\Helpers\helper as Helper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use DB;
 
 class BlogController extends Controller
 {
@@ -63,7 +65,8 @@ class BlogController extends Controller
     public function create()
     {
         $blogs = Blog::select('id', 'title')->get();
-        return view('blogs.add', compact('blogs'));
+        $tags = Tag::select('id', 'name')->get();
+        return view('blogs.add', compact('blogs', 'tags'));
     }
 
     /**
@@ -108,6 +111,10 @@ class BlogController extends Controller
 
         }
 
+        if ($request->has('tags')) {
+            $blog->tags()->attach($request->tags);
+        }
+
         Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'add', '');
         return redirect()->route('blogs.index')->with('success','Record Added !');
     }
@@ -131,8 +138,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        $record = Blog::select('blogs.id', 'blogs.name', 'blogs.title', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')
-                ->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
+        $record = Blog::select('blogs.id', 'blogs.name', 'blogs.title', 'blogs.reading_time', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
                 ->where('blogs.id', $blog->id)
                 ->first();
 
@@ -141,10 +147,13 @@ class BlogController extends Controller
         $related_blog_ids = BlogRelated::where('blog_id', $blog->id)
             ->pluck('related_blog_id')->toArray();
 
+        $tags = Tag::all();
+        $blogTag = $record->tags->pluck('id','id')->all();
+
         $logs = Logs::get_logs_details(Blog::getTableName(), $blog->id);
 
         if($record != false){
-            return view('blogs.edit', compact('record','logs','blogs','related_blog_ids'));
+            return view('blogs.edit', compact('record','logs','blogs','related_blog_ids','tags','blogTag'));
         }else{
             abort(404);
         }
@@ -197,6 +206,11 @@ class BlogController extends Controller
 
             $blog->update($data2);
 
+        }
+
+        if ($request->has('tags')) {
+            DB::table('blog_tag')->where('blog_id',$blog->id)->delete();
+            $blog->tags()->attach($request->tags);
         }
         
         Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'edit', 1);

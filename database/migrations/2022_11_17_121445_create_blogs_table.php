@@ -21,6 +21,10 @@ class CreateBlogsTable extends Migration
             $table->string('short_description')->nullable();
             $table->text('long_description')->nullable();
             $table->string('blog_image')->nullable();
+
+            $table->string('reading_time', 80)->nullable();
+            $table->smallInteger('views')->default(0);
+
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
             $table->softDeletes();

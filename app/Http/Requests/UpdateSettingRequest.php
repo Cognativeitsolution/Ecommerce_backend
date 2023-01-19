@@ -39,7 +39,7 @@ class UpdateSettingRequest extends FormRequest
             'footer_location_text'      => ['nullable', 'string'],
             'footer_text'               => ['nullable', 'string'],
             'title'                     => ['nullable', 'string', 'min:10', 'max:60'],
-            'keywords'                  => ['nullable', 'string', 'min:50', 'max:160'],
+            'keywords'                  => ['nullable', 'string', 'min:5', 'max:160'],
             'description'               => ['nullable', 'string', 'min:50', 'max:160']
         ];
     }

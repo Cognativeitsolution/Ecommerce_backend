@@ -23,8 +23,7 @@ class CreateSettingsTable extends Migration
             $table->string('contact_number')->nullable();
             $table->text('disclaimer')->nullable();
             $table->string('facebook_account_link')->nullable();
-            $table->string('instagram_account_link')->nullable();
-            $table->string('twitter_account_link')->nullable();            
+            $table->string('instagram_account_link')->nullable();         
             $table->string('google_plus_account_link')->nullable();
             $table->string('pinterest_account_link')->nullable();
             $table->string('footer_text')->nullable();

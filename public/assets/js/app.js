@@ -6,6 +6,7 @@ $('.toggle_menu').click(function(){
 $('.close-container').click(function(){
     $('.sidebar__container').removeClass('active')
 })
+
 // Search progress 
 $('.input').bind('keyup', function() {
     var value = $(this).val();
@@ -18,11 +19,11 @@ $('.input').bind('keyup', function() {
 
 
 // Featured Offer 
-var list4 = $('.featured_grad');
-for (var i = 0; i < list4.length; i++) {
-    var srcImg = list4[i].getAttribute('data-bg');
-    list4[i].style.backgroundImage = "url('" + srcImg + "')";
-};
+// var list4 = $('.featured_grad');
+// for (var i = 0; i < list4.length; i++) {
+//     var srcImg = list4[i].getAttribute('data-bg');
+//     list4[i].style.backgroundImage = "url('" + srcImg + "')";
+// };
 
 
 // FAQs
@@ -40,41 +41,41 @@ $('.verified_filter').click(function() {
 
 
 // FAQ image
-for (var list = $(".bg_img"), i = 0; i < list.length; i++) {
-   var src = list[i].getAttribute("data-bg");
-   list[i].style.backgroundImage = "url('" + src + "')";
-}
+// for (var list = $(".bg_img"), i = 0; i < list.length; i++) {
+//    var src = list[i].getAttribute("data-bg");
+//    list[i].style.backgroundImage = "url('" + src + "')";
+// }
 
 
 // All Stores
-var list3 = $('.resp_img');
-for (var i = 0; i < list3.length; i++) {
-    var srcImg = list3[i].getAttribute('data-bg');
-    list3[i].style.backgroundImage = "url('" + srcImg + "')";
-};
+// var list3 = $('.resp_img');
+// for (var i = 0; i < list3.length; i++) {
+//     var srcImg = list3[i].getAttribute('data-bg');
+//     list3[i].style.backgroundImage = "url('" + srcImg + "')";
+// };
 
 // blog images
-var list3 = $('.lazy_img');
-for (var i = 0; i < list3.length; i++) {
-    var srcImg = list3[i].getAttribute('data-bg');
-    list3[i].style.backgroundImage = "url('" + srcImg + "')";
-};
+// var list3 = $('.lazy_img');
+// for (var i = 0; i < list3.length; i++) {
+//     var srcImg = list3[i].getAttribute('data-bg');
+//     list3[i].style.backgroundImage = "url('" + srcImg + "')";
+// };
 
 
 // blog banner image
-var list3 = $('.blog_img');
-for (var i = 0; i < list3.length; i++) {
-    var srcImg = list3[i].getAttribute('data-bg');
-    list3[i].style.backgroundImage = "url('" + srcImg + "')";
-};
+// var list3 = $('.blog_img');
+// for (var i = 0; i < list3.length; i++) {
+//     var srcImg = list3[i].getAttribute('data-bg');
+//     list3[i].style.backgroundImage = "url('" + srcImg + "')";
+// };
 
 
 // Single blog banner image
-var list3 = $('.sb_img');
-for (var i = 0; i < list3.length; i++) {
-    var srcImg = list3[i].getAttribute('data-bg');
-    list3[i].style.backgroundImage = "url('" + srcImg + "')";
-};
+// var list3 = $('.sb_img');
+// for (var i = 0; i < list3.length; i++) {
+//     var srcImg = list3[i].getAttribute('data-bg');
+//     list3[i].style.backgroundImage = "url('" + srcImg + "')";
+// };
 
 // Blog reply 
 $(document).ready(function(){
@@ -84,15 +85,17 @@ $(document).ready(function(){
   });
 
 // latest blog image
-var list3 = $('.lazy-lts');
-for (var i = 0; i < list3.length; i++) {
-    var srcImg = list3[i].getAttribute('data-bg');
-    list3[i].style.backgroundImage = "url('" + srcImg + "')";
-};
+// var list3 = $('.lazy-lts');
+// for (var i = 0; i < list3.length; i++) {
+//     var srcImg = list3[i].getAttribute('data-bg');
+//     list3[i].style.backgroundImage = "url('" + srcImg + "')";
+// };
 
 
 
 var swiper = new Swiper(".heroSwiper", {
+    autoplay:true,
+    loop:true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

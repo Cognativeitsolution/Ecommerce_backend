@@ -70,18 +70,6 @@
             </div>
 
             <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
-              <label for="contact_whatsapp">Contact WhatsApp</label>
-              <input type="text" id="contact_whatsapp" name="contact_whatsapp" value="{{ $record->contact_whatsapp }}" class="form-control" readonly>
-              @error('contact_whatsapp')<div class="error">{{ $message }}</div>@enderror
-            </div>
-
-            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
-              <label for="linkedin_account_link">Linkedin URL</label>
-              <input type="text" id="linkedin_account_link" name="linkedin_account_link" value="{{ $record->linkedin_account_link }}" class="form-control" readonly>
-              @error('linkedin_account_link')<div class="error">{{ $message }}</div>@enderror
-            </div>
-
-            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
               <label for="instagram_account_link">Instagram URL</label>
               <input type="text" id="instagram_account_link" name="instagram_account_link" value="{{ $record->instagram_account_link }}" class="form-control" readonly>
               @error('instagram_account_link')<div class="error">{{ $message }}</div>@enderror
@@ -93,22 +81,22 @@
               @error('facebook_account_link')<div class="error">{{ $message }}</div>@enderror
             </div>
 
-            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
-              <label for="google_account_link">Google Plus URL</label>
-              <input type="text" id="youtube_account_link" name="youtube_account_link" value="{{ $record->youtube_account_link }}" class="form-control" readonly>
-              @error('youtube_account_link')<div class="error">{{ $message }}</div>@enderror
+            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
+              <label for="google_plus_account_link">Google Plus URL</label>
+              <input type="text" id="google_plus_account_link" name="google_plus_account_link" value="{{ $record->google_plus_account_link }}" class="form-control" readonly>
+              @error('google_plus_account_link')<div class="error">{{ $message }}</div>@enderror
+            </div>
+
+            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
+              <label for="pinterest_account_link">Pinterest URL</label>
+              <input type="text" id="pinterest_account_link" name="pinterest_account_link" value="{{ $record->pinterest_account_link }}" class="form-control" readonly>
+              @error('pinterest_account_link')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
               <label for="location_address">Front Website Address Text</label>
               <input type="text" id="location_address" name="location_address" value="{{ $record->location_address }}" class="form-control" readonly>
               @error('location_address')<div class="error">{{ $message }}</div>@enderror
-            </div>
-            
-            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
-              <label for="location_address">Branch</label>
-              <input type="text" id="branch" name="branch" value="{{ $record->branch }}" class="form-control" readonly>
-              @error('branch')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
@@ -139,7 +127,7 @@
               <div class="form-group col-md-4 col-sm-4 col-lg-4 col-xs-6">
                 <strong>Thumbnail Header Logo </strong>
                 <br/>
-                <img src="{{ url('/thumbnail/') }}/{{ $record->header_logo }}" width="150px;">
+                <img src="{{ asset('images/' . $record->header_logo) }}" width="150px;">
               </div>
               @endif
 
@@ -147,7 +135,7 @@
               <div class="form-group col-md-4 col-sm-4 col-lg-4 col-xs-6">
                 <strong>Thumbnail Footer Logo </strong>
                 <br/>
-                <img src="{{ url('/thumbnail/') }}/{{ $record->footer_logo }}" width="150px;">
+                <img src="{{ asset('images/' . $record->footer_logo) }}" width="150px;">
               </div>
               @endif
 

@@ -87,18 +87,18 @@
 
 @section('content')
 
-<div class="d-flex align-items-center justify-content-center flex-container">
+<div class="d-flex align-items-center justify-content-center flex-container" style="height: 50vh;">
    <div class="text-center">
       <h1 class="heading">
-      <span class="fade-in" id="digit1">4</span>
-      <span class="fade-in" id="digit2">0</span>
-      <span class="fade-in" id="digit3">4</span>
-    </h1>
-         <p class="fs-3"> Page not found.</p>
-         <p class="lead">
-            The page you’re looking for doesn’t exist.
-         </p>
-         <a href="{{ route('web.home') }}" class="btn-custom">Return To Home</a>
+        <span class="fade-in" id="digit1">4</span>
+        <span class="fade-in" id="digit2">0</span>
+        <span class="fade-in" id="digit3">4</span>
+      </h1>
+      <p class="fs-3"> Page not found.</p>
+      <p class="lead">
+        The page you’re looking for doesn’t exist.
+      </p>
+      <a href="{{ route('web.home') }}" class="btn-custom">Return To Home</a>
    </div>
 </div>
 

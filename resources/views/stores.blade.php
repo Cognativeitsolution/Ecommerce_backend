@@ -87,276 +87,186 @@
                         <div class="all_store">
                             <div class="sec_st-head">Stores From A</div>
                             <div class="store_grid-container">
-                                <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
-                                 <div class="box_parent-wrapper">
-                                    <a href="single_store.html" class="stlist_grid-item">
-                                       <div class="column-md">
-                                          <div class="class_effect">
-                                             <div data-bg="./assets/img/all_store.jpg" class="resp_img"></div>
-                                             <div class="date_box-c">
-                                                <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}" style="">
-                                             </div>
-                                          </div>
-                                          <div class="box_details">
-                                             <div class="blog_detail-inner">
-                                                <h6 class="lowest_h">Abbott Lyon</h6>
-                                                <p>22 Offers</p>
-                                             </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
                                           </div>
                                        </div>
-                                    </a>
-                                 </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
+                                          </div>
+                                       </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="box_parent-wrapper">
+                                 <a href="single_store.html" class="stlist_grid-item">
+                                    <div class="column-md">
+                                       <div class="class_effect">
+                                          <div class="resp_img"><img src="{{ asset('assets/images/all_store.jpg') }}" width="100%"></div>
+                                          <div class="date_box-c">
+                                             <img class="round_list-img lazy" src="{{ asset('assets/images/store_img.jpeg') }}">
+                                          </div>
+                                       </div>
+                                       <div class="box_details">
+                                          <div class="blog_detail-inner">
+                                             <h6 class="lowest_h">Abbott Lyon</h6>
+                                             <p>22 Offers</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
                             </div>
                         </div>
                     </div>

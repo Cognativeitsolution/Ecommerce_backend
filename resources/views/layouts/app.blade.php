@@ -7,13 +7,15 @@
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}"> 
 
+      <link rel="shortcut icon" href="{{ asset('images/' . $settings->favicon) }}" type="image/x-icon">
+
       @yield('seo')
 
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <!---Fontawsome Links-->
-      <link rel="stylesheet" href="{{ asset('assets/fontawesome/all.min.css') }}">
-      <link rel="stylesheet" href="{{ asset('assets/fontawesome/fontawesome.min.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
       <!--- Style css file -->
       <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
       <link rel="stylesheet" href="{{ asset('assets/css/media.css') }}" type="text/css">
@@ -28,7 +30,8 @@
             </span>
          </div>
          <div class="sd_img_box">
-            <img src="{{ asset('assets/images/logowhite.png') }}" alt="sd-header-logo">
+            <!-- <img src="{{ asset('assets/images/logowhite.png') }}" alt="sd-header-logo"> -->
+            <img src="{{ asset('images/' . $settings->header_logo) }}" alt="sd-header-logo">
          </div>
          <div class="sidebar__list">
             <ul class="un-sideb-list">
@@ -48,7 +51,7 @@
                      <div class="upper_primary-header">
                         <div class="logo_box">
                            <a href="#" class="header_logo-link">
-                           <img src="{{ asset('assets/images/logowhite.png') }}" alt="logo" class="resp_logo">
+                           <img src="{{ asset('images/' . $settings->header_logo) }}" alt="logo" class="resp_logo">
                            </a>
                         </div>
                         <div class="main_menu">
@@ -468,7 +471,7 @@
                                     <input type="hidden" name="_token" value="44980dcdc34fdc45c726074444ef66e3">
                                     <div class="response-box"></div>
                                     <div class="subscriptionBox">
-                                       <input type="text" class="form-control" placeholder="Email Address" name="email">
+                                       <input type="text" class="form-control" placeholder="Email Address" name="email" required>
                                        <button class="btn subs"> Submit <i class="fa fa-paper-plane"></i></button>
                                     </div>
                                  </form>
@@ -477,13 +480,38 @@
                            <div class="nav_links">
                               <div class="single_prop first-order">
                                  <a href="#" class="footer-logo">
-                                 <img src="{{ asset('assets/images/logowhite.png') }}" class="img-responsive" alt="" width="170" height="50">
+                                 <img src="{{ asset('images/' . $settings->footer_logo) }}" class="img-responsive" alt="" width="170" height="50">
                                  </a>
-                                 <p>Disclosure: When you buy through links on our site, we may earn an affiliate commission.</p>
+                                 <p>{{ $settings->footer_text }}</p>
                                  <div class="effect phebe">
                                     <div class="buttons">
-                                       <a href="" class="fb" target="_blank" title="Join us on Facebook"><i class="fab fa-facebook-f"></i></a>
-                                       <a href="" class="tw" target="_blank" title="Join us on Twitter"><i class="fab fa-twitter"></i></a>
+                                       @if ($settings->facebook_account_link)
+                                          <a href="{{ $settings->facebook_account_link }}" class="fb" target="_blank" title="Join us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                       @endif
+
+                                       @if ($settings->instagram_account_link)
+                                          <a href="{{ $settings->instagram_account_link }}" class="au_item">
+                                             <div class="icon insta">
+                                                <i class="fab fa-instagram"></i>
+                                             </div>
+                                          </a>
+                                       @endif
+
+                                       @if ($settings->google_plus_account_link)
+                                          <a href="{{ $settings->google_plus_account_link }}" class="au_item">
+                                             <div class="icon google_plus">
+                                                <i class="fab fa-google-plus-g"></i>
+                                             </div>
+                                          </a>
+                                       @endif
+
+                                       @if ($settings->pinterest_account_link)
+                                          <a href="{{ $settings->pinterest_account_link }}" class="au_item">
+                                             <div class="icon pt">
+                                                <i class="fab fa-pinterest"></i>
+                                             </div>
+                                          </a>
+                                       @endif
                                     </div>
                                  </div>
                               </div>
@@ -611,7 +639,7 @@
 						<div class="store_title_modal">
 							<div class="modal_title_img">
 								<div class="web_imagebox">
-									<img src="{{ asset('assets/img/str_logo.png') }}" width="100%"  />
+									<img src="{{ asset('assets/images/str_logo.png') }}" width="100%"  />
 								</div>
 							</div>
 							<div class="modal_title_content">

@@ -17,7 +17,7 @@ class MetaStoresSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for($i=1; $i<=10; $i++){
+        for($i=1; $i<=20; $i++){
             $meta = new MetaStores;
             $meta->store_id = $i;
             $meta->meta_keywords = $faker->text(150);

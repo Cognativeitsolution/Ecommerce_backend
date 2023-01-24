@@ -35,6 +35,9 @@ Route::get('clear_cache', function () {
 
 Route::get('/', [WebHomeController::class, 'index'])->name('web.home');
 Route::get('/stores', [WebStoresController::class, 'index']);
+Route::get('/stores/action', [WebStoresController::class, 'action'])->name('stores.action');
+Route::get('/stores/views', [WebStoresController::class, 'views'])->name('stores.views');
+Route::get('/stores/{slug}', [WebStoresController::class, 'stores_slug'])->name('stores.store_slug');
 Route::get('/contact_us', [ContactController::class, 'index']);
 Route::post('/contact_us', [ContactController::class, 'contact_us']);
 Route::get('/about_us', [WebAboutController::class, 'index']);

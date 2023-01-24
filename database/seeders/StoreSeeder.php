@@ -17,7 +17,7 @@ class StoreSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for($i = 1; $i<=10; $i++){
+        for($i = 1; $i<=20; $i++){
 
             $store = new Store;
 
@@ -25,10 +25,10 @@ class StoreSeeder extends Seeder
             $store->name = $faker->sentence(4);
             $store->title = $faker->text(50);            
             $store->short_description = $faker->text(100);
-            $store->long_description = $faker->paragraph(60);
+            $store->long_description = $faker->paragraph(18);
             $store->image = "store_image.png";
             $store->banner_image = "banner_image.jpg";
-            $store->type = 1;
+            $store->type = $faker->numberBetween(1,2); // Like 1 Stores / 2 Category
             
             $store->save();
         }

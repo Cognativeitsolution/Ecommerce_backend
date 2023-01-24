@@ -20,7 +20,8 @@
       <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
       <link rel="stylesheet" href="{{ asset('assets/css/media.css') }}" type="text/css">
       <!-- Link Swiper's CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>          
+
    </head>
    <body>
       <!--- SIDE-BAR-MENU --->
@@ -78,7 +79,7 @@
                            Free Delivery</a>
                         </div>
                         <div class="head_search_bar">
-                           <form action="#" class="nav-search-area form-search" method="post" accept-charset="utf-8">
+                           <form action="#" class="nav-search-area form-search" method="get" accept-charset="utf-8">
                               <input type="hidden" name="_token" value="#">                      
                               <input type="text" class="searchbox search-area input" autocomplete="off" name="search_query" id="searchbox" placeholder="Search Stores and Offers">
                               <a href="javascript:void(0);" class="nav-search-icon">
@@ -86,291 +87,8 @@
                               </a>
                               <div class="search_result_box" style="display: none;">
                                  <ul class="search-cubes">
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ALA                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                14 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ALDO us                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                8 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ALL - Accor Live Limitless                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                16 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                APH                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                11 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ASDA Tyres                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                13 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ASPIGA                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                33 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ATG Tickets                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                16 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                ATS Euromaster                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                18 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Abbott Lyon                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                29 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                AbeBooks                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                17 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Accessorize                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                28 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Acotis Diamonds                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                28 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Addison Lee                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                3 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Aden + Anais                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                17 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Adidas                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                28 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Aer Lingus                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                12 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Agent Provocateur                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                19 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Agoda                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                22 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
-                                    <li class="ss-cube">
-                                       <a href="#">
-                                          <div class="web_imagebox">
-                                             <img src="{{ asset('assets/images/str_logo.png') }}" alt="Store Image">
-                                          </div>
-                                          <div class="flexed-result">
-                                             <p class="store-name">
-                                                Air Malta                       
-                                             </p>
-                                             <p class="coupon_count">
-                                                19 Offers
-                                             </p>
-                                          </div>
-                                       </a>
-                                    </li>
+
+                                    
                                  </ul>
                               </div>
                            </form>
@@ -799,4 +517,57 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    <script src="{{ asset('assets/js/app.js') }}"></script>
+
+   <!-- type ahead search  -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+   <script>
+
+      var path = "{{ url('stores/action') }}";
+
+      $('#searchbox').typeahead({
+
+         source: function(query, process){
+
+            return $.get(path, {query:query}, function(data){
+
+                  var cubes = "";   
+                  
+                  $.each(data, function (i, value) {
+                  
+                     console.log(value);
+
+                     cubes += "<li class='ss-cube'><a href='{{ url('stores/') }}/"+value.slug+"'><div class='web_imagebox'><img src='{{ url('/images/') }}/"+value.image+"' alt='Store Image'></div><div class='flexed-result'><p class='store-name'>"+ value.name +"</p><p class='coupon_count'>"+ value.coupon_count +" Offers</p></div></a></li>";
+                  
+
+                  });
+
+                  $(".search-cubes").html(cubes);
+
+            });
+
+         }
+
+      });
+
+      function getCodeDeal(id){
+
+         var url = "{{ url('stores/views') }}";
+
+         $.ajax({
+            url: url,
+            method: 'GET',
+            data: {id: id},
+            contentType: false,
+            cache: false,
+            success:function(data){
+                // alert(data.message);
+            }
+        });
+
+      }
+
+      </script>
+
 </html>
+
+@yield('js')

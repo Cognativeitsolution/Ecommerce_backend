@@ -8,20 +8,22 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WebHomeController;
 use App\Http\Controllers\WebAboutController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\WebStoresController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\AdminsController;
-use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\ContactusCotroller;
 use App\Http\Controllers\Admin\StoreController;
+use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\SliderController;
+// use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\WebSubscriberController;
+use App\Http\Controllers\Admin\ContactusCotroller;
+use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\BlogController as WebBlogController;
 use App\Http\Controllers\PagesController as WebPagesController;
-use App\Http\Controllers\WebStoresController;
 
 Route::get('clear_cache', function () {
 
@@ -41,6 +43,7 @@ Route::get('/about_us', [WebAboutController::class, 'index']);
 Route::get('/blogs', [WebBlogController::class, 'index']);
 Route::get('/blogs/{slug}', [WebBlogController::class, 'blog_detail']);
 Route::get('/pages/{slug}', [WebPagesController::class, 'page_detail'])->name('web.page_detail');
+Route::post('/subscribers/store', [WebSubscriberController::class, 'store']);
 Auth::routes();
 
 Route::middleware([IsAdmin::class])->group(function(){
@@ -56,10 +59,11 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/blogs', BlogController::class);
     Route::resource('admin/settings', SettingController::class);
     Route::resource('admin/pages', PageController::class);
-    Route::resource('admin/services', ServiceController::class);
+    // Route::resource('admin/services', ServiceController::class);
     Route::resource('admin/admins', AdminsController::class);
     Route::resource('admin/tags', TagController::class);
-
+    Route::resource('admin/subscribers', SubscriberController::class);
+    Route::post('admin/subscribers/multi_delete', [SubscriberController::class, 'multi_delete'])->name('subscribers.multi_delete');
 });
 
 Route::middleware([IsUser::class])->group(function(){

@@ -21,12 +21,13 @@ class ContactController extends Controller
     protected function contact_us(Request $request) {
         // Validation
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string',
             'email' => 'required|email',
-            'message' => 'required',
-            'g-recaptcha-response' => new Captcha(),
+            'subject' => 'required|string',
+            'message' => 'required|string|min:5',
+            'g-recaptcha-response' => 'recaptcha',
         ]);
-
+        
         $settings = Setting::select('contact_email')->first();
 
         //dispatch(new ContactUsJob($settings->contact_email, $request->all()));
@@ -37,11 +38,11 @@ class ContactController extends Controller
             'name'  => $request->name,
             'email'  => $request->email,
             'body_message' => $request->message
-            ];
+        ];
 
-        Mail::send('emails.contact_mail', $data, function($message) use ($settings) {
-            $message->to($settings->contact_email , "Cognitive Contact Us")
-            ->subject('Cognitive IT Solutions - Contact Us');
+        Mail::send('emails.contact_mail', $data, function($message) use ($settings, $request) {
+            $message->to($settings->contact_email , "Ecommerce Contact Us")
+            ->subject($request->subject);
         });
 
         // Store message

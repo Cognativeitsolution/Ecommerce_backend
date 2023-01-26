@@ -15,12 +15,6 @@
             <div class="sb_main-wrapper">
                <div class="main_blog">
                   <div class="main_blog-head">
-
-                  @if(session('success'))
-                  <div class="alert alert-success">
-                        {{ session('success') }}
-                  </div>
-                  @endif
                   
                      <h3 class="tertiary_header">{{ $blog->name }}</h3>
                      <div class="sb_img sb_img"><img src="{{ asset('thumbnail/' .$blog->blog_image) }}" width="100%"></div>

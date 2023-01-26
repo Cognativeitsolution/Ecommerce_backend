@@ -518,9 +518,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    <script src="{{ asset('assets/js/app.js') }}"></script>
 
+
    <!-- type ahead search  -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
    <script>
+
+      var baseTitle = window.document.title;
+      window.onblur = function () { document.title = 'Back to E Commerce Stores, Categories, Discount Coupon'; };
+      window.onfocus = function () {   document.title = baseTitle; }; 
 
       var path = "{{ url('stores/action') }}";
 

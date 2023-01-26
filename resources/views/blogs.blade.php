@@ -1,80 +1,97 @@
 @extends('layouts.app')
 
 @section('seo')
-   <title>Cognitive IT Solution are create blogs for user information</title>
-   <meta name="keywords" content="Cognitive IT Solution are create blogs for user information"/>
-   <meta name="description" content="Cognitive IT Solution are create blogs for user information"/>
+   <title>We are create blogs for user information</title>
+   <meta name="keywords" content="E Commerce, We are create blogs for user information"/>
+   <meta name="description" content="E Commerce, We are create blogs for user information"/>
 @endsection
 
 @section('content')
     
-      <!---Blog Banner Container-->
-      <section class="blog_hero-banner">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="secondary_about_slider">
-                     <div class="page-title">
-                        <div class="container">
-                           <h1>Blog</h1>
-                           <!--<h6>Cognitive IT Solution</h6>-->
-                           <p>We’ve all heard how crucial it is to set intentions, goals and targets. Powerful goals electrify us. Clear intentions energize and pull us forward.
-                           </p>
+<section class="stores_section">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="breadcrumbs_dark">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="store_main-title">
+                           <h2 class="store_title sl_page">Blogs</h2>
+                           <ul class="store_breadcrumbs store_list">
+                              <li><a href="#">bagpack</a></li>
+                              <li><i class="fa fa-angle-right"></i></li>
+                              <li>Blogs</li>
+                           </ul>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-      </section>
-      
+      </div>
+   </div>
+</section>
 
-
-      <!----Blog section --->
-      <section class="blog_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="card_grid-container">
-
-                     @if(!empty($record) && $record->count())
-                        @foreach($record as $blog)
-                        <div class="blog__card">
-                           <div class="blog__head">
-                              <img src="{{ url('images/' . $blog->blog_image) }}" alt="blog" class="blog_img">
-                           </div>
-                           <div class="blog_content">
+<!---Blog cards-->
+<section class="blog_list-container">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="blog_list-grid-container">
                   
-                              <div class="blog__title">
-                                 {!! Str::words( $blog->name, 4, ' ') !!}
-                              </div>
-                              <div class="blog_info">
-                                 {!! Str::words( $blog->short_description, 20, ' ...') !!}
-                              </div>
-                              <div class="blog_footer">
-                                 <div class="blog__date">
-                                    {{ $blog->created_at->format('d M Y') }}
+                        @foreach($record as $blog)
+                           <a href="{{ url('blogs/' .$blog->slug ) }}" class="blog_item">
+                              <div class="blog_img-box lazy_img"><img src="{{ asset('thumbnail/blog_imgs.jpg') }}" width="100%"></div>
+                              <div class="blog_content-box">
+                                 @foreach($blog->tags as $tag)
+                                 <span class="blog-tag">{{ $tag->name }}</span>
+                                 @endforeach
+                                 <div class="blog-detail-box">
+                                    <h3 class="blog_head">{{ $blog->name }}</h3>
+                                    <div class="blog_info-detail">
+                                       <span class="blog_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $blog->created_at)->format('d M, Y') }}</span>
+                                       <span class="blog_time">{{ $blog->reading_time }}</span>
+                                       <span class="blog_views">{{ $blog->views }} views</span>
+                                    </div>
                                  </div>
-                                 <div class="blog__btn">
-                                    <a href="{{ url('blogs/' .$blog->slug) }}" class="read-btn">Read More</a>
-                                 </div>
                               </div>
-                           </div>
-                        </div>
+                           </a>
                         @endforeach
-                     @endif
+
+                     </div>
                   </div>
                </div>
             </div>
+</section>
 
-            @if (!empty($record && $record->count()))
-               <div>
-                  {{ $record->links() }}
-               </div>
-            @endif
+
+<!----Latest blogs-->
+<section class="latest_blog">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="primary_heading">
+               <h2>Latest Blogs</h2>
+            </div>
+            <div class="latest_post-container">
+            @foreach($latest as $latest_blog)
+               <a href="{{ url('blogs/' .$latest_blog->slug ) }}" class="latest_post-item">
+                  <div class="lpi_img">
+                     <div class="banner_two blog_img" ><img src="{{ asset('thumbnail/men-watches.png') }}" width="100%"></div>
+                  </div>
+                  <div class="lpi_content">
+                     <h2 class="lpi_sub-heading">{{ $latest_blog->name }}</h2>
+                     <p class="text">{{ $latest_blog->short_description }}</p>
+                     <p class="read_more">Read More <i class="fas fa-chevron-down"></i></p>
+                  </div>
+               </a>
+            @endforeach
+               
+            </div>
          </div>
-      </section>
-
-   
+      </div>
+   </div>
+</section> 
     
 @endsection

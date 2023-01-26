@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('seo')
-   <title>E Commerce</title>
+   <title>E Commerce All Stores</title>
    <meta name="keywords" content="E Commerce shopping stores, E Commerce keywords"/>
    <meta name="description" content="E Commerce shopping stores, E Commerce description"/>
 @endsection

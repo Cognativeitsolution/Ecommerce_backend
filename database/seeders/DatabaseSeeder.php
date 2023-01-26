@@ -30,6 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CouponSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(CommentSeeder::class);
-        
+        $this->call(SubscriberSeeder::class);
     }
 }

@@ -22,6 +22,7 @@ class ContactusSeeder extends Seeder
             $contactus = new Contact;
             $contactus->name = $faker->sentence(2);
             $contactus->email = $faker->unique()->email();
+            $contactus->subject = $faker->sentence(1);
             $contactus->message = $faker->paragraph(60);
             $contactus->save();
         }

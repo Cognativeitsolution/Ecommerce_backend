@@ -20,8 +20,9 @@
       <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
       <link rel="stylesheet" href="{{ asset('assets/css/media.css') }}" type="text/css">
       <!-- Link Swiper's CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>          
-
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>   
+      
+      @yield('css')
    </head>
    <body>
       <!--- SIDE-BAR-MENU --->
@@ -101,6 +102,14 @@
       </header>
       <!--- Main Section -->
       <main>
+
+         @if (session('success'))
+            <div class="container" style="padding-top: 20px;">
+               <div class="alert alert-success" role="alert">
+                  <strong>Success!</strong> {{ session('success') }}
+               </div>
+            </div>
+         @endif
 
          @yield('content')
          
@@ -185,13 +194,16 @@
                                  <p>Sign up for our weekly email newsletter with the best money saving coupons.</p>
                               </div>
                               <div id="mc_embed_signup">
-                                 <form action="#" class="submit-form sb_form" form-type="subscribeform" method="post" accept-charset="utf-8">
-                                    <input type="hidden" name="_token" value="44980dcdc34fdc45c726074444ef66e3">
+                                 <form action="{{ url('subscribers/store') }}" class="submit-form sb_form" form-type="subscribeform" method="post" accept-charset="utf-8">
+                                    @csrf
                                     <div class="response-box"></div>
                                     <div class="subscriptionBox">
                                        <input type="text" class="form-control" placeholder="Email Address" name="email" required>
-                                       <button class="btn subs"> Submit <i class="fa fa-paper-plane"></i></button>
+                                       <button class="btn subs" type="submit"> Submit <i class="fa fa-paper-plane"></i></button>
                                     </div>
+                                    @error('email')
+                                       <div style="margin-top: 5px; color: red; font-weight:bold">{{ $message }}</div>
+                                    @enderror
                                  </form>
                               </div>
                            </div>

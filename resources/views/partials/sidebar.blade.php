@@ -65,6 +65,15 @@
               </li> -->
               
 
+              @can('subscriber-list')
+              <li class="nav-item">
+                <a href="{{ url('admin/subscribers') }}" class="nav-link {{ Request::is('admin/subscribers') ? 'active' : '' }}">
+                  <i class="fa fa-bell nav-icon"></i>
+                  <p>Subscribers</p>
+                </a>
+              </li>
+              @endcan   
+              
               @can('contact-list')
               <li class="nav-item">
                 <a href="{{ route('contactus.home') }}" class="nav-link {{ Request::is('admin/contact_us') ? 'active' : '' }}">

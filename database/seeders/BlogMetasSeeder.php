@@ -17,7 +17,7 @@ class BlogMetasSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for($i=1; $i<=10; $i++){
+        for($i=1; $i<=15; $i++){
             $meta = new BlogMetas();
             $meta->blog_id = $i;
             $meta->meta_keywords = $faker->text(150);

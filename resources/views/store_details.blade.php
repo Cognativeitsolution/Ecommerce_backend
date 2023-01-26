@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('seo')
-   <title>E Commerce</title>
-   <meta name="keywords" content="dfdsfdfdf"/>
-   <meta name="description" content="dfdf dfdfdff"/>
+   <title>{{ $store->title }}</title>
+   <meta name="keywords" content="{{ $store->meta ? $store->meta->meta_keywords : '' }}"/>
+   <meta name="description" content="{{ $store->meta ? $store->meta->meta_description : '' }}"/>
 @endsection
 
 @section('content')

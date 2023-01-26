@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogRelated;
+use App\Models\BlogMetas;
+use App\Models\Tag;
 
 use App\Http\Controllers\Controller;
 
@@ -11,14 +13,35 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $record = cache()->remember('blogs-listing', 60 * 60, function(){
-            return Blog::select('id','name','short_description','slug','blog_image','created_at')
-                ->where('status',1)->orderBy('blogs.id','DESC')
-                ->simplePaginate(15);
-        });
+        $record = Blog::select(
+            'id',
+            'name',
+            'reading_time',
+            'views',
+            'slug',
+            'blog_image',
+            'created_at'
+        )
+            ->with('tags:id,name')
+            ->where('status',1)
+            ->skip(5)
+            ->take(6)
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        $latest = Blog::select(
+            'id',
+            'name',
+            'short_description',
+            'slug',
+            'blog_image'
+        )
+                    ->take(5)
+                    ->orderBy('id', 'DESC')
+                    ->get();
 
         if($record != false){
-            return view('blogs', compact('record') );
+            return view('blogs', compact('record', 'latest') );
         }else{
             abort(404);
         }
@@ -26,24 +49,44 @@ class BlogController extends Controller
 
     public function blog_detail($slug){
         $blog = Blog::whereSlug($slug)
+                ->withCount('comments')
                 ->with('meta:blog_id,meta_keywords,meta_description')
+                ->with('tags:id,name', 'comments:id,blog_id,name,email,description,created_at')
                 ->first();
+
+        if($blog == false){
+            abort(404);
+        }
+        Blog::find($blog->id)->increment('views');
 
         if($blog != false){
             $related_blog_ids = BlogRelated::where('blog_id', $blog->id)
-            ->pluck('related_blog_id')->toArray();
+                ->pluck('related_blog_id')
+                ->toArray();
 
-            $related_blogs = Blog::select('title','slug','blog_image')
-                ->where('status', 1)->whereIn('id', $related_blog_ids)->get();
-
-            $other_blogs = Blog::select('id', 'title','slug','blog_image')
+            $related_blogs = Blog::select(
+                'name',
+                'slug',
+                'blog_image',
+                'created_at'
+            )
                 ->where('status', 1)
-                ->whereNotIn('id', [$blog->id])
-                ->inRandomOrder()
-                ->limit(3)
+                ->whereIn('id', $related_blog_ids)
                 ->get();
 
-            return view('blog_details', compact('blog', 'related_blogs', 'other_blogs') );
+            $latest = Blog::select(
+                'name',
+                'slug',
+                'blog_image',
+                'created_at',
+                'reading_time'
+            )
+                ->take(4)
+                ->whereNotIn('id', [$blog->id])
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            return view('blog_details', compact('blog', 'related_blogs', 'latest') );
         }else{
             abort(404);
         }

@@ -46,10 +46,24 @@ class WebStoresController extends Controller
 
     }
 
+    public function categories(){
+        $record = Store::select(
+            'id',
+            'name',
+            'slug',
+            'image'
+        )
+            ->where('type', 2) // type 2 Categories
+            ->orderBy('stores.id','DESC')
+            ->get();
+        return view('categories', compact('record') );
+    }
+
     public function stores_slug($slug){
 
         $store = Store::whereSlug($slug)
             ->withCount('coupon','code','deal')
+            ->with('meta:store_id,meta_keywords,meta_description')
             ->with('coupon')
             ->first();
 

@@ -26,6 +26,10 @@ class Blog extends Model
         });
     }
 
+//    public function scopeRecent($query){
+//        return $query->where('created_at', '', \Carbon\Carbon::now()->subDays(2) );
+//    }
+
     public function meta(){
         return $this->hasOne(BlogMetas::class);
     }
@@ -38,6 +42,11 @@ class Blog extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class)->as('tags');
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+        //->where('status', 1);
     }
 
 }

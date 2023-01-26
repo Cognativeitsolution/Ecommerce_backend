@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MetaStoresSeeder::class);
         $this->call(CouponSeeder::class);
         $this->call(TagSeeder::class);
+        $this->call(CommentSeeder::class);
         $this->call(SubscriberSeeder::class);
     }
 }

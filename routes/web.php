@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\ContactusCotroller;
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\BlogController as WebBlogController;
 use App\Http\Controllers\PagesController as WebPagesController;
+use App\Http\Controllers\CommentController;
 
 Route::get('clear_cache', function () {
 
@@ -38,6 +39,7 @@ Route::get('clear_cache', function () {
 
 Route::get('/', [WebHomeController::class, 'index'])->name('web.home');
 Route::get('/stores', [WebStoresController::class, 'index']);
+Route::get('/categories', [WebStoresController::class, 'categories']);
 Route::get('/stores/action', [WebStoresController::class, 'action'])->name('stores.action');
 Route::get('/stores/views', [WebStoresController::class, 'views'])->name('stores.views');
 Route::get('/stores/{slug}', [WebStoresController::class, 'stores_slug'])->name('stores.store_slug');
@@ -47,6 +49,7 @@ Route::get('/about_us', [WebAboutController::class, 'index']);
 Route::get('/blogs', [WebBlogController::class, 'index']);
 Route::get('/blogs/{slug}', [WebBlogController::class, 'blog_detail']);
 Route::get('/pages/{slug}', [WebPagesController::class, 'page_detail'])->name('web.page_detail');
+Route::resource('comments', CommentController::class);
 Route::post('/subscribers/store', [WebSubscriberController::class, 'store']);
 Auth::routes();
 

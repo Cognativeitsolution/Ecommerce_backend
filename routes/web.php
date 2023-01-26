@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Middleware\IsUser;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\Admin\SliderController;
 // use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\WebSubscriberController;
 use App\Http\Controllers\Admin\ContactusCotroller;

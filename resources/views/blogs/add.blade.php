@@ -15,7 +15,8 @@
   </style>
 
   <!-- CKEDITOR -->
-  <script src="{{ asset('ckeditor/build/ckeditor.js') }}"></script>
+  <!-- <script src="{{ asset('ckeditor/build/ckeditor.js') }}"></script> -->
+  <script src="https://cdn.tiny.cloud/1/1qvedc8bwtfg6jqsy6i3g4tbrb6ga00kvjep7zztfu5sxlt8/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 
 @section('content')
@@ -81,48 +82,106 @@
               <textarea name="long_description" id="long_description" cols="30" rows="10" class="form-control">{{ old('long_description') }}</textarea>
 
               <script>
-                      ClassicEditor
-                              .create( document.querySelector( '#long_description' ), {
-                                fontSize: {
-                                  options: [
-                                    // '10pt', '12pt', '14pt', '16pt', '18pt', '24pt', '30pt', '36pt', '48pt', '60pt', '70pt', '84pt',
-                                    {
-                                      title: 'xx-small',
-                                      model: '5px'
-                                    },
-                                    {
-                                      title: 'x-small',
-                                      model: '7px'
-                                    },
-                                    {
-                                      title: 'small',
-                                      model: '11px'
-                                    },
-                                    {
-                                      title: 'medium',
-                                      model: '16px'
-                                    },
-                                    {
-                                      title: 'large',
-                                      model: '24px'
-                                    },
-                                    {
-                                      title: 'x-large',
-                                      model: '36px'
-                                    },
-                                    {
-                                      title: 'xx-large',
-                                      model: '54px'
-                                    }
-                                  ]
-                                }
-                              } )
-                              .then( editor => {
-                                      console.log( editor );
-                              } )
-                              .catch( error => {
-                                      console.error( error );
-                              } );
+                      // ClassicEditor
+                      //         .create( document.querySelector( '#long_description' ), {
+                      //           ckfinder: {
+                      //             uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                      //           },
+                      //           fontSize: {
+                      //             options: [
+                      //               // '10pt', '12pt', '14pt', '16pt', '18pt', '24pt', '30pt', '36pt', '48pt', '60pt', '70pt', '84pt',
+                      //               {
+                      //                 title: 'xx-small',
+                      //                 model: '5px'
+                      //               },
+                      //               {
+                      //                 title: 'x-small',
+                      //                 model: '7px'
+                      //               },
+                      //               {
+                      //                 title: 'small',
+                      //                 model: '11px'
+                      //               },
+                      //               {
+                      //                 title: 'medium',
+                      //                 model: '16px'
+                      //               },
+                      //               {
+                      //                 title: 'large',
+                      //                 model: '24px'
+                      //               },
+                      //               {
+                      //                 title: 'x-large',
+                      //                 model: '36px'
+                      //               },
+                      //               {
+                      //                 title: 'xx-large',
+                      //                 model: '54px'
+                      //               }
+                      //             ]
+                      //           }
+                      //         } )
+                      //         .then( editor => {
+                      //                 console.log( editor );
+                      //         } )
+                      //         .catch( error => {
+                      //                 console.error( error );
+                      //         } );
+
+                      
+                      // tinymce.init({
+                      //   selector: 'textarea',
+                      //   plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                      //   toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                      // });
+
+                      // const editor_config = {
+                      //   path_absolute: "/",
+                      //   selector: "textarea#long_description",
+                      //   height: 500,
+                      //   plugins: [
+                      //     'advlist print preview hr',
+                      //     'visualhars code fullscreen',
+                      //     'insertdatetime nonbreaking contextmenu directionality',
+                      //     'template paste textcolor colorpicker textpattern',
+                      //     'anchor autolink charmap codesample emotions image link lists media searchreplace table visualblocks wordcount'
+                      //   ],
+                      //   toolbar: 'insertfile undo redo | blocks fontfamily fontsize | stylesheet | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                      //   relative_urls: false,
+                      //   images_upload_handler: function (blobInfo, success, failure) {
+                      //     let xhr, formData;
+                      //     xhr = new XMLHttpRequest();
+                      //     xhr.withCredientials = false;
+                      //     xhr.open('POST', '{{ route("admin.image_upload") }}');
+                      //     let token = '{{ csrf_token() }}';
+                      //     xhr.setRequestHeader("X-CSRF-Token", token);
+                      //     xhr.onload = function() {
+                      //       let json;
+                      //       if (xhr.status != 200) {
+                      //         failure('HTTP Error: ' + xhr.status);
+                      //         return;
+                      //       }
+                      //       json = JSON.parse(xhr.responseText);
+
+                      //       if (!json || typeof json.location != 'string') {
+                      //         failure('Invalid JSON: ' + xhr.responseText);
+                      //         return;
+                      //       }
+                      //       success(json.location);
+                      //     };
+                      //     formData = new FormData();
+                      //     formData.append('file', blobInfo.blob(), blobInfo.filename());
+                      //     xhr.send(formData);
+                      //   }
+                      // };
+
+                      // tinymce.init(editor_config);
+
+                      tinymce.init({
+                        selector: 'textarea#long_description',
+                        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                      });
               </script>
               @error('long_description')<div class="error">{{ $message }}</div>@enderror
             </div>

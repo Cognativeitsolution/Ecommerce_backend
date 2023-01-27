@@ -38,8 +38,9 @@
          <div class="sidebar__list">
             <ul class="un-sideb-list">
                <li class="side-list"><a href="/" class="side-list-link">Home</a></li>
-               <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
                <li class="side-list"><a href="{{ url('about_us') }}" class="side-list-link">About Us</a></li>
+               <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
+               
                <li class="side-list"><a href="{{ url('contact_us') }}" class="side-list-link">Contact Us</a></li>
             </ul>
          </div>
@@ -60,9 +61,10 @@
                            <nav class="nav_bar">
                               <ul>
                                  <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
+                                 <li class="{{ Request::is('about_us') ? 'active' : '' }}"><a href="{{ url('about_us') }}">About Us</a></li>
                                  <li class="{{ Request::is('stores') ? 'active' : '' }}"><a href="{{ url('stores') }}">Stores</a></li>
                                  <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Category</a></li>
-                                 <li class="{{ Request::is('about_us') ? 'active' : '' }}"><a href="{{ url('about_us') }}">About Us</a></li>
+                                 
                                  <li class="{{ Request::is('contact_us') ? 'active' : '' }}"><a href="{{ url('contact_us') }}">Contact Us</a></li>
                                  <li class="{{ Request::is('blogs') ? 'active' : '' }}"><a href="{{ url('blogs') }}">Blog</a></li>
                               </ul>
@@ -73,12 +75,14 @@
                         </div>
                      </div>
                      <div class="lower_primary-header">
-                        <div class="btn_head_wrapper">
+
+                        <!-- <div class="btn_head_wrapper">
                            <a href="#" class="off_link">20% Percent Off</a>
                            <a href="#" class="free_link">
                            <span><i class="fas fa-truck-moving"></i></span>    
                            Free Delivery</a>
-                        </div>
+                        </div> -->
+                        
                         <div class="head_search_bar">
                            <form action="#" class="nav-search-area form-search" method="get" accept-charset="utf-8">
                               <input type="hidden" name="_token" value="#">                      
@@ -289,65 +293,32 @@
                               <div class="ftr_links">
                                  <h2 class="ftr_heading">Popular Stores</h2>
                                  <ul class="ftr_links_wrpr">
+                                    @foreach($popular_stores as $popular_store)
                                     <li>
-                                       <a href="single_store.html">
+                                       <a href="{{ url('stores/' .$popular_store->slug) }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                              <polyline points="9 6 15 12 9 18"></polyline>
                                           </svg>
-                                          Store Name
+                                          {{ Str::of( $popular_store->name )->limit(25, ' ') }}
                                        </a>
                                     </li>
-                                    <li>
-                                       <a href="single_store.html">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                             <polyline points="9 6 15 12 9 18"></polyline>
-                                          </svg>
-                                          Store Name
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="single_store.html">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                             <polyline points="9 6 15 12 9 18"></polyline>
-                                          </svg>
-                                          Store Name
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="single_store.html">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                             <polyline points="9 6 15 12 9 18"></polyline>
-                                          </svg>
-                                          Store Name
-                                       </a>
-                                    </li>
+                                    @endforeach
                                  </ul>
                               </div>
                               <div class="ftr_links">
-                                 <h2 class="ftr_heading">top offers</h2>
+                                 <h2 class="ftr_heading">Top Stores</h2>
                                  <ul class="ftr_links_wrpr top_offers">
+                                 @foreach($top_stores_footer as $top_store)
                                     <li>
-                                       <a href="single_store.html">
-                                          <p class="name">£50 Off When You Spend £500</p>
-                                          <p class="offers">12 offers</p>
+                                       <a href="{{ url('stores/' .$top_store->slug) }}">
+                                          <p class="name">
+                                          {{ Str::of( $top_store->name )->limit(25, ' ') }}
+                                          </p>
+                                          <p class="offers">({{ $top_store->coupon_count }}) offers</p>
                                        </a>
                                     </li>
-                                    <li>
-                                       <a href="single_store.html">
-                                          <p class="name">£50 Off When You Spend £500</p>
-                                          <p class="offers">12 offers</p>
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="single_store.html">
-                                          <p class="name">£50 Off When You Spend £500</p>
-                                          <p class="offers">12 offers</p>
-                                       </a>
-                                    </li>
+                                 @endforeach
                                  </ul>
                               </div>
                            </div>

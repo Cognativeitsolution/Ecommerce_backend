@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ContactUsJob;
-use App\Rules\Captcha;
 use App\Models\Contact;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMail;
+
 
 class ContactController extends Controller
 {
@@ -27,7 +25,7 @@ class ContactController extends Controller
             'message' => 'required|string|min:5',
             'g-recaptcha-response' => 'recaptcha',
         ]);
-        
+
         $settings = Setting::select('contact_email')->first();
 
         //dispatch(new ContactUsJob($settings->contact_email, $request->all()));
@@ -46,7 +44,7 @@ class ContactController extends Controller
         });
 
         // Store message
-        $contact = Contact::create($request->except('g-recaptcha-response', '_token'));
+        Contact::create($request->except('g-recaptcha-response', '_token'));
 
         // return back
         return redirect()->back()->with('message', 'Your message has been received!')->with('status', 'success');

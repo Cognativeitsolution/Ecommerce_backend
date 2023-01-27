@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\WebSubscriberController;
 use App\Http\Controllers\Admin\ContactusCotroller;
 use App\Http\Controllers\Admin\SubscriberController;
+use App\Http\Controllers\Admin\UploadImageController;
 use App\Http\Controllers\BlogController as WebBlogController;
 use App\Http\Controllers\PagesController as WebPagesController;
 use App\Http\Controllers\CommentController;
@@ -72,6 +73,8 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/subscribers', SubscriberController::class);
     Route::post('admin/subscribers/multi_delete', [SubscriberController::class, 'multi_delete'])->name('subscribers.multi_delete');
 });
+
+Route::post('upload_image', [UploadImageController::class, 'upload']);
 
 Route::middleware([IsUser::class])->group(function(){
     Route::get('/home', [WebHomeController::class, 'index'])->name('home');

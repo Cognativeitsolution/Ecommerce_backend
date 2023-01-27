@@ -81,7 +81,7 @@
                         @csrf
                         <div class="form_wrapper">
                            <div class="form_group">
-                              <input type="text" required name="name" placeholder="Enter your Name" class="input user_name" value="{{ old('name') }}">
+                              <input type="text" required name="name" placeholder="Enter your Name" class="input2 user_name" value="{{ old('name') }}">
                               
                               @error('name')
                                  <div class="error">
@@ -90,7 +90,7 @@
                               @enderror
                            </div>
                            <div class="form_group">
-                              <input type="email" required name="email" placeholder="Enter your Email" class="input user_mail" value="{{ old('email') }}">
+                              <input type="email" required name="email" placeholder="Enter your Email" class="input2 user_mail" value="{{ old('email') }}">
                               
                               @error('email')
                                  <div class="error">
@@ -99,7 +99,7 @@
                               @enderror
                            </div>
                            <div class="form_group">
-                              <input type="text" required name="subject" placeholder="Enter the Subject" class="input user_sub" value="{{ old('subject') }}">
+                              <input type="text" required name="subject" placeholder="Enter the Subject" class="input2 user_sub" value="{{ old('subject') }}">
                               
                               @error('subject')
                                  <div class="error">

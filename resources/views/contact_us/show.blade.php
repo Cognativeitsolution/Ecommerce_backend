@@ -56,6 +56,11 @@
             </div>
 
             <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <label for="subject">Subject</label>
+              <input type="text" name="subject" id="subject" class="form-control" value="{{ $contact_us->subject }}" readonly>
+            </div>    
+
+            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xs-12">
               <label for="message">Message</label>
               <textarea class="form-control" name="message" id="message" cols="30" rows="10" readonly>{{ $contact_us->message }}</textarea>
             </div>            

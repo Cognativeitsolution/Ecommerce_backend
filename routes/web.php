@@ -46,7 +46,6 @@ Route::get('/stores/views', [WebStoresController::class, 'views'])->name('stores
 Route::get('/stores/{slug}', [WebStoresController::class, 'stores_slug'])->name('stores.store_slug');
 Route::get('/contact_us', [ContactController::class, 'index']);
 Route::post('/contact_us', [ContactController::class, 'contact_us']);
-Route::get('/about_us', [WebAboutController::class, 'index']);
 Route::get('/blogs', [WebBlogController::class, 'index']);
 Route::get('/blogs/{slug}', [WebBlogController::class, 'blog_detail']);
 Route::get('/pages/{slug}', [WebPagesController::class, 'page_detail'])->name('web.page_detail');

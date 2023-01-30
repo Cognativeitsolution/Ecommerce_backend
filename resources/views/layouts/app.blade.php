@@ -38,7 +38,7 @@
          <div class="sidebar__list">
             <ul class="un-sideb-list">
                <li class="side-list"><a href="/" class="side-list-link">Home</a></li>
-               <li class="side-list"><a href="{{ url('about_us') }}" class="side-list-link">About Us</a></li>
+               <li class="side-list"><a href="{{ url('pages/about-us') }}" class="side-list-link">About Us</a></li>
                <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
                
                <li class="side-list"><a href="{{ url('contact_us') }}" class="side-list-link">Contact Us</a></li>
@@ -61,7 +61,7 @@
                            <nav class="nav_bar">
                               <ul>
                                  <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
-                                 <li class="{{ Request::is('about_us') ? 'active' : '' }}"><a href="{{ url('about_us') }}">About Us</a></li>
+                                 <li class="{{ Request::is('pages/about-us') ? 'active' : '' }}"><a href="{{ url('pages/about-us') }}">About Us</a></li>
                                  <li class="{{ Request::is('stores') ? 'active' : '' }}"><a href="{{ url('stores') }}">Stores</a></li>
                                  <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Category</a></li>
                                  
@@ -253,7 +253,7 @@
                                  <h2 class="ftr_heading">More Links</h2>
                                  <ul class="ftr_links_wrpr">
                                     <li>
-                                       <a href="aboutus.html">
+                                       <a href="{{ route('web.page_detail', 'about-us') }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                              <polyline points="9 6 15 12 9 18"></polyline>
@@ -262,7 +262,7 @@
                                        </a>
                                     </li>
                                     <li>
-                                       <a href="aboutus.html">
+                                       <a href="{{ route('web.page_detail', 'terms-conditions') }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                              <polyline points="9 6 15 12 9 18"></polyline>
@@ -271,7 +271,7 @@
                                        </a>
                                     </li>
                                     <li>
-                                       <a href="aboutus.html">
+                                       <a href="{{ route('web.page_detail', 'privacy-policy') }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                              <polyline points="9 6 15 12 9 18"></polyline>
@@ -280,7 +280,7 @@
                                        </a>
                                     </li>
                                     <li>
-                                       <a href="contact.html">
+                                       <a href="{{ url('contact_us') }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                              <polyline points="9 6 15 12 9 18"></polyline>

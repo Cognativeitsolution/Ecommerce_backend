@@ -32,16 +32,16 @@ class ContactController extends Controller
         
         //Mail::to($settings->contact_email, env('COMPANY_NAME'))->send(new ContactMail($request->all()));
         
-        $data = [
-            'name'  => $request->name,
-            'email'  => $request->email,
-            'body_message' => $request->message
-        ];
+        // $data = [
+        //     'name'  => $request->name,
+        //     'email'  => $request->email,
+        //     'body_message' => $request->message
+        // ];
 
-        Mail::send('emails.contact_mail', $data, function($message) use ($settings, $request) {
-            $message->to($settings->contact_email , "Ecommerce Contact Us")
-            ->subject($request->subject);
-        });
+        // Mail::send('emails.contact_mail', $data, function($message) use ($settings, $request) {
+        //     $message->to($settings->contact_email , "Ecommerce Contact Us")
+        //     ->subject($request->subject);
+        // });
 
         // Store message
         Contact::create($request->except('g-recaptcha-response', '_token'));

@@ -76,6 +76,7 @@
 
                         <th>S.No</th>
                         <th>Name</th>
+                        <th>Blog Name</th>
                         <th style="text-align:center;">Email</th>
                         <th style="text-align:center;">Description</th>
                         <th style="text-align:center;">Status</th>
@@ -101,6 +102,7 @@
 
                           <td>{{ $no++ }}</td>
                           <td>{!! Str::words( $comment->name, 3, ' ...') !!}</td>
+                          <td>{!! Str::words( $comment->blog_name, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{{ $comment->email }}</td>
                           <td style="text-align:center;">{!! Str::words( $comment->description, 5, ' ...') !!}</td>
                           <td style="text-align:center;">{{ $comment->status == 1 ? 'active' : 'inactive' }}</td>

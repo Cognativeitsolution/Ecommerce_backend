@@ -30,12 +30,19 @@ class CommentController extends Controller
         if (!empty($search)) {
 
             if( $search == "active"){
-                $record = Comment::where('comments.status', 1);
+                $record = Comment::where('comments.status', 1)
+                    ->join('blogs', 'comments.blog_id', '=', 'blogs.id')
+                    ->select('comments.*', 'blogs.name as blog_name');
             }elseif($search == "inactive"){
-                $record = Comment::where('comments.status', 0);
+                $record = Comment::where('comments.status', 0)
+                        ->join('blogs', 'comments.blog_id', '=', 'blogs.id')
+                        ->select('comments.*', 'blogs.name as blog_name');
             }else{
-                $record = Comment::where('comments.name', 'like', '%'.$search.'%')
+                $record = Comment::join('blogs', 'comments.blog_id', '=', 'blogs.id')
+                    ->select('comments.*', 'blogs.name as blog_name')
+                    ->where('comments.name', 'like', '%'.$search.'%')
                     ->orWhere('comments.email', 'like', '%'.$search.'%')
+                    ->orWhere('blogs.name', 'like', '%'.$search.'%')
                     ->orWhere('comments.description', 'like', '%'.$search.'%');
             }
 
@@ -44,7 +51,9 @@ class CommentController extends Controller
                 return view('comments.index', compact('record') );
         }else{
 
-            $record = Comment::orderBy('comments.id','DESC')->paginate(15);
+            $record = Comment::join('blogs', 'comments.blog_id', '=', 'blogs.id')
+                ->select('comments.*', 'blogs.name as blog_name')
+                ->orderBy('comments.id','DESC')->paginate(15);
 
             if($record != false){
                 return view('comments.index', compact('record') );

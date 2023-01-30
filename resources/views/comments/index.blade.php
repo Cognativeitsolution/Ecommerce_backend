@@ -62,6 +62,11 @@
 
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
+
+                <form  method="post" enctype="multipart/form-data" action="{{ route('comments.multi_delete')}}">
+                @csrf
+
+
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
@@ -71,6 +76,7 @@
 
                         <th>S.No</th>
                         <th>Name</th>
+                        <th>Blog Name</th>
                         <th style="text-align:center;">Email</th>
                         <th style="text-align:center;">Description</th>
                         <th style="text-align:center;">Status</th>
@@ -96,6 +102,7 @@
 
                           <td>{{ $no++ }}</td>
                           <td>{!! Str::words( $comment->name, 3, ' ...') !!}</td>
+                          <td>{!! Str::words( $comment->blog_name, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{{ $comment->email }}</td>
                           <td style="text-align:center;">{!! Str::words( $comment->description, 5, ' ...') !!}</td>
                           <td style="text-align:center;">{{ $comment->status == 1 ? 'active' : 'inactive' }}</td>
@@ -114,10 +121,20 @@
                     </tbody>
                   </table>
 
-                  @if(!empty($record))
-                    {!! $record->appends(Request::all())->links() !!}
-                  @endif
+                  <div class="col-sm-12">
+                    @can('comment-delete')   
+                    <button type="submit" class="btn btn-danger btnChk" style="margin:15px; 0px;">Bulk Delete</button>
+                    @endcan
 
+                    <div class="float-right">
+                      <p>
+                        @if(!empty($record))
+                          {!! $record->appends(Request::all())->links() !!}
+                        @endif
+                      </p>
+                    </div>
+
+                </div>
                 </div>
                 <!-- /.card-body -->
               </div>

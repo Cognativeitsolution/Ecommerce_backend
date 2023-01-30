@@ -67,6 +67,7 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/blogs', BlogController::class);
     Route::resource('admin/comments', CommentController::class);
     Route::post('admin/old_comment/{id}', [CommentController::class, 'old_comment'])->name('old_comment');
+    Route::post('admin/comments/multi_delete', [CommentController::class, 'multi_delete'])->name('comments.multi_delete');
 
     // old_comment
     Route::resource('admin/settings', SettingController::class);

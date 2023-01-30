@@ -35,10 +35,9 @@
                            {{ $blog->short_description }}
                         </h3>
                         
-
                         {!! $blog->long_description !!}
                         
-                        <p><img src="{{ asset('thumbnail/bnr_3.jpg') }}" alt="blog_inner-bn" class="inner_blog-img"></p>
+                        <!-- <p><img src="{{ asset('thumbnail/bnr_3.jpg') }}" alt="blog_inner-bn" class="inner_blog-img"></p> -->
                      </div>
                   </div>
                   <form action="{{ route('web.store_comments')}}" method="post" class="comment_form">

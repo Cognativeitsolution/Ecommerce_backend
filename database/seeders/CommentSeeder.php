@@ -26,6 +26,7 @@ class CommentSeeder extends Seeder
             $comment->name = $faker->name();
             $comment->email = $faker->email();
             $comment->description = $faker->realText(150);
+            $comment->status = $faker->numberBetween(0,1);
 
             $comment->save();
         }

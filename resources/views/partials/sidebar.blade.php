@@ -128,6 +128,15 @@
               </li>
               @endcan
 
+              
+              <li class="nav-item">
+                <a href="{{ url('/admin/comments')}}" class="nav-link {{ Request::is('admin/comments') ? 'active' : '' }}">
+                  <i class="fa fa-newspaper nav-icon"></i>
+                  <p>Comments</p>
+                </a>
+              </li>
+             
+
               @can('page-list')
               <li class="nav-item">
                 <a href="{{ url('/admin/pages')}}" class="nav-link {{ Request::is('admin/pages') ? 'active' : '' }}">

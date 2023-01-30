@@ -41,7 +41,7 @@
                         <p><img src="{{ asset('thumbnail/bnr_3.jpg') }}" alt="blog_inner-bn" class="inner_blog-img"></p>
                      </div>
                   </div>
-                  <form action="{{ route('comments.store')}}" method="post" class="comment_form">
+                  <form action="{{ route('web.store_comments')}}" method="post" class="comment_form">
                   @csrf
 
                   <input type="hidden" name="blog_id" value="{{ $blog->id }}">

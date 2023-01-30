@@ -26,7 +26,8 @@ use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\UploadImageController;
 use App\Http\Controllers\BlogController as WebBlogController;
 use App\Http\Controllers\PagesController as WebPagesController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\WebCommentController;
 
 Route::get('clear_cache', function () {
 
@@ -49,7 +50,7 @@ Route::post('/contact_us', [ContactController::class, 'contact_us']);
 Route::get('/blogs', [WebBlogController::class, 'index']);
 Route::get('/blogs/{slug}', [WebBlogController::class, 'blog_detail']);
 Route::get('/pages/{slug}', [WebPagesController::class, 'page_detail'])->name('web.page_detail');
-Route::resource('comments', CommentController::class);
+Route::post('/store_comments', [WebCommentController::class, 'store_comments'])->name('web.store_comments');
 Route::post('/subscribers/store', [WebSubscriberController::class, 'store']);
 Auth::routes();
 
@@ -64,6 +65,10 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/stores', StoreController::class);
     Route::resource('admin/coupons', CouponController::class);
     Route::resource('admin/blogs', BlogController::class);
+    Route::resource('admin/comments', CommentController::class);
+    Route::post('admin/old_comment/{id}', [CommentController::class, 'old_comment'])->name('old_comment');
+
+    // old_comment
     Route::resource('admin/settings', SettingController::class);
     Route::resource('admin/pages', PageController::class);
     // Route::resource('admin/services', ServiceController::class);

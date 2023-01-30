@@ -62,6 +62,11 @@
 
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
+
+                <form  method="post" enctype="multipart/form-data" action="{{ route('comments.multi_delete')}}">
+                @csrf
+
+
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
@@ -114,10 +119,20 @@
                     </tbody>
                   </table>
 
-                  @if(!empty($record))
-                    {!! $record->appends(Request::all())->links() !!}
-                  @endif
+                  <div class="col-sm-12">
+                    @can('comment-delete')   
+                    <button type="submit" class="btn btn-danger btnChk" style="margin:15px; 0px;">Bulk Delete</button>
+                    @endcan
 
+                    <div class="float-right">
+                      <p>
+                        @if(!empty($record))
+                          {!! $record->appends(Request::all())->links() !!}
+                        @endif
+                      </p>
+                    </div>
+
+                </div>
                 </div>
                 <!-- /.card-body -->
               </div>

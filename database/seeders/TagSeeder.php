@@ -17,37 +17,12 @@ class TagSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Laravel',
+                'name' => 'Discount Available',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name' => 'React JS',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Angular JS',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Python',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Java',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Discount 10%',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Shopping',
+                'name' => 'Shopping Discount',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -57,7 +32,7 @@ class TagSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'name' => 'Coupon Code',
+                'name' => 'Free Coupon Code',
                 'created_at' => now(),
                 'updated_at' => now()
             ],

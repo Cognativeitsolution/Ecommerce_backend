@@ -40,17 +40,8 @@ class CommentController extends Controller
             }
 
                 $record = $record->orderBy('comments.id','DESC')
-                    ->paginate(8);
+                    ->paginate(15);
                 return view('comments.index', compact('record') );
-
-
-
-//            $record = Comment::where('comments.name', 'like', '%'.$search.'%')
-//                ->orWhere('comments.email', 'like', '%'.$search.'%')
-//                ->orWhere('comments.description', 'like', '%'.$search.'%')
-//                ->orderBy('comments.id','DESC')
-//                ->paginate(8);
-//            return view('comments.index', compact('record') );
         }else{
 
             $record = Comment::orderBy('comments.id','DESC')->paginate(15);
@@ -152,4 +143,12 @@ class CommentController extends Controller
     {
         //
     }
+    public function multi_delete(Request $request){
+        $ids = $request->ids;
+        foreach ($ids as $id) {
+            Comment::findOrFail($id)->delete();
+        }
+        return redirect()->route('comments.index')->with('success', 'Record Delete!');
+    }
+
 }

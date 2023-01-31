@@ -20,13 +20,13 @@ class BlogsSeeder extends Seeder
         for($i = 1; $i<=15; $i++){
 
             $blog = new Blog;
-            $blog->title = $faker->text(90);
-            $blog->name = $faker->sentence(6);
+            $blog->title = $faker->realText(90);
+            $blog->name = $faker->realText(90); // $faker->sentence(6);
 
             $blog->reading_time = "5 Minutes, 30 Sec";
             $blog->views = $faker->unique()->numberBetween(20,100);
 
-            $blog->short_description = $faker->text(190);
+            $blog->short_description = $faker->realText(190);
             $blog->long_description = $faker->paragraph(60);
             $blog->blog_image = "blog_image.jpg";
             $blog->save();

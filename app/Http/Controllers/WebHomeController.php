@@ -12,7 +12,7 @@ class WebHomeController extends Controller
     public function index() {        
         $slider = Slider::select('id', 'image', 'title', 'description', 'url', 'status')->get();
 
-        $top_stores = Store::where('top', 1)
+        $top_stores = Store::where('top', 1)->where('status', 1)
             ->select(
                 'id',
                 'name',
@@ -25,7 +25,7 @@ class WebHomeController extends Controller
             ->limit(8)
             ->get();
 
-        $popular_categories = Store::where('top', 1)
+        $popular_categories = Store::where('popular', 1)->where('type', 2)->where('status', 1)
             ->select(
                 'id',
                 'name',

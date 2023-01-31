@@ -21,6 +21,7 @@ class CreateCommentsTable extends Migration
             $table->string('email', 50);
             $table->text('description')->nullable();
             $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('new_comment')->default(1);
 
             $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
             $table->timestamps();

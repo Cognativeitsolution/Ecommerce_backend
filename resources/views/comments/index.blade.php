@@ -101,7 +101,11 @@
                           @endcan
 
                           <td>{{ $no++ }}</td>
-                          <td>{!! Str::words( $comment->name, 3, ' ...') !!}</td>
+                          <td>{!! Str::words( $comment->name, 3, ' ...') !!}
+                          <?php if($comment->new_comment == 1){ ?>
+                              <label class='badge badge-success table-badge'>New</label>
+                            <?php }?>
+                          </td>
                           <td>{!! Str::words( $comment->blog_name, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{{ $comment->email }}</td>
                           <td style="text-align:center;">{!! Str::words( $comment->description, 5, ' ...') !!}</td>

@@ -14,14 +14,14 @@
     <!-- Right navbar links -->
      <ul class="navbar-nav ml-auto"> 
      
-      <!-- <li>
-        <a class="nav-link2" href="#" >
+      <li>
+        <a class="nav-link2" href="{{ route('comments.index') }}" >
         <i class="fa fa-paste"></i>
           <span class="badge badge-danger navbar-badge">
-            {{ isset($new_applications) ? $new_applications : 0 }}
+            {{ isset($new_comments) ? $new_comments : 0 }}
           </span>
         </a>
-      </li> -->
+      </li>
       
       <!-- Messages Dropdown Menu -->
        <li class="nav-item dropdown">

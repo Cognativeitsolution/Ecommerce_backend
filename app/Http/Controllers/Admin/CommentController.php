@@ -53,7 +53,7 @@ class CommentController extends Controller
 
             $record = Comment::join('blogs', 'comments.blog_id', '=', 'blogs.id')
                 ->select('comments.*', 'blogs.name as blog_name')
-                ->orderBy('comments.id','DESC')->paginate(15);
+                ->orderBy('comments.id','DESC')->paginate(20);
 
             if($record != false){
                 return view('comments.index', compact('record') );
@@ -109,7 +109,6 @@ class CommentController extends Controller
                     ->first();
 
         $record->update(['new_comment' => 0]);
-        //dd( $record );
 
         if($record != false){
             $logs = Logs::get_logs_details(Comment::getTableName(), $comment->id);

@@ -38,7 +38,7 @@
          <div class="sidebar__list">
             <ul class="un-sideb-list">
                <li class="side-list"><a href="/" class="side-list-link">Home</a></li>
-               <li class="side-list"><a href="{{ url('pages/who-we-are') }}" class="side-list-link">About Us</a></li>
+               <li class="side-list"><a href="{{ url('pages/about-us') }}" class="side-list-link">About Us</a></li>
                <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
                
                <li class="side-list"><a href="{{ url('contact_us') }}" class="side-list-link">Contact Us</a></li>
@@ -61,7 +61,7 @@
                            <nav class="nav_bar">
                               <ul>
                                  <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
-                                 <li class="{{ Request::is('pages/about-us') ? 'active' : '' }} {{ Request::is('pages/who-we-are') ? 'active' : '' }}"><a href="{{ url('pages/who-we-are') }}">About Us</a></li>
+                                 <li class="{{ Request::is('pages/about-us') ? 'active' : '' }}"><a href="{{ url('pages/about-us') }}">About Us</a></li>
                                  <li class="{{ Request::is('stores') ? 'active' : '' }}"><a href="{{ url('stores') }}">Stores</a></li>
                                  <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Category</a></li>
                                  

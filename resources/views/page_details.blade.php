@@ -116,9 +116,10 @@
                     <div class="au_sidebar">
                         <h4>company</h4>
                         <div class="abu_wrpr">
-                            <a class="abu_item {{ Request::is('pages/about-us') ? 'active' : '' }}" href="{{ route('web.page_detail', 'about-us') }}">About Us </a>
-                            <a class="abu_item {{ Request::is('pages/privacy-policy') ? 'active' : '' }}" href="{{ route('web.page_detail', 'privacy-policy') }}">Privacy Policy </a>
-                            <a class="abu_item {{ Request::is('pages/terms-conditions') ? 'active' : '' }}" href="{{ route('web.page_detail', 'terms-conditions') }}">Terms &amp; Conditions </a>
+                            @foreach ($footer_pages as $page)
+                            <a class="abu_item {{ Request::is('pages/' . $page->slug) ? 'active' : '' }}" href="{{ route('web.page_detail', $page->slug) }}">{{ $page->name }} </a>
+                            @endforeach
+
                             <a class="abu_item" href="{{ url('contact_us') }}">Contact Us </a>
                         </div>
                         <h4>social icon</h4>
@@ -140,7 +141,7 @@
                                 Instagram
                             </a>
                             @endif
-                            
+
                             @if ($settings->google_plus_account_link)
                             <a href="{{ $settings->google_plus_account_link }}" class="au_item">
                                 <div class="icon google_plus">

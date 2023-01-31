@@ -109,7 +109,11 @@
                           <td>{!! Str::words( $comment->blog_name, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{{ $comment->email }}</td>
                           <td style="text-align:center;">{!! Str::words( $comment->description, 5, ' ...') !!}</td>
-                          <td style="text-align:center;">{{ $comment->status == 1 ? 'active' : 'inactive' }}</td>
+                          <td style="text-align:center;">
+                            <label class="badge {{ $comment->status == 1 ? 'badge-success' : 'badge-danger' }}">
+                              {{ $comment->status == 1 ? 'active' : 'inactive' }}
+                            </label>
+                          </td>
                           <td style="text-align:center;">{{ $comment->created_at->format('Y-m-d H:i:s') }}</td>
                           <td width="150" style="text-align:center;">
 

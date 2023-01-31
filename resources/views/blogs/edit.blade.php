@@ -6,11 +6,6 @@
   .error {
     color: red;
   }
-
-  /* For Ckeditor */
-  .ck-editor__editable_inline {
-    min-height: 250px;
-  }
 </style>
 
 <!-- TinyMCE -->

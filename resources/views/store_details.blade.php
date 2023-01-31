@@ -178,7 +178,7 @@
                             <h2 class="c_heading-section">About <span>{{ Str::words( $store->short_description, 4, ' ..')  }}</span></h2>
                             <div class="side_body">
                             <p class="ss_about">
-                            {{ $store->long_description }}
+                            {!! $store->long_description !!}
                             </p>
                             </div>
                         </div>

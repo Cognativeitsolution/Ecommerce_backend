@@ -108,6 +108,9 @@ class CommentController extends Controller
                     ->with('blog:id,name')
                     ->first();
 
+        $record->update(['new_comment' => 0]);
+        //dd( $record );
+
         if($record != false){
             $logs = Logs::get_logs_details(Comment::getTableName(), $comment->id);
             return view('comments.edit', compact('record', 'logs'));

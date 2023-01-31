@@ -22,8 +22,8 @@ class StoreSeeder extends Seeder
             $store = new Store;
 
             $store->uuid = rand(10000,9999999);
-            $store->name = $faker->sentence(4);
-            $store->title = $faker->text(50);            
+            $store->name = $faker->realText(30);
+            $store->title = $faker->realText(50);            
             $store->short_description = $faker->text(100);
             $store->long_description = $faker->paragraph(18);
             $store->image = "store_image.png";

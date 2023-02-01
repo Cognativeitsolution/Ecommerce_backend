@@ -14,6 +14,6 @@ class WebSubscriberController extends Controller
 
         $record = Subscriber::create($details);
 
-        return redirect('/')->with('success', 'You have subscribed successfully!');
+        return redirect('/')->with('message', 'You have subscribed successfully!')->with('status', 'success');
     }
 }

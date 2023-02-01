@@ -17,6 +17,6 @@ class WebCommentController extends Controller
         ]);
 
         $comment = Comment::create($request->all());
-        return redirect()->back()->with('success','We have received your comment, Thank you !');
+        return redirect()->back()->with('message','We have received your comment, Thank you !')->with('status', 'success');
     }
 }

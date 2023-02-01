@@ -18,14 +18,6 @@
 
 @section('content')
 
-@if (!empty(session('message')))
-<div class="container" style="padding-top: 15px;">
-   <div class="alert alert-{{ session('status') }}">
-      {{ session('message') }}
-   </div>
-</div>
-@endif
-
 <section class="contact_us">
    <div class="container">
       <div class="row">

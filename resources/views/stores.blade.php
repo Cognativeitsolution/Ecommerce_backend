@@ -102,6 +102,10 @@
                               </div>
                               @endforeach
 
+                              @if ($record->count() == 0)
+                                <span>No Stores Found.</span>                             
+                              @endif
+
                             </div>
                         </div>
                     </div>

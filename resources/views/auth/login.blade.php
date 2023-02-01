@@ -51,7 +51,7 @@ $user_email = Crypt::decryptString(Cookie::get('user_r'));
             <div class="col-md-12">
                 <div class="contact_us-wrapper">
                     <div class="contact_us_img">
-                        <img src="{{ asset('assets/images/Get in touch-cuate.png') }}" alt="get in touch">
+                        <img src="{{ asset('assets/images/login_image.png') }}" alt="get in touch">
                     </div>
                     <div class="contact_us-form">
                         <div class="head">

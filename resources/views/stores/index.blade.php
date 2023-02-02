@@ -76,6 +76,7 @@
                         <th>Name</th>
                         <th style="text-align:center;">Title</th>
                         <th style="text-align:center;">Short Description</th>
+                        <th>Type</th>
                         <th style="text-align:center;">Updated</th>
                         <th width="150" style="text-align:center;">Action</th>
                       </tr>
@@ -104,7 +105,14 @@
                           <td>{!! Str::words( $store->name, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{!! Str::words( $store->title, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{!! Str::words( $store->short_description, 5, ' ...') !!}</td>
-                        
+
+                          <td style="text-align:center;">
+                            <label class="badge badge-info">
+                            {{ $store->type == 1 ? 'Store' : 'Category' }}
+                            </label>
+                          </td>
+
+
                           <td style="text-align:center;">{{ $store->updated_at->format('Y-m-d H:i:s') }}</td>
                           <td width="150" style="text-align:center;">
                             @can('store-edit')

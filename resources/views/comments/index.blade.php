@@ -114,7 +114,7 @@
                               {{ $comment->status == 1 ? 'active' : 'inactive' }}
                             </label>
                           </td>
-                          <td style="text-align:center;">{{ $comment->created_at->format('Y-m-d H:i:s') }}</td>
+                          <td style="text-align:center;">{{ $comment->updated_at->format('Y-m-d H:i:s') }}</td>
                           <td width="150" style="text-align:center;">
 
                             

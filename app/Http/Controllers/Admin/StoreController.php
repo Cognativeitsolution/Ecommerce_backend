@@ -182,6 +182,7 @@ class StoreController extends Controller
         $request['popular'] = $request->popular == "1" ? 1 : 0 ;
 
         $store = Store::find($store->id);
+        $store->updated_at = now();
 
         $metaData = MetaStores::select('meta_keywords', 'meta_description')->where('store_id', $store->id);
 

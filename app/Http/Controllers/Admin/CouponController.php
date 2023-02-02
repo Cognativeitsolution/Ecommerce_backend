@@ -157,6 +157,7 @@ class CouponController extends Controller
         $request['verified_on'] = date('Y-m-d', strtotime($request->start_date));
 
         $coupon = Coupon::find($coupon->id);
+        $coupon->updated_at = now();
 
         $coupon->update($request->all());
 

@@ -121,6 +121,7 @@ class TagController extends Controller
     public function update(UpdateTagRequest $request, Tag $tag)
     {
         $tag = Tag::find($tag->id);
+        $tag->updated_at = now();
 
         $tag->update($request->all());
 

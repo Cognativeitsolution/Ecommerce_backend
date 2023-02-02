@@ -141,6 +141,7 @@ class SliderController extends Controller
     public function update(UpdateSliderRequest $request, $id)
     {
         $slider = Slider::find($id);
+        $slider->updated_at = now();
 
         $slider->update($request->all());
 

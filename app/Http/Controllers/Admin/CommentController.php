@@ -107,6 +107,7 @@ class CommentController extends Controller
         $record = Comment::where('comments.id', $comment->id)
                     ->with('blog:id,name')
                     ->first();
+        $record->updated_at = now();
 
         $record->update(['new_comment' => 0]);
 

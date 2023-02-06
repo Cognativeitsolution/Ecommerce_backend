@@ -1,4 +1,16 @@
 @extends('layouts.admin')
+<style>
+  
+  .name{
+    position: relative;
+    top: 2px;
+    left: -3px;
+  }
+  .error {
+    color: red;
+    padding-top: 5px;
+  }
+</style>
 
 @section('content')
 
@@ -31,19 +43,11 @@
   
     <div class="container mt-4">
   
-
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-            </ul>
-        </div>
+    @if(session('status'))
+    <div class="alert alert-success">
+      {{ session('status') }}
+    </div>
     @endif
-
-
 
     <div class="card">
         
@@ -55,6 +59,7 @@
                 <label for="name">Name</label>
                 <input type="name" id="name" name="name" value="{{ old('name') }}" class="form-control" required="">
                 @error('name')<div class="error">{{ $message }}</div>@enderror
+                @error('permission')<div class="error">{{ $message }}</div>@enderror
             </div>
 
             <div class="col-sm-12">

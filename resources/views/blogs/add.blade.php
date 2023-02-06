@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('cropper/jquery.awesome-cropper.css') }}">
 
 <style>
   .error {
@@ -155,9 +156,14 @@
 
             </select>
           </div>
-
+          <!-- <form role="form">
+            <input id="sample_input" type="hidden" name="test[image]">
+          </form> -->
           <div class="form-group">
             <label for="blog_image">Blog Image</label>
+            
+            
+
             <input type="file" class="form-control" id="blog_image" name="blog_image" class="form-control">
             @error('blog_image')<div class="error">{{ $message }}</div>@enderror
           </div>
@@ -187,11 +193,23 @@
 @endsection
 
 @section('js')
+<script src="{{ asset('cropper/build/jquery.awesome-cropper.js') }}"></script> 
+<script src="{{ asset('cropper/components/imgareaselect/scripts/jquery.imgareaselect.js') }}"></script>
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script>
   $(function() {
     //Initialize Select2 Elements
     $('.select2').select2();
   });
+</script>
+<script>
+$(document).ready(function () {
+  
+$('#sample_input').awesomeCropper({ 
+width: 150, 
+height: 150, 
+debug: false
+});
+});
 </script>
 @endsection

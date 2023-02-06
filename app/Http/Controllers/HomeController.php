@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Blog;
-use App\Models\Slider;
-use App\Models\Page;
+use App\Models\Comment;
+use App\Models\Store;
+use App\Models\Coupon;
 
 class HomeController extends Controller
 {
@@ -32,16 +32,16 @@ class HomeController extends Controller
 
     public function adminHome(){
 
-        $users_count = User::where('is_admin', 0)->count();
         $blogs_count = Blog::count();
-        $sliders_count = Slider::count();
-        $pages_count = Page::where('parent_id', '!=', 0)->count();
+        $comments_count = Comment::count();
+        $stores_count = Store::count();
+        $coupons_count = Coupon::count();
 
         return view('home', compact(
-            'users_count',
             'blogs_count',
-            'sliders_count',
-            'pages_count'
+            'comments_count',
+            'stores_count',
+            'coupons_count'
         ));
 
     }

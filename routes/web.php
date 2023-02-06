@@ -28,6 +28,7 @@ use App\Http\Controllers\BlogController as WebBlogController;
 use App\Http\Controllers\PagesController as WebPagesController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\WebCommentController;
+use App\Http\Controllers\WebCouponController;
 
 Route::get('clear_cache', function () {
 
@@ -40,6 +41,7 @@ Route::get('clear_cache', function () {
 });
 
 Route::get('/', [WebHomeController::class, 'index'])->name('web.home');
+Route::get('/coupon', [WebCouponController::class, 'index'])->name('web.coupon');
 Route::get('/stores', [WebStoresController::class, 'index']);
 Route::get('/categories', [WebStoresController::class, 'categories']);
 Route::get('/stores/action', [WebStoresController::class, 'action'])->name('stores.action');

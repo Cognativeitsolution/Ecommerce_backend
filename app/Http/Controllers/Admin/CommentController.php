@@ -21,7 +21,12 @@ class CommentController extends Controller
      */
     public function __construct()
     {
-        //
+        $this->middleware('auth');
+
+        $this->middleware('permission:comment-list|comment-create|comment-edit|comment-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:comment-create', ['only' => ['create','store']]);
+        $this->middleware('permission:comment-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:comment-delete', ['only' => ['destroy']]);
     }
     public function index()
     {

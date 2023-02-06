@@ -83,7 +83,7 @@
             </div>
             <!--close row -->
                 
-            @can('setting-edit')
+            @can('slider-edit')
             <button type="submit" class="btn btn-primary">Update</button>
             @endcan
           </form>

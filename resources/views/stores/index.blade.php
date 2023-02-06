@@ -74,9 +74,9 @@
                         <th>S.No</th>
                         <th>Image</th>
                         <th>Name</th>
-                        <th style="text-align:center;">Title</th>
+                        <th  style="text-align:center;">Title</th>
                         <th style="text-align:center;">Short Description</th>
-                        <th>Type</th>
+                        <th style="text-align:center;">Type</th>
                         <th style="text-align:center;">Updated</th>
                         <th width="150" style="text-align:center;">Action</th>
                       </tr>
@@ -96,20 +96,32 @@
                           <td>{{ $no++ }}</td>
                           <td>
                             @if( !empty($store->image) )
-                            <img width="50px" src="{{ url('/thumbnail/') }}/{{ $store->image }}" >
+                            <img width="40px" src="{{ url('/thumbnail/') }}/{{ $store->image }}" >
                             @else
                               &nbsp;&nbsp;
                             @endif
                           </td>
 
                           <td>{!! Str::words( $store->name, 3, ' ...') !!}</td>
-                          <td style="text-align:center;">{!! Str::words( $store->title, 3, ' ...') !!}</td>
+                          <td  style="text-align:center;">{!! Str::words( $store->title, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{!! Str::words( $store->short_description, 5, ' ...') !!}</td>
 
                           <td style="text-align:center;">
+
+                            @if( $store->top == 1)
+                            <label class="badge badge-pill badge-success">Top</label>
+                            @endif
+
+                            @if( $store->popular == 1)
+                            <label class="badge badge-pill badge-success">Popular</label>
+                            @endif
+
                             <label class="badge badge-info">
                             {{ $store->type == 1 ? 'Store' : 'Category' }}
                             </label>
+
+                            
+
                           </td>
 
 

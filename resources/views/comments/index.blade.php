@@ -77,7 +77,6 @@
                         <th>S.No</th>
                         <th>Name</th>
                         <th>Blog Name</th>
-                        <th style="text-align:center;">Email</th>
                         <th style="text-align:center;">Description</th>
                         <th style="text-align:center;">Status</th>
                         <th style="text-align:center;">Updated</th>
@@ -107,7 +106,6 @@
                             <?php }?>
                           </td>
                           <td>{!! Str::words( $comment->blog_name, 3, ' ...') !!}</td>
-                          <td style="text-align:center;">{{ $comment->email }}</td>
                           <td style="text-align:center;">{!! Str::words( $comment->description, 5, ' ...') !!}</td>
                           <td style="text-align:center;">
                             <label class="badge {{ $comment->status == 1 ? 'badge-success' : 'badge-danger' }}">
@@ -134,12 +132,12 @@
                     <button type="submit" class="btn btn-danger btnChk" style="margin:15px; 0px;">Bulk Delete</button>
                     @endcan
 
-                    <div class="float-right">
-                      <p>
+                    <div class="float-right" >
+                      
                         @if(!empty($record))
                           {!! $record->appends(Request::all())->links() !!}
                         @endif
-                      </p>
+                      
                     </div>
 
                 </div>

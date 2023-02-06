@@ -10,7 +10,7 @@
 
     <!-- Brand Logo -->
     <a href="{{ url('/admin/home') }}" class="brand-link">
-      <img src="{{ asset('images/logo.png') }}" alt="AdminLTE Logo" class="brand-image" >
+      <img src="{{ asset('images/logowhite.png') }}" alt="Admin Panel Logo" class="brand-image" >
       
     </a>
 

@@ -49,7 +49,7 @@
         <div class="row">
 
 
-          <!-- <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-3">
             <a href="{{ url('/admin/blogs')}}">
               <div class="info-box service-info">
               <span class="info-box-icon bg-maroon elevation-1"><i class="fas fa-cubes"></i></span>
@@ -62,128 +62,57 @@
               </div>
             </div>
             </a>
-          </div> -->
+          </div>
           
           
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="{{ url('/admin/users')}}">
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="{{ url('/admin/comments')}}">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-blue elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-blue elevation-1"><i class="fas fa-comments"></i></span>
               <div class="info-box-content career-info">
-                <span class="info-box-text">Users</span>
+                <span class="info-box-text">Comments</span>
                 <span class="info-box-number">
-                  {{ isset($users_count) ? $users_count : 50 }}  
+                  {{ isset($comments_count) ? $comments_count : 50 }}
                 </span>
               </div>
             </div>
           </a>
-          </div> -->
+          </div>
           
 
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="#">
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="{{ url('/admin/stores') }}">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1 job-info"><i class="fa fa-paste"></i></span>
+              <span class="info-box-icon bg-success elevation-1 job-info"><i class="fa fa-building"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Applications</span>
+                <span class="info-box-text">Stores</span>
                 <span class="info-box-number">
-                  {{ isset($applications_count) ? $applications_count : 50 }} 
+                {{ isset($stores_count) ? $stores_count : 50 }}
                 </span>
               </div>
             </div>
           </a>
-          </div> -->
+          </div>
 
           
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="{{ url('/admin/sliders')}}">
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="{{ url('/admin/coupons')}}">
             <div class="info-box mb-3">
             
               <span class="info-box-icon bg-purple elevation-1"><i class="fa fa-newspaper"></i></span>
 
               <div class="info-box-content user-info">
-                <span class="info-box-text">Sliders</span>
+                <span class="info-box-text">Coupons</span>
                 <span class="info-box-number">
-                  {{ isset($sliders_count) ? $sliders_count : 50 }}   
+                {{ isset($coupons_count) ? $coupons_count : 50 }}
                 </span>
               </div>
             </div>
             </a>
-          </div> -->
-
-
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="{{ url('/admin/core_services')}}">
-            <div class="info-box mb-3">
-            
-              <span class="info-box-icon bg-teal elevation-1"><i class="fa fa-spinner"></i></span>
-
-              <div class="info-box-content user-info">
-                <span class="info-box-text">Core Services</span>
-                <span class="info-box-number">
-                  {{ isset($coreServices_count) ? $coreServices_count : 50 }}
-                </span>
-              </div>
-            </div>
-            </a>
-          </div> -->
-
- 
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="{{ url('/admin/pages')}}">
-            <div class="info-box mb-3">
-            
-              <span class="info-box-icon bg-navy elevation-1"><i class="fa fa-file"></i></span>
-
-              <div class="info-box-content user-info">
-                <span class="info-box-text">Pages</span>
-                <span class="info-box-number">
-                  {{ isset($pages_count) ? $pages_count : 50 }}
-                </span>
-              </div>
-              
-            </div>
-            </a>
-          </div> -->
-
-
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="{{ url('/admin/jobs')}}">
-            <div class="info-box mb-3">
-            
-              <span class="info-box-icon bg-pink elevation-1"><i class="fa fa-briefcase"></i></span>
-
-              <div class="info-box-content user-info">
-                <span class="info-box-text">Jobs</span>
-                <span class="info-box-number">
-                  {{ isset($jobs_count) ? $jobs_count : 50 }}
-                </span>
-              </div>
-            </div>
-            </a>
-          </div> -->
-
-
-          <!-- <div class="col-12 col-sm-6 col-md-3">
-          <a href="{{ url('/admin/our_clients')}}">
-            <div class="info-box mb-3">
-            
-              <span class="info-box-icon bg-lightblue elevation-1"><i class="fa fa-users"></i></span>
-
-              <div class="info-box-content user-info">
-                <span class="info-box-text">Our Clients</span>
-                <span class="info-box-number">
-                  {{ isset($ourClients_count) ? $ourClients_count : 50 }}
-                </span>
-              </div>
-            </div>
-            </a>
-          </div> -->
-          
+          </div>
              
         </div>
-        
         
       </div>
     </section>

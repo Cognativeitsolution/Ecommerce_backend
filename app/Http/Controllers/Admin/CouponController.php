@@ -41,10 +41,10 @@ class CouponController extends Controller
                 ->orWhere('coupons.short_description', 'like', '%'.$search.'%')
                 ->orWhere('coupons.long_description', 'like', '%'.$search.'%')
                 ->orderBy('coupons.id','DESC')
-                ->paginate(5);
+                ->paginate(15);
             return view('coupons.index', compact('record') );
         }else{
-            $record = Coupon::orderBy('coupons.id', 'DESC')->paginate(10);
+            $record = Coupon::orderBy('coupons.id', 'DESC')->paginate(15);
 
             if ($record != false) {
                 return view('coupons.index', compact('record'));

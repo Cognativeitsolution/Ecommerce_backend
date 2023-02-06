@@ -38,10 +38,10 @@
       </div>
       <div class="sidebar__list">
          <ul class="un-sideb-list">
-            <li class="side-list"><a href="/" class="side-list-link">Home</a></li>
+            <li class="side-list"><a href="{{ route('web.coupon') }}" class="side-list-link">Home</a></li>
             <li class="side-list"><a href="{{ url('pages/about-us') }}" class="side-list-link">About Us</a></li>
             <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
-
+            <li class="side-list"><a href="{{ url('categories') }}" class="side-list-link">Category</a></li>
             <li class="side-list"><a href="{{ url('contact_us') }}" class="side-list-link">Contact Us</a></li>
          </ul>
       </div>
@@ -54,14 +54,29 @@
                <div class="main_head_wrapper">
                   <div class="upper_primary-header">
                      <div class="logo_box">
-                        <a href="{{ url('/') }}" class="header_logo-link">
+                        <a href="{{ route('web.coupon') }}" class="header_logo-link">
                            <img src="{{ asset('images/' . $settings->header_logo) }}" alt="logo" class="resp_logo">
                         </a>
+                     </div>
+                     <div class="head_search_bar pc">
+                        <form action="#" class="nav-search-area form-search" method="get" accept-charset="utf-8">
+                           <input type="hidden" name="_token" value="#">
+                           <input type="text" class="searchbox search-area input" autocomplete="off" name="search_query" id="searchbox" placeholder="Search Stores and Offers">
+                           <a href="javascript:void(0);" class="nav-search-icon">
+                              <i class="fa fa-search"></i>
+                           </a>
+                           <div class="search_result_box" style="display: none;">
+                              <ul class="search-cubes">
+
+
+                              </ul>
+                           </div>
+                        </form>
                      </div>
                      <div class="main_menu">
                         <nav class="nav_bar">
                            <ul>
-                              <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
+                              <li class="{{ Request::is('coupon') ? 'active' : '' }}"><a href="{{ route('web.coupon') }}">Home</a></li>
                               <li class="{{ Request::is('pages/about-us') ? 'active' : '' }}"><a href="{{ url('pages/about-us') }}">About Us</a></li>
                               <li class="{{ Request::is('stores') ? 'active' : '' }}"><a href="{{ url('stores') }}">Stores</a></li>
                               <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Category</a></li>
@@ -77,17 +92,11 @@
                   </div>
                   <div class="lower_primary-header">
 
-                     <!-- <div class="btn_head_wrapper">
-                           <a href="#" class="off_link">20% Percent Off</a>
-                           <a href="#" class="free_link">
-                           <span><i class="fas fa-truck-moving"></i></span>    
-                           Free Delivery</a>
-                        </div> -->
-
-                     <div class="head_search_bar">
+                     
+                        <div class="head_search_bar mobile">
                         <form action="#" class="nav-search-area form-search" method="get" accept-charset="utf-8">
                            <input type="hidden" name="_token" value="#">
-                           <input type="text" class="searchbox search-area input" autocomplete="off" name="search_query" id="searchbox" placeholder="Search Stores and Offers">
+                           <input type="text" class="searchbox search-area input" autocomplete="off" name="search_query" id="searchbox2" placeholder="Search Stores and Offers">
                            <a href="javascript:void(0);" class="nav-search-icon">
                               <i class="fa fa-search"></i>
                            </a>
@@ -99,6 +108,7 @@
                            </div>
                         </form>
                      </div>
+                     
                   </div>
                </div>
             </div>
@@ -224,14 +234,20 @@
                         </div>
                         <div class="nav_links">
                            <div class="single_prop first-order">
-                              <a href="{{ url('/') }}" class="footer-logo">
+                              <a href="{{ route('web.coupon') }}" class="footer-logo">
                                  <img src="{{ asset('images/' . $settings->footer_logo) }}" class="img-responsive" alt="" width="170" height="50">
                               </a>
                               <p>{{ $settings->footer_text }}</p>
                               <div class="effect phebe">
                                  <div class="buttons">
+                                    
+
                                     @if ($settings->facebook_account_link)
-                                    <a href="{{ $settings->facebook_account_link }}" class="fb" target="_blank" title="Join us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{{ $settings->facebook_account_link }}" class="au_item">
+                                       <div class="icon fb">
+                                          <i class="fab fa-facebook-f"></i>
+                                       </div>
+                                    </a>
                                     @endif
 
                                     @if ($settings->instagram_account_link)
@@ -537,6 +553,33 @@
       }
 
    });
+
+   $('#searchbox2').typeahead({
+
+source: function(query, process) {
+
+   return $.get(path, {
+      query: query
+   }, function(data) {
+
+      var cubes = "";
+
+      $.each(data, function(i, value) {
+
+         console.log(value);
+
+         cubes += "<li class='ss-cube'><a href='{{ url('stores/') }}/" + value.slug + "'><div class='web_imagebox'><img src='{{ url('/images/') }}/" + value.image + "' alt='Store Image'></div><div class='flexed-result'><p class='store-name'>" + value.name + "</p><p class='coupon_count'>" + value.coupon_count + " Offers</p></div></a></li>";
+
+
+      });
+
+      $(".search-cubes").html(cubes);
+
+   });
+
+}
+
+});
 
    function getCodeDeal(id) {
 

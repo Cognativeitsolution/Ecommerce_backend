@@ -24,10 +24,10 @@ class AdminsController extends Controller
     {
         $this->middleware('auth');
 
-        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','store']]);
-        $this->middleware('permission:user-create', ['only' => ['create','store']]);
-        $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:admin-list|admin-create|admin-edit|admin-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:admin-create', ['only' => ['create','store']]);
+        $this->middleware('permission:admin-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:admin-delete', ['only' => ['destroy']]);
 
     }
 

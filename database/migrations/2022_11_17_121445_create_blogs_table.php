@@ -15,6 +15,8 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('parent_id')->default(0);
+            $table->tinyInteger('is_coupon_site')->default(1);
             $table->string('name')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();

@@ -1,0 +1,393 @@
+
+/* This is custom file for Admin Panel Css
+Created 25-Nov-2022 */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	
+}
+
+/* admin.blade */
+
+.content-header .breadcrumb li{
+	font-size: 14px;
+}
+
+.tbl-head {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.float-right {
+    float: right!important;
+    margin-bottom: 0.5rem;
+}
+
+.log_information{
+	font-size:13px;
+}
+
+.modified_log{
+	font-size:13px;
+	margin-top:-15px;
+}
+
+.badge{
+	padding:5px;
+  margin:0;
+}
+
+.table thead{
+	padding:2px;
+	width:100%;
+	background:#daad51;
+	color:#fff;
+}
+
+.table td{
+	padding:3px;
+	margin:0px;
+	vertical-align: middle;
+	font-size:14px;
+}
+
+.main-btn{
+	box-shadow: 0 0 10px #0003;
+    font-size: 14px;
+}
+
+.table tr:nth-child(even){
+	background:#d7d7d7;
+}
+
+.table th{
+	padding:5px;
+	margin:0px;
+	vertical-align: middle;
+	font-size:14px;
+}
+
+.tableaction,.del-btn,.info_btn {
+    display: inline-block;
+    font-size: 14px;
+    box-shadow: 0 0 10px #0002;
+    border-radius: 4px;
+}
+
+label.table-badge {
+    font-weight: 500;
+    box-shadow: 0 0 10px #0003;
+}
+
+.btn-primary-outline{
+    border:1px solid #0075ff;
+    color:#0075ff;
+    background:#fff;
+    margin-bottom: 8px !important;
+    margin-right: 5px !important;
+}
+.col-sm-12{
+  padding:0;
+}
+.btn{
+    margin:0px;
+    
+}
+
+.lbl{
+	cursor:default;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active{
+    background-color: #daad51 !important;
+}
+
+[class*=sidebar-dark-] {
+    background-color: #000;
+}
+ 
+/* sidebar nav */
+
+.nav-sidebar .nav-item>.nav-link {
+    color: #fff;
+}
+
+a.nav-link:hover {
+    background: #daad51 !important;
+}
+
+[class*=sidebar-dark-] .sidebar a {
+    color: #ffffff;
+}
+
+[class*=sidebar-dark] .user-panel {
+    border-bottom: 1px solid #000000;
+}
+
+.navbar-white {
+    background-color: #eaeaea;
+}
+
+.navbar-white {
+    background-color: #f1f1f1;
+}
+
+.content-wrapper {
+    background: #ededed;
+}
+
+.text-dark-main {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    text-shadow: 0 0 10px #0003;
+}
+
+span.dash-icon {
+    background-image: linear-gradient(89deg, #da8cff, #9a55ff);
+    padding: 2px 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0003;
+}
+
+i.fa.fa-home {
+    font-size: 24px;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+span.text-dark-sub {
+    font-size: 22px;
+}
+
+a#navbarDropdown {
+    padding: 15px;
+}
+
+/* three dot icon */
+
+i.fa.fa-ellipsis-v {
+    color: #333;
+}
+
+a#navbarDropdown {
+    padding: 15px;
+}
+
+.float-right {
+    color: #333;
+}
+
+.main-footer,.main-footer strong {
+    color: #333;
+    font-weight: 400;
+}
+.sidebar_close-container {
+    text-align: right;
+    padding: 0 10px;
+	display: none;
+}
+
+.sidebar_close-container i {
+    font-size: 28px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+
+/* Sidebar */
+
+.nav-sidebar .nav-link p{
+    font-size:14px;
+}
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active{
+    background-color: #daad51;
+}
+.active {
+    color: blue;
+}
+.brand-link{
+    height:30%;
+    border-bottom:none !important;
+}
+.brand-link .brand-image{
+    width:100%;
+    margin-left:0;
+    margin-right:0;
+    max-height:150px;
+}
+.user_image{
+    width: 95%;
+    text-align: center;
+}
+.user_image img{
+    width: 4rem;
+    margin-bottom:20px;
+}
+.push_menu{
+      display:none;
+}
+body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header{
+    padding-bottom: 10px;
+}
+
+
+.calendar {
+    margin: 20px 0;
+  }
+  
+  .calendar > * {
+    margin: 10px 0;
+  }
+  
+  .heading {
+    position: relative;
+    background-color: #1f2d3d;
+    padding: 8px 30px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .btn-custom{
+    margin-top:33px;
+  }
+  .heading .btn {
+    position: absolute;
+    top: 24%;
+    height: 60%;
+    border: 0;
+    background: none;
+    font-size: 1.2em;
+    line-height: 0;
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  
+  .heading .btn:active {
+    text-shadow: 0 0 2px rgb(35, 35, 46);
+    color: #fff;
+    opacity: 1;
+  }
+  
+  .heading .prev {
+    left: 10px;
+  }
+  
+  .heading .next {
+    right: 10px;
+  }
+  
+  .calendar ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    padding-left: 0;
+  }
+  
+  .calendar li:nth-child(7n) {
+    color: #ffc107;
+  }
+  
+  .calendar li:nth-child(7n-1) {
+    color: #dc3545;
+  }
+  
+  .weekdays {
+    text-align: center;
+    background-color: rgb(31 45 61);
+    color: #17a2b8;
+    padding: 5px;
+  }
+  
+  .days li {
+    text-align: right;
+    border: 1px solid rgb(31 45 61);
+    background-color: rgb(31 45 61);
+    border-radius: 3px;
+    padding: 5px 30% 5px 5px;
+    color: #fff;
+  }
+  
+  footer {
+    font-size: 0.8em;
+    text-decoration: underline;
+    font-weight: 600;
+    background-color: #7fffd4;
+    text-align: center;
+    padding: 4px;
+  }
+  
+  footer:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  footer:active {
+    color: red;
+  }
+  
+  .info-box{
+    display: block;
+    background:rgb(255,255,255);
+  }
+  .info-box:hover{
+    box-shadow: 0 0 12px rgb(0 0 0 / 19%), 0 1px 4px rgb(0 0 0 / 15%);
+    background:rgb(250,250,250);
+  }
+  .info-box .info-box-icon{
+      text-align: center;
+      width: 100%;
+      height: 150px;
+      margin: auto;
+      font-size: 4rem;
+  }
+  .info-box .info-box-content{
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+  }
+  .info-box .info-box-text, .info-box .progress-description{
+    font-size: 18px;
+    color:#232323;
+  }
+  .info-box .info-box-number{
+    margin-top: 1rem;
+      font-size: 22px;
+      color:#232323;
+  }
+  .content-wrapper{
+    min-height: 1000px !important;
+  }
+  .nav-link2{
+    width:50px;
+    color:#333333;
+  }
+  .nav-link2 .navbar-badge{
+    position: relative;
+    right: 5px;
+    top: -8px;
+    font-size:12px;
+    border-radius:2px;
+  }
+  .pagination{
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+@media only screen and (max-width: 1000px) {
+    .push_menu{
+        display:block;
+    }
+}
+
+

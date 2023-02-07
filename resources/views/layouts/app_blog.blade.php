@@ -16,9 +16,11 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <!---Fontawsome Links-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
    <!--- Style css file -->
-   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
-   <link rel="stylesheet" href="{{ asset('assets/css/media.css') }}" type="text/css">
+   <link rel="stylesheet" href="{{ asset('assets/css/blog_site/style2.css') }}" type="text/css">
+   <link rel="stylesheet" href="{{ asset('assets/css/blog_site/media.css') }}" type="text/css">
+
    <!-- Link Swiper's CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
@@ -33,16 +35,23 @@
          </span>
       </div>
       <div class="sd_img_box">
-         <img src="{{ asset('images/' . $settings->header_logo) }}" alt="sd-header-logo">
+         
+         <img src="{{ asset('images/logoblack.png') }}" alt="sd-header-logo">
+
       </div>
       <div class="sidebar__list">
          <ul class="un-sideb-list">
-            <li class="side-list"><a href="{{ url('/') }}" class="side-list-link">Home</a></li>
-            <li class="side-list"><a href="#" class="side-list-link">About Us</a></li>
-            <li class="side-list"><a href="#" class="side-list-link">Contact Us</a></li>
+            <li class="side-list"><a href="{{ route('web.home') }}" class="side-list-link">Home</a></li>
+
+            @foreach($blog_categories as $category)
+               <li class="side-list"><a href="#" class="side-list-link">{{ $category->name }}</a></li>
+            @endforeach
+
          </ul>
       </div>
    </div>
+
+
    <!--- HEADER --->
    <header class="header">
       <div class="container">
@@ -51,17 +60,20 @@
                <div class="main_head_wrapper">
                   <div class="upper_primary-header">
                      <div class="logo_box">
-                        <a href="{{ url('/') }}" class="header_logo-link">
-                           <img src="{{ asset('images/' . $settings->header_logo) }}" alt="logo" class="resp_logo">
+                        <a href="{{ route('web.home') }}" class="header_logo-link">
+                           <img src="{{ asset('images/logoblack.png') }}" alt="logo" class="resp_logo">
                         </a>
                      </div>
                      
                      <div class="main_menu">
                         <nav class="nav_bar">
                            <ul>
-                              <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-                              <li class="{{ Request::is('pages/about-us') ? 'active' : '' }}"><a href="#">About Us</a></li>
-                              <li class="{{ Request::is('contact_us') ? 'active' : '' }}"><a href="#">Contact Us</a></li>
+                              <li class=""><a href="{{ route('web.home') }}">Home</a></li>
+
+                              @foreach($blog_categories as $category)
+                                 <li class=""><a href="#">{{ $category->name }}</a></li>
+                              @endforeach
+                              
                            </ul>
                         </nav>
                      </div>
@@ -93,7 +105,9 @@
             </div>
          </div>
       </div>
-   </header>
+</header>
+   
+   
    <!--- Main Section -->
    <main>
 
@@ -123,165 +137,66 @@
                <div class="col-md-12">
                   <div class="fotr_container">
                      <div class="ftr_center">
-                     </div>
-                     <hr>
-                     <div class="ftr_tops">
-                        <div class="popular_posts">
-                           <div class="post_box">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                 <line x1="3" y1="21" x2="21" y2="21" />
-                                 <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
-                                 <line x1="5" y1="21" x2="5" y2="10.85" />
-                                 <line x1="19" y1="21" x2="19" y2="10.85" />
-                                 <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
-                              </svg>
-                              <div class="post_box_content">
-                                 <h4 class="stats_number">
-                                    Merchants
-                                 </h4>
-                                 <p>We've Partnered With Over 3576+ Merchants</p>
-                              </div>
-                           </div>
-                           <div class="post_box">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                 <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-                                 <rect x="9" y="3" width="6" height="4" rx="2" />
-                                 <line x1="9" y1="12" x2="9.01" y2="12" />
-                                 <line x1="13" y1="12" x2="15" y2="12" />
-                                 <line x1="9" y1="16" x2="9.01" y2="16" />
-                                 <line x1="13" y1="16" x2="15" y2="16" />
-                              </svg>
-                              <div class="post_box_content">
-                                 <h4 class="stats_number">
-                                    Categories
-                                 </h4>
-                                 <p>
-                                    We Have More Than 83+ Categories To Choose From
-                                 </p>
-                              </div>
-                           </div>
-                           <div class="post_box">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                 <path d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z" />
-                                 <path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
-                                 <path d="M6 9h-.01" />
-                              </svg>
-                              <div class="post_box_content">
-                                 <h4 class="stats_number">
-                                    Coupons
-                                 </h4>
-                                 <p>
-                                    Coupons
-                                 </p>
-                              </div>
-                           </div>
-                           <div class="post_box">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                 <circle cx="12" cy="7" r="4" />
-                                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                              </svg>
-                              <div class="post_box_content">
-                                 <h4 class="stats_number">
-                                    Users
-                                 </h4>
-                                 <p>We're A Growing Family Of Over 342+ Users Daily</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="footer-props">
-                           <div class="subscription_text">
-                              <div class="subscribe__title">Subscribe To Our Newsletter</div>
-                              <p>Sign up for our weekly email newsletter with the best money saving coupons.</p>
-                           </div>
-                           <div id="mc_embed_signup">
-                              <form action="{{ url('subscribers/store') }}" class="submit-form sb_form" form-type="subscribeform" method="post" accept-charset="utf-8">
-                                 @csrf
-                                 <div class="response-box"></div>
-                                 <div class="subscriptionBox">
-                                    <input type="text" class="form-control" placeholder="Email Address" name="email" required>
-                                    <button class="btn subs" type="submit"> Submit <i class="fa fa-paper-plane"></i></button>
-                                 </div>
-                                 @error('email')
-                                 <div style="margin-top: 5px; color: red; font-weight:bold">{{ $message }}</div>
-                                 @enderror
-                              </form>
-                           </div>
-                        </div>
-                        <div class="nav_links">
-                           <div class="single_prop first-order">
-                              <a href="" class="footer-logo">
+                           
+                              <a href="{{ route('web.home') }}" class="footer-logo">
                                  <img src="{{ asset('images/' . $settings->footer_logo) }}" class="img-responsive" alt="" width="170" height="50">
                               </a>
-                              <p>{{ $settings->footer_text }}</p>
-                              <div class="effect phebe">
-                                 <div class="buttons">
-                                    
-
-                                    @if ($settings->facebook_account_link)
-                                    <a href="{{ $settings->facebook_account_link }}" class="au_item">
-                                       <div class="icon fb">
-                                          <i class="fab fa-facebook-f"></i>
-                                       </div>
-                                    </a>
-                                    @endif
-
-                                    @if ($settings->instagram_account_link)
-                                    <a href="{{ $settings->instagram_account_link }}" class="au_item">
-                                       <div class="icon insta">
-                                          <i class="fab fa-instagram"></i>
-                                       </div>
-                                    </a>
-                                    @endif
-
-                                    @if ($settings->google_plus_account_link)
-                                    <a href="{{ $settings->google_plus_account_link }}" class="au_item">
-                                       <div class="icon google_plus">
-                                          <i class="fab fa-google-plus-g"></i>
-                                       </div>
-                                    </a>
-                                    @endif
-
-                                    @if ($settings->pinterest_account_link)
-                                    <a href="{{ $settings->pinterest_account_link }}" class="au_item">
-                                       <div class="icon pt">
-                                          <i class="fab fa-pinterest"></i>
-                                       </div>
-                                    </a>
-                                    @endif
-                                 </div>
-                              </div>
-                           </div>
+                           
+                     </div>
+                     
+                     <div class="ftr_tops">
+                        
+                        
+                        <div class="nav_links">
+                           
                            <div class="ftr_links">
-                              <h2 class="ftr_heading">More Links</h2>
+                              <h2 class="ftr_heading">Recent Blogs</h2>
                               <ul class="ftr_links_wrpr">
-                                 @foreach ($footer_pages as $page)
+                                 
+                              @foreach($recent_blogs_footer as $recent_blog)
                                  <li>
                                     <a href="#">
                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                           <polyline points="9 6 15 12 9 18"></polyline>
                                        </svg>
-                                       {{ $page->name }}
+                                       {{ Str::of( $recent_blog->name )->limit(30, '..') }}
                                     </a>
                                  </li>
-                                 @endforeach
-
-                                 <li>
-                                    <a href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       contact
-                                    </a>
-                                 </li>
+                              @endforeach
+                                
+                                 
                               </ul>
                            </div>
-                           
+                           <div class="ftr_links">
+                              <h2 class="ftr_heading">Blog Categories</h2>
+                              <ul class="ftr_links_wrpr">
+                                 
+                              @foreach($blog_categories as $category)
+                                 <li>
+                                    <a href="#">
+                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                          <polyline points="9 6 15 12 9 18"></polyline>
+                                       </svg>
+                                       {{ $category->name }}
+                                    </a>
+                                 </li>
+                              @endforeach
+
+                                 
+                              </ul>
+                           </div>
+                           <div class="ftr_links ftr_links2">
+                              <h2 class="ftr_heading">Visit Us</h2>
+                              
+                              <p>Email : {{ $settings->contact_email }}</p>
+                              
+                              <p>Phone : {{ $settings->contact_number }}</p>
+                              
+                              <p>Address <br> {{ $settings->location_address }} </p>
+                              
+                           </div>
                            
                         </div>
                      </div>
@@ -289,7 +204,10 @@
                </div>
             </div>
          </div>
+         <div class="footer_bottom"><p>{{ $settings->footer_text }}</p></div>
       </footer>
+
+
    </main>
 
 
@@ -306,7 +224,7 @@
 <script src="{{ asset('assets/js/images_on_scroll.js') }}"></script>
 
 <script>
-   $('img').loadScroll(300);// in ms
+   $('img').loadScroll(200);// in ms
 </script>
 
 </html>

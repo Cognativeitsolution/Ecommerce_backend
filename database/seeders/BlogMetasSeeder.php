@@ -17,11 +17,11 @@ class BlogMetasSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for($i=1; $i<=15; $i++){
+        for($i=1; $i<=19; $i++){
             $meta = new BlogMetas();
             $meta->blog_id = $i;
-            $meta->meta_keywords = $faker->text(150);
-            $meta->meta_description = $faker->text(150);
+            $meta->meta_keywords = $faker->realText(150);
+            $meta->meta_description = $faker->realText(150);
             $meta->save();
         }
     }

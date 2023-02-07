@@ -5,49 +5,59 @@ namespace App\Http\Controllers;
 use App\Models\Slider;
 use App\Models\Store;
 use App\Models\Coupon;
+use App\Models\Blog;
+use DB;
 
 class WebHomeController extends Controller
 {
     public function index() {        
-        $slider = Slider::select('id', 'image', 'title', 'description', 'url', 'status')->get();
+        $slider = Slider::select('id', 'image', 'title', 'description', 'status')
+            ->where('status', 1)
+            ->where('is_coupon', 0)
+            ->get();
 
-//        $top_stores = Store::where('type', 1)->where('top', 1)->where('status', 1)
-//            ->select(
-//                'id',
-//                'name',
-//                'slug',
-//                'image',
-//                'banner_image'
-//                )
-//            ->with('meta:store_id,meta_keywords,meta_description')
-//            ->orderBy('id','DESC')
-//            ->limit(8)
+//        $latest_blogs = Blog::select(
+//            'id',
+//            'name',
+//            'slug',
+//            'parent_id'
+//
+//        )
+//            ->limit(4)
+//            ->orderBy('blogs.id', 'DESC')
 //            ->get();
 
-//        $popular_categories = Store::where('type', 2)->where('popular', 1)->where('status', 1)
-//            ->select(
-//                'id',
-//                'name',
-//                'slug',
-//                'image'
-//            )
-//            ->withCount('coupon')
-//            ->orderBy('id','DESC')
-//            ->limit(7)
-//            ->get();
+        $latest_blog_with_category = DB::table('blogs as blog')
+            ->join('blogs as category','category.id','=','blog.parent_id')
+            ->select(
+                'blog.*',
+                'category.id as category_id',
+                'category.name as category_name'
+            )
+            ->where('blog.status', 1)
+            ->orderBy('blog.id', 'DESC')
+            ->take(4)
+            ->get();
 
-//        $featured_offers = Coupon::where('featured', 1)
-//                ->where('latest', 0)
-//                ->take(4)
-//                ->inRandomOrder()
-//                ->get();
 
-//        $latest_offers = Coupon::where('latest', 1)
-//            ->where('featured', 0)
-//            ->take(4)
-//            ->inRandomOrder()
-//            ->get();
+//        dd( $latest_blog_with_category->toArray() );
 
-        return view('index', compact('slider'));
+
+        return view('index', compact('slider','latest_blog_with_category'));
     }
+
+    public function blog_details($slug){
+
+//        dd($slug);
+        return view('blog_detail');
+
+    }
+
+    public function blog_category($slug){
+
+//        dd($slug);
+        return view('blog_category');
+
+    }
+
 }

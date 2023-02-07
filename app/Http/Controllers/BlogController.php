@@ -23,7 +23,8 @@ class BlogController extends Controller
             'created_at'
         )
             ->with('tags:id,name')
-            ->where('status',1)
+            ->where('status', 1)
+            ->where('is_coupon_site', 1)
             ->skip(5)
             ->take(6)
             ->orderBy('id', 'DESC')
@@ -36,30 +37,33 @@ class BlogController extends Controller
             'slug',
             'blog_image'
         )
-                    ->take(5)
-                    ->orderBy('id', 'DESC')
-                    ->get();
+            ->where('is_coupon_site', 1)
+            ->take(5)
+            ->orderBy('id', 'DESC')
+            ->get();
 
-        if($record != false){
-            return view('blogs', compact('record', 'latest') );
-        }else{
+        if ($record != false) {
+            return view('blogs', compact('record', 'latest'));
+        } else {
             abort(404);
         }
     }
 
-    public function blog_detail($slug){
+    public function blog_detail($slug)
+    {
         $blog = Blog::whereSlug($slug)
-                ->withCount('comments')
-                ->with('meta:blog_id,meta_keywords,meta_description')
-                ->with('tags:id,name', 'comments:id,blog_id,name,email,description,created_at')
-                ->first();
+            ->withCount('comments')
+            ->with('meta:blog_id,meta_keywords,meta_description')
+            ->with('tags:id,name', 'comments:id,blog_id,name,email,description,created_at')
+            ->first();
 
-        if($blog == false){
+        if ($blog == false) {
             abort(404);
         }
+
         Blog::find($blog->id)->increment('views');
 
-        if($blog != false){
+        if ($blog != false) {
             $related_blog_ids = BlogRelated::where('blog_id', $blog->id)
                 ->pluck('related_blog_id')
                 ->toArray();
@@ -81,15 +85,15 @@ class BlogController extends Controller
                 'created_at',
                 'reading_time'
             )
+                ->where('is_coupon_site', 1)
                 ->take(4)
                 ->whereNotIn('id', [$blog->id])
                 ->orderBy('id', 'DESC')
                 ->get();
 
-            return view('blog_details', compact('blog', 'related_blogs', 'latest') );
-        }else{
+            return view('blog_details', compact('blog', 'related_blogs', 'latest'));
+        } else {
             abort(404);
         }
-
     }
 }

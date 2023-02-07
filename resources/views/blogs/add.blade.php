@@ -145,6 +145,23 @@
             </select>
           </div>
 
+          <div class="form-group">
+            <label>Select Blog Category</label>
+            <select name="parent_id" class="form-control">
+
+              <option value="0">
+                No Parent
+              </option>
+
+              @foreach($blog_categories as $blog_category)
+              <option value="{{ $blog_category->id }}">
+                {{ $blog_category->name }}
+              </option>
+              @endforeach
+
+            </select>
+          </div>
+
 
           <div class="form-group">
             <label>Select Related Blog</label>

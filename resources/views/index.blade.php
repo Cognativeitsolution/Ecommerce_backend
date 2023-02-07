@@ -66,7 +66,7 @@
                            <p>{{ Str::of( $latest_blog->title )->limit(100, '..') }}<br><br>
                               {!! $latest_blog->long_description !!}
                            </p>
-                           <button class="btn btn_readmore">READ MORE</button>
+                           <a href="#" class="btn btn_readmore">READ MORE</a>
                         </div>
                      </div>
                   @endforeach

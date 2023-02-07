@@ -77,7 +77,7 @@ section{
     display:inline-block
 }
 header{
-    background:linear-gradient(#111, #000 , #111);
+    background:linear-gradient(to right, #ffffff , #daad51);
     color:#fff;
     padding:3px 0;
 }
@@ -93,6 +93,7 @@ header{
 .blog_info-detail,.lower_primary-header{
     /* display:flex;
     justify-content:space-between */
+    padding: 3px;
 }
 .header_logo-link{
     
@@ -118,17 +119,20 @@ header{
     transition:0.5s;
 }
 .nav_bar ul li.active:hover{
-    background-color:#fff;
+    background-color:#000;
     transition:0.5s;
 }
 
 .nav_bar ul li a{
-    padding:4px 6px;
-    color:#fff;
-    transition:0.5s;
+    padding: 4px 6px;
+    color: #000;
+    transition: 0.5s;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight:500;
 }
 .nav_bar ul li a:hover{
-    color:#daad51;
+    color:#fff;
     transition:0.5s;
 }
 .btn_head_wrapper{
@@ -158,6 +162,7 @@ header{
     flex:1;
     position:relative;
     background:#fff;
+    border: 1px solid #ddd;
     border-radius:30px;
     display:flex;
     justify-content:space-between;
@@ -181,8 +186,14 @@ header{
     padding:3px 12px;
     font-size:17px;
     color:#fff;
-    background-color:#daad51;
-    border-radius:0 15px 15px 0
+    background-color:#111;
+    border-radius:0 15px 15px 0;
+    transition:0.7s;
+}
+.nav-search-icon:hover{
+    transition:0.7s;
+    color:#daad51;
+    background-color:#111;
 }
 .toggle_menu{
     background:#daad51;
@@ -203,7 +214,7 @@ header{
     padding-top:30px;
     left:-350px;
     top:0;
-    background:#000;
+    background:#6e5728;
     z-index:100;
     height:100vh;
     max-width:250px;
@@ -369,7 +380,7 @@ nav.primary-navigation{
 }
 .hero-content .swiper{
     width:100%;
-    height:335px;
+    height:400px;
     overflow:hidden;
     border-radius:20px
 }
@@ -382,7 +393,7 @@ nav.primary-navigation{
     display:flex;
     grid-gap:15px;
     position:relative;
-    padding:60px 100px;
+    padding:100px 100px;
     flex-direction:column;
     align-items:flex-start;
     justify-content:flex-end
@@ -418,7 +429,7 @@ nav.primary-navigation{
     width:150px
 }
 .primary_heading h2{
-    color:#333;
+    color:#daad51;
     display:flex;
     font-size:24px;
     align-items:center;
@@ -436,7 +447,7 @@ nav.primary-navigation{
     content:"";
     display:block;
     position:absolute;
-    border-bottom:3px solid #5b7fa7;
+    border-bottom:3px solid #000;
     height:4px;
     width:100%;
     bottom:-8px
@@ -859,12 +870,12 @@ h4.show_coupon{
     font-size:18px;
     font-weight:500;
     text-transform:capitalize;
-    color:#fff
+    color:#daad51
 }
 .post_box_content p{
     font-size:13px;
     padding-top:6px;
-    color:#ffffffdb
+    color:#ffffff
 }
 .ftr_heading,.ftr_links_wrpr a{
     color:#fff;
@@ -874,7 +885,8 @@ h4.show_coupon{
     font-size:20px;
     line-height:1.3;
     font-weight:600;
-    margin-bottom:20px!important
+    margin-bottom:20px!important;
+    color:#daad51;
 }
 .ftr_links_wrpr{
     list-style:none;
@@ -1058,7 +1070,7 @@ h4.show_coupon{
     font-weight:600;
     text-transform:uppercase;
     margin:0;
-    color:#fff;
+    color:#daad51;
     text-align:left
 }
 .subscription_text p{
@@ -1354,7 +1366,8 @@ h4.show_coupon{
 .s_main-head{
     display:block;
     font-size:28px;
-    font-weight:600
+    font-weight:600;
+    color: #daad51;
 }
 .s_sub-head,.user_cmm{
     font-size:16px
@@ -1505,7 +1518,7 @@ h4.show_coupon{
 }
 .store_title.sl_page{
     margin-top:0;
-    color:#000;
+    color:#daad51;
     font-weight: 600;
     margin-bottom:10px;
 }
@@ -2687,16 +2700,26 @@ img.avatar_img{
     color: #12141a;
     padding: 20px 0px;
     margin-top: 50px;
-    font-weight: bold;
     font-size: 18px;
     background: #daad51;
+    letter-spacing: 2px;
 }
 a:focus, a:hover{
     color:#000;
 }
+.header_line{
+    background: linear-gradient(to left, #a98949 , #daad51);
+    width:100%;
+    height:3px;
+    display: block;
+    float: left;
+}
 @media only screen and (max-width:1200px){
     .head_search_bar{
         flex: 0 0 32%;
+    }
+    .nav_bar ul li a{
+        font-size: 14px;
     }
 }
 @media only screen and (max-width:1000px){

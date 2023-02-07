@@ -22,6 +22,7 @@ class SlidersSeeder extends Seeder
             $slider = new Slider;
             $slider->title = $faker->sentence(4);
             $slider->description = $faker->sentence(10);
+            $slider->is_coupon = random_int(0, 1);
             $slider->url = "#";
             $slider->image = "slider.jpg";
             $slider->save();

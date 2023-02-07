@@ -78,9 +78,10 @@ class SliderController extends Controller
     public function store(StoreSliderRequest $request)
     {
         $data = [
-            'title'  => $request->title,
-            'description'  => $request->description,
-            'url'  => !is_null($request->url) ? $request->url : '#'
+            'title'         => $request->title,
+            'description'   => $request->description,
+            'url'           => !is_null($request->url) ? $request->url : '#',
+            'is_coupon'     => $request->is_coupon
         ];
 
         $record = Slider::create( $data );

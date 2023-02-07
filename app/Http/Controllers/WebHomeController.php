@@ -9,7 +9,11 @@ use App\Models\Coupon;
 class WebHomeController extends Controller
 {
     public function index() {        
-        $slider = Slider::select('id', 'image', 'title', 'description', 'url', 'status')->get();
+        $slider = Slider::select('id', 'image', 'title', 'description', 'url', 'status')
+            ->get();
+//        ->toArray();
+
+//        dd( $slider );
 
 //        $top_stores = Store::where('type', 1)->where('top', 1)->where('status', 1)
 //            ->select(

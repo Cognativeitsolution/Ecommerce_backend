@@ -44,7 +44,7 @@
             <li class="side-list"><a href="{{ route('web.home') }}" class="side-list-link">Home</a></li>
 
             @foreach($blog_categories as $category)
-               <li class="side-list"><a href="#" class="side-list-link">{{ $category->name }}</a></li>
+               <li class="side-list"><a href="{{ route('web.blog_category', $category->slug) }}" class="side-list-link">{{ $category->name }}</a></li>
             @endforeach
 
          </ul>
@@ -71,7 +71,7 @@
                               <li class=""><a href="{{ route('web.home') }}">Home</a></li>
 
                               @foreach($blog_categories as $category)
-                                 <li class=""><a href="#">{{ $category->name }}</a></li>
+                                 <li class=""><a href="{{ route('web.blog_category', $category->slug) }}">{{ $category->name }}</a></li>
                               @endforeach
                               
                            </ul>

@@ -10,54 +10,61 @@ use DB;
 
 class WebHomeController extends Controller
 {
-    public function index() {        
+    public function index()
+    {
         $slider = Slider::select('id', 'image', 'title', 'description', 'status')
             ->where('status', 1)
             ->where('is_coupon', 0)
             ->get();
 
-//        $latest_blogs = Blog::select(
-//            'id',
-//            'name',
-//            'slug',
-//            'parent_id'
-//
-//        )
-//            ->limit(4)
-//            ->orderBy('blogs.id', 'DESC')
-//            ->get();
+        //        $latest_blogs = Blog::select(
+        //            'id',
+        //            'name',
+        //            'slug',
+        //            'parent_id'
+        //
+        //        )
+        //            ->limit(4)
+        //            ->orderBy('blogs.id', 'DESC')
+        //            ->get();
 
         $latest_blog_with_category = DB::table('blogs as blog')
-            ->join('blogs as category','category.id','=','blog.parent_id')
+            ->join('blogs as category', 'category.id', '=', 'blog.parent_id')
             ->select(
                 'blog.*',
                 'category.id as category_id',
                 'category.name as category_name'
             )
             ->where('blog.status', 1)
+            ->where('blog.is_coupon_site', 0)
             ->orderBy('blog.id', 'DESC')
             ->take(4)
             ->get();
 
 
-//        dd( $latest_blog_with_category->toArray() );
+        //        dd( $latest_blog_with_category->toArray() );
 
 
-        return view('index', compact('slider','latest_blog_with_category'));
+        return view('index', compact('slider', 'latest_blog_with_category'));
     }
 
-    public function blog_details($slug){
+    public function blog_details($slug)
+    {
 
-//        dd($slug);
+        //        dd($slug);
         return view('blog_detail');
-
     }
 
-    public function blog_category($slug){
+    public function blog_category($slug)
+    {
+        $category = Blog::select('id', 'name')->where('slug', $slug)->first();
 
-//        dd($slug);
-        return view('blog_category');
+        if ($category) {
+            $blogs = Blog::select('id', 'name', 'blog_image', 'slug')->where('parent_id', $category->id)->where('is_coupon_site', 0)->get();
 
+            return view('blog_category', compact('category', 'blogs'));
+        }
+        
+        return redirect()->route('web.home');
     }
-
 }

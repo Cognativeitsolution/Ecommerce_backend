@@ -2887,6 +2887,9 @@ a:focus, a:hover{
     display: block;
     float: left;
 }
+.blog_list-container{
+    padding: 20px;
+}
 @media only screen and (max-width:1200px){
     .head_search_bar{
         flex: 0 0 32%;

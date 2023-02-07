@@ -18,7 +18,6 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    
    <!--- Style css file -->
-   <!-- <link rel="stylesheet" href="{{ asset('assets/css/blog_site/style.css') }}" type="text/css"> -->
    <link rel="stylesheet" href="{{ asset('assets/css/blog_site/style2.css') }}" type="text/css">
    <link rel="stylesheet" href="{{ asset('assets/css/blog_site/media.css') }}" type="text/css">
 
@@ -37,15 +36,17 @@
       </div>
       <div class="sd_img_box">
          
-         <img src="{{ asset('images/' . $settings->header_logo) }}" alt="sd-header-logo">
+         <img src="{{ asset('images/logoblack.png') }}" alt="sd-header-logo">
+
       </div>
       <div class="sidebar__list">
          <ul class="un-sideb-list">
-            <li class="side-list"><a href="#" class="side-list-link">Home</a></li>
-            <li class="side-list"><a href="#" class="side-list-link">Fashion & Beauty</a></li>
-            <li class="side-list"><a href="#" class="side-list-link">Health & Fitness</a></li>
-            <li class="side-list"><a href="#" class="side-list-link">Food</a></li>
-            <li class="side-list"><a href="#" class="side-list-link">Technology</a></li>
+            <li class="side-list"><a href="{{ route('web.home') }}" class="side-list-link">Home</a></li>
+
+            @foreach($blog_categories as $category)
+               <li class="side-list"><a href="#" class="side-list-link">{{ $category->name }}</a></li>
+            @endforeach
+
          </ul>
       </div>
    </div>
@@ -59,19 +60,20 @@
                <div class="main_head_wrapper">
                   <div class="upper_primary-header">
                      <div class="logo_box">
-                        <a href="{{ route('web.coupon') }}" class="header_logo-link">
-                           <img src="{{ asset('images/' . $settings->header_logo) }}" alt="logo" class="resp_logo">
+                        <a href="{{ route('web.home') }}" class="header_logo-link">
+                           <img src="{{ asset('images/logoblack.png') }}" alt="logo" class="resp_logo">
                         </a>
                      </div>
                      
                      <div class="main_menu">
                         <nav class="nav_bar">
                            <ul>
-                              <li class=""><a href="#">Home</a></li>
-                              <li class=""><a href="#">Fashion & Beauty</a></li>
-                              <li class=""><a href="#">Health & Fitness</a></li>
-                              <li class=""><a href="#">Food</a></li>
-                              <li class=""><a href="#">Technology</a></li>
+                              <li class=""><a href="{{ route('web.home') }}">Home</a></li>
+
+                              @foreach($blog_categories as $category)
+                                 <li class=""><a href="#">{{ $category->name }}</a></li>
+                              @endforeach
+                              
                            </ul>
                         </nav>
                      </div>
@@ -136,7 +138,7 @@
                   <div class="fotr_container">
                      <div class="ftr_center">
                            
-                              <a href="{{ route('web.coupon') }}" class="footer-logo">
+                              <a href="{{ route('web.home') }}" class="footer-logo">
                                  <img src="{{ asset('images/' . $settings->footer_logo) }}" class="img-responsive" alt="" width="170" height="50">
                               </a>
                            
@@ -151,37 +153,18 @@
                               <h2 class="ftr_heading">Recent Blogs</h2>
                               <ul class="ftr_links_wrpr">
                                  
+                              @foreach($recent_blogs_footer as $recent_blog)
                                  <li>
                                     <a href="#">
                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                           <polyline points="9 6 15 12 9 18"></polyline>
                                        </svg>
-                                       Testing Blog 1
+                                       {{ Str::of( $recent_blog->name )->limit(30, '..') }}
                                     </a>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       Testing Blog 2
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       Testing Blog 3
-                                    </a>
-                                 </li>
-                                 
-                                 
-                                 
-
+                              @endforeach
+                                
                                  
                               </ul>
                            </div>
@@ -189,52 +172,29 @@
                               <h2 class="ftr_heading">Blog Categories</h2>
                               <ul class="ftr_links_wrpr">
                                  
+                              @foreach($blog_categories as $category)
                                  <li>
                                     <a href="#">
                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                           <polyline points="9 6 15 12 9 18"></polyline>
                                        </svg>
-                                       Fashion & beauty
+                                       {{ $category->name }}
                                     </a>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       Food
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       Fitness
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       Technolgy
-                                    </a>
-                                 </li>
+                              @endforeach
+
                                  
                               </ul>
                            </div>
                            <div class="ftr_links ftr_links2">
                               <h2 class="ftr_heading">Visit Us</h2>
-                              <p>Email : abc@example.com</p>
                               
-                              <p>Phone : 000 222 333</p>
+                              <p>Email : {{ $settings->contact_email }}</p>
                               
-                              <p>Address <br> Park Avenue, Shahrah-e-Faisal, P.E.C.H.S. 4th Floor, Office No. 413, Karachi</p>
+                              <p>Phone : {{ $settings->contact_number }}</p>
+                              
+                              <p>Address <br> {{ $settings->location_address }} </p>
                               
                            </div>
                            

@@ -41,6 +41,9 @@ Route::get('clear_cache', function () {
 });
 
 Route::get('/', [WebHomeController::class, 'index'])->name('web.home');
+Route::get('/blog/{slug}', [WebHomeController::class, 'blog_details'])->name('web.blog_details');
+Route::get('/blog/category/{slug}', [WebHomeController::class, 'blog_category'])->name('web.blog_category');
+
 Route::get('/coupon', [WebCouponController::class, 'index'])->name('web.coupon');
 Route::get('/stores', [WebStoresController::class, 'index']);
 Route::get('/categories', [WebStoresController::class, 'categories']);

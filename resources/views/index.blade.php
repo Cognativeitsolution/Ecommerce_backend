@@ -45,114 +45,36 @@
                <div class="row">
                   <div class="col-md-8">
 
-
+                  @foreach($latest_blog_with_category as $latest_blog)
                      <div class="single_post_container">
                         <div class="img_content">
-                           <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                           <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image ) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
                         </div>
                         <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                           <div class="date">
+                              {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $latest_blog->created_at)->format('d M, Y') }}
+                           </div>
+                           <div class="views"><i class="fa fa-eye"></i>
+                           {{ $latest_blog->views }}
+                        </div>
+                           <label>
+                           {{ $latest_blog->category_name }}
+                           </label>
+                           <h3>
+                           <h3>{{ Str::of( $latest_blog->name )->limit(60, '..') }}</h3>
+                           </h3>
+                           <p>{{ Str::of( $latest_blog->title )->limit(100, '..') }}<br><br>
+                              {!! $latest_blog->long_description !!}
+                           </p>
                            <button class="btn btn_readmore">READ MORE</button>
                         </div>
                      </div>
+                  @endforeach
 
 
-                     <div class="single_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                           <button class="btn btn_readmore">READ MORE</button>
-                        </div>
-                     </div>
-
-                     <div class="single_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                           <button class="btn btn_readmore">READ MORE</button>
-                        </div>
-                     </div>
-
-                     <div class="single_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                           <button class="btn btn_readmore">READ MORE</button>
-                        </div>
-                     </div>
-
-                     <div class="single_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                           <button class="btn btn_readmore">READ MORE</button>
-                        </div>
-                     </div>
-
-                     <div class="single_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                           <button class="btn btn_readmore">READ MORE</button>
-                        </div>
-                     </div>
-
-                     <div class="single_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <div class="date">27 Sepember</div>
-                           <div class="views"><i class="fa fa-eye"></i> 1000</div>
-                           <label>Fashion & Beauty</label>
-                           <h3>10 Easy Ways to Be Environmentally Conscious At Home</h3>
-                           <p>Why do we use it?<br><br>
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                           <button class="btn btn_readmore">READ MORE</button>
-                        </div>
-                     </div>
 
 
+                     
 
 
                      
@@ -160,82 +82,26 @@ It is a long established fact that a reader will be distracted by the readable c
                   <div class="col-md-4">
                      <h2>Latest Blog Post</h2>
 
+                     @foreach($latest_blog_with_category as $latest_blog)
                      <div class="latest_post_container">
                         <div class="img_content">
-                           <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                           <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
                         </div>
                         <div class="main_content">
-                           <label>Fashion & Beauty</label>
-                           <h3>blog heading</h3>
-                           <p>blog description</p>
+                           <label>{{ $latest_blog->category_name }}</label>
+                           <h3>{{ Str::of( $latest_blog->name )->limit(10, '.') }}</h3>
+                           <p>{{ Str::of( $latest_blog->short_description )->limit(25, '.') }}</p>
                         </div>
                      </div>
-
-                     <div class="latest_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <label>Fashion & Beauty</label>
-                           <h3>blog heading</h3>
-                           <p>blog description</p>
-                        </div>
-                     </div>
-
-                     <div class="latest_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <label>Fashion & Beauty</label>
-                           <h3>blog heading</h3>
-                           <p>blog description</p>
-                        </div>
-                     </div>
-
-                     <div class="latest_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <label>Fashion & Beauty</label>
-                           <h3>blog heading</h3>
-                           <p>blog description</p>
-                        </div>
-                     </div>
-
-                     <div class="latest_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <label>Fashion & Beauty</label>
-                           <h3>blog heading</h3>
-                           <p>blog description</p>
-                        </div>
-                     </div>
-
-                     <div class="latest_post_container">
-                        <div class="img_content">
-                        <img data-src="{{ asset('thumbnail/blog_imgs.jpg') }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
-                        </div>
-                        <div class="main_content">
-                           <label>Fashion & Beauty</label>
-                           <h3>blog heading</h3>
-                           <p>blog description</p>
-                        </div>
-                     </div>
-
-                     
-
+                     @endforeach
 
                      
                      <div class="blog_tags">
                      <h2>Blog Categories</h2>
 
-                        <button class="btn btn_tag">Fashion & Beauty</button>
-                        <button class="btn btn_tag">Health & Fitness</button>
-                        <button class="btn btn_tag">Technology</button>
+                     @foreach($blog_categories as $category)
+                        <button class="btn btn_tag">{{ $category->name }}</button>
+                     @endforeach
                         
                      </div>
                   </div>

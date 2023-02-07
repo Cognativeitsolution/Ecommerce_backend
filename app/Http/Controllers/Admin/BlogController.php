@@ -38,16 +38,19 @@ class BlogController extends Controller
         $search = request('search');
 
         if (!empty($search)) {
-            $record = Blog::where('blogs.title', 'like', '%'.$search.'%')
-                ->orWhere('blogs.name', 'like', '%'.$search.'%')
-                ->orWhere('blogs.short_description', 'like', '%'.$search.'%')
-                ->orWhere('blogs.long_description', 'like', '%'.$search.'%')
+            $record = Blog::where('is_coupon_site', '!=', 0)
+                ->where(function($query) use ($search) {
+                    $query->where('blogs.title', 'like', '%'.$search.'%')
+                    ->orWhere('blogs.name', 'like', '%'.$search.'%')
+                    ->orWhere('blogs.short_description', 'like', '%'.$search.'%')
+                    ->orWhere('blogs.long_description', 'like', '%'.$search.'%');
+                })                
                 ->orderBy('blogs.id','DESC')
                 ->paginate(5);
             return view('blogs.index', compact('record') );
         }else{
 
-            $record = Blog::orderBy('blogs.id','DESC')->paginate(10);
+            $record = Blog::where('is_coupon_site', '!=', 0)->orderBy('blogs.id','DESC')->paginate(10);
 
             if($record != false){
                 return view('blogs.index', compact('record') );
@@ -64,9 +67,10 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $blogs = Blog::select('id', 'title')->get();
+        $blogs = Blog::select('id', 'title')->where('is_coupon_site', '!=', 0)->get();
         $tags = Tag::select('id', 'name')->get();
-        return view('blogs.add', compact('blogs', 'tags'));
+        $blog_categories = Blog::select('id', 'name')->where('parent_id', 0)->where('is_coupon_site', 0)->get();
+        return view('blogs.add', compact('blogs', 'tags', 'blog_categories'));
     }
 
     /**
@@ -138,11 +142,13 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        $record = Blog::select('blogs.id', 'blogs.name', 'blogs.title', 'blogs.reading_time', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
+        $record = Blog::select('blogs.id', 'blogs.parent_id', 'blogs.name', 'blogs.title', 'blogs.reading_time', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
                 ->where('blogs.id', $blog->id)
                 ->first();
 
-        $blogs = Blog::select('id', 'title')->whereNotIn('id', [$blog->id])->get();
+        $blogs = Blog::select('id', 'title')->whereNotIn('id', [$blog->id])->where('is_coupon_site', '!=', 0)->get();
+
+        $blog_categories = Blog::select('id', 'name')->where('parent_id', 0)->where('is_coupon_site', 0)->get();
 
         $related_blog_ids = BlogRelated::where('blog_id', $blog->id)
             ->pluck('related_blog_id')->toArray();
@@ -153,7 +159,7 @@ class BlogController extends Controller
         $logs = Logs::get_logs_details(Blog::getTableName(), $blog->id);
 
         if($record != false){
-            return view('blogs.edit', compact('record','logs','blogs','related_blog_ids','tags','blogTag'));
+            return view('blogs.edit', compact('record','logs','blogs','blog_categories','related_blog_ids','tags','blogTag'));
         }else{
             abort(404);
         }

@@ -19,6 +19,7 @@ class BlogsSeeder extends Seeder
         $blogs = [
             [
                 'parent_id' => 0,
+                'is_coupon_site' => 0,
                 'name'=>'Fashion & Beauty',
                 'title'=>'fashion-and-beauty',
                 'slug'=> 'more-links',
@@ -29,6 +30,7 @@ class BlogsSeeder extends Seeder
             ],
             [
                 'parent_id' => 0,
+                'is_coupon_site' => 0,
                 'name'=>'Food',
                 'title'=>'food',
                 'slug'=> 'more-links',
@@ -39,6 +41,7 @@ class BlogsSeeder extends Seeder
             ],
             [
                 'parent_id' => 0,
+                'is_coupon_site' => 0,
                 'name'=>'Fitness',
                 'title'=>'fitness',
                 'slug'=> 'more-links',
@@ -49,6 +52,7 @@ class BlogsSeeder extends Seeder
             ],
             [
                 'parent_id' => 0,
+                'is_coupon_site' => 0,
                 'name'=>'Technolgy',
                 'title'=>'technolgy',
                 'slug'=> 'more-links',

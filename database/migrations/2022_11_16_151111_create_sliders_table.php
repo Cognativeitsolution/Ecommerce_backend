@@ -18,6 +18,7 @@ class CreateSlidersTable extends Migration
             $table->string('image')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->tinyInteger('is_coupon')->default(1);
             $table->string('url')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();

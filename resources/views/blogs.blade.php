@@ -42,7 +42,7 @@
 
                @foreach($record as $blog)
                <a href="{{ url('blogs/' .$blog->slug ) }}" class="blog_item">
-                  <div class="blog_img-box lazy_img"><img src="{{ asset('thumbnail/blog_imgs.jpg') }}" width="100%"></div>
+                  <div class="blog_img-box lazy_img"><img src="{{ asset('thumbnail/' .$blog->blog_image ) }}" width="100%"></div>
                   <div class="blog_content-box">
                      <div class="blog_tags">
                      @foreach($blog->tags as $tag)
@@ -80,7 +80,9 @@
                @foreach($latest as $latest_blog)
                <a href="{{ url('blogs/' .$latest_blog->slug ) }}" class="latest_post-item">
                   <div class="lpi_img">
-                     <div class="banner_two blog_img"><img src="{{ asset('thumbnail/men-watches.png') }}" width="100%"></div>
+                     <div class="banner_two blog_img">
+                        <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image ) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                     </div>
                   </div>
                   <div class="lpi_content">
                      <h2 class="lpi_sub-heading">{{ $latest_blog->name }}</h2>
@@ -95,5 +97,13 @@
       </div>
    </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<!-- IMAGES LOAD ON SCROLL  -->
+<script src="{{ asset('assets/js/images_on_scroll.js') }}"></script>
+
+<script>
+   $('img').loadScroll(200);// in ms
+</script>
 
 @endsection

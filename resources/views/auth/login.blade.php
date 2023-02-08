@@ -62,7 +62,7 @@ $user_email = Crypt::decryptString(Cookie::get('user_r'));
                             <div class="form_wrapper">
 
                                 <div class="form_group">
-                                    <input type="email" required name="email" placeholder="Enter your Email" class="input user_mail" value="{{ $user_email }}" autofocus>
+                                    <input type="email" required name="email" placeholder="Enter your Email" class="input2 user_mail" value="{{ $user_email }}" autofocus>
 
                                     @error('email')
                                     <div class="error">

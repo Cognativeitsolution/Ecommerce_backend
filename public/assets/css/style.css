@@ -400,7 +400,7 @@ nav.primary-navigation{
     display:flex;
     grid-gap:15px;
     position:relative;
-    padding:200px 100px;
+    padding:180px 100px;
     flex-direction:column;
     align-items:flex-start;
     justify-content:flex-end
@@ -2819,6 +2819,16 @@ a:focus, a:hover{
     }
     .hero-content .swiper-slide a {
         margin: 0 auto !important;
+    }
+    .hero-content .swiper-slide{
+        height:100%;
+        display:flex;
+        grid-gap:15px;
+        position:relative;
+        padding:140px 100px;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-end
     }
     
 }

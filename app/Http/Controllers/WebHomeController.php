@@ -17,16 +17,26 @@ class WebHomeController extends Controller
             ->where('is_coupon', 0)
             ->get();
 
-        //        $latest_blogs = Blog::select(
-        //            'id',
-        //            'name',
-        //            'slug',
-        //            'parent_id'
-        //
-        //        )
-        //            ->limit(4)
-        //            ->orderBy('blogs.id', 'DESC')
-        //            ->get();
+        $main_blog_with_category = DB::table('blogs as blog')
+            ->join('blogs as category','category.id','=','blog.parent_id')
+            ->select(
+                'blog.id',
+                'blog.name',
+                'blog.parent_id',
+                'blog.name',
+                'blog.slug',
+                'blog.blog_image',
+                'blog.long_description',
+                'blog.views',
+                'blog.created_at',
+                'category.id as category_id',
+                'category.name as category_name'
+            )
+            ->where('blog.status', 1)
+            ->where('blog.is_coupon_site', 0)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
 
         $latest_blog_with_category = DB::table('blogs as blog')
             ->join('blogs as category', 'category.id', '=', 'blog.parent_id')
@@ -41,11 +51,9 @@ class WebHomeController extends Controller
             ->take(4)
             ->get();
 
+//                dd( $main_blog_with_category->toArray() );
 
-        //        dd( $latest_blog_with_category->toArray() );
-
-
-        return view('index', compact('slider', 'latest_blog_with_category'));
+        return view('index', compact('slider', 'latest_blog_with_category', 'main_blog_with_category'));
     }
 
     public function blog_details($slug)

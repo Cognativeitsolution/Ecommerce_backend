@@ -169,7 +169,6 @@ header{
     flex:1;
     position:relative;
     background:#fff;
-    border: 1px solid #ddd;
     border-radius:30px;
     display:flex;
     justify-content:space-between;
@@ -193,7 +192,7 @@ header{
     padding:3px 12px;
     font-size:17px;
     color:#fff;
-    background-color:#111;
+    background-color:#daad51;
     border-radius:0 15px 15px 0;
     transition:0.7s;
 }
@@ -383,7 +382,9 @@ nav.primary-navigation{
     width:100%;
     display:grid;
     align-items:center;
-    margin-bottom:50px;
+}
+.main_slider{
+    padding:0;
 }
 .hero-content .swiper{
     width:100%;

@@ -2720,6 +2720,23 @@ a:focus, a:hover{
     display: block;
     float: left;
 }
+.button_clone{
+    position: relative;
+    left: 50px;
+    padding: 5px 10px;
+    background: #daad51;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.button_clone:hover{
+    background: #000;
+    border: none;
+    color: #daad51;
+    border-radius: 5px;
+    transition: 0.5s;
+}
 @media only screen and (max-width:1200px){
     .head_search_bar{
         flex: 0 0 32%;

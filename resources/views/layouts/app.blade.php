@@ -146,7 +146,6 @@
                   <div class="fotr_container">
                      <div class="ftr_center">
                      </div>
-                     <hr>
                      <div class="ftr_tops">
                         <div class="popular_posts">
                            <div class="post_box">
@@ -238,7 +237,6 @@
                               <a href="{{ route('web.coupon') }}" class="footer-logo">
                                  <img src="{{ asset('images/' . $settings->footer_logo) }}" class="img-responsive" alt="" width="170" height="50">
                               </a>
-                              <p>{{ $settings->footer_text }}</p>
                               <div class="effect phebe">
                                  <div class="buttons">
                                     
@@ -334,12 +332,14 @@
                                  @endforeach
                               </ul>
                            </div>
+                           
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+         <div class="footer_bottom"><p>{{ $settings->footer_text }}</p></div>
       </footer>
    </main>
 
@@ -600,6 +600,18 @@ source: function(query, process) {
       });
 
    }
+   
+                                             function myFunction(n) {
+                                             var copyText = document.getElementById("myInput"+n);
+                                             $("#ctc"+n).css("border","2px dashed #111");
+                                             copyText.select();
+                                             copyText.setSelectionRange(0, 99999); // For mobile devices
+                                             navigator.clipboard.writeText(copyText.value);
+                                                setTimeout(function(){
+                                                   $("#ctc"+n).css("border","2px dashed #daad51");
+                                                }, 1000);
+                                             }
+                                          
 </script>
 
 </html>

@@ -48,7 +48,7 @@ body {
 .table thead{
 	padding:2px;
 	width:100%;
-	background:#fd7e14;
+	background:#daad51;
 	color:#fff;
 }
 
@@ -107,11 +107,11 @@ label.table-badge {
 }
 
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active{
-    background-color: #ff8839de !important;
+    background-color: #daad51 !important;
 }
 
 [class*=sidebar-dark-] {
-    background-color: #0c7dc2;
+    background-color: #000;
 }
  
 /* sidebar nav */
@@ -121,7 +121,7 @@ label.table-badge {
 }
 
 a.nav-link:hover {
-    background: #e0864b !important;
+    background: #daad51 !important;
 }
 
 [class*=sidebar-dark-] .sidebar a {
@@ -209,7 +209,7 @@ a#navbarDropdown {
     font-size:14px;
 }
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active{
-    background-color: #1175b1;
+    background-color: #daad51;
 }
 .active {
     color: blue;
@@ -222,7 +222,7 @@ a#navbarDropdown {
     width:100%;
     margin-left:0;
     margin-right:0;
-    max-height:100px;
+    max-height:150px;
 }
 .user_image{
     width: 95%;

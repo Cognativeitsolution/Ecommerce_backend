@@ -151,21 +151,21 @@
             </div>
 
             <div class="form-group">
-            <label>Select Blog Category</label>
-            <select name="parent_id" class="form-control">
+              <label>Select Blog Category</label>
+              <select name="parent_id" class="form-control">
 
-              <option value="0" {{ $record->parent_id == 0 ? 'selected' : '' }}>
-                No Parent
-              </option>
+                <option value="0" {{ $record->parent_id == 0 ? 'selected' : '' }}>
+                  No Parent
+                </option>
 
-              @foreach($blog_categories as $blog_category)
-              <option value="{{ $blog_category->id }}" {{ $record->parent_id == $blog_category->id ? 'selected' : '' }}>
-                {{ $blog_category->name }}
-              </option>
-              @endforeach
+                @foreach($blog_categories as $blog_category)
+                <option value="{{ $blog_category->id }}" {{ $record->parent_id == $blog_category->id ? 'selected' : '' }}>
+                  {{ $blog_category->name }}
+                </option>
+                @endforeach
 
-            </select>
-          </div>
+              </select>
+            </div>
 
 
             <div class="form-group">
@@ -180,6 +180,20 @@
 
               </select>
             </div>
+
+            <hr>
+            <h4>Display To</h4>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" value="1" class="form-check-input" {{ $record->is_coupon_site == 1 ? 'checked' : '' }} name="is_coupon_site">Coupon Site
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" value=0 class="form-check-input" {{ $record->is_coupon_site == 0 ? 'checked' : '' }} name="is_coupon_site">Blog Site
+              </label>
+            </div>
+            <hr>
 
             <div class="form-group">
               <label for="blog_image">Blog Image</label>

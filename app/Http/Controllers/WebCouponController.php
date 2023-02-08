@@ -11,7 +11,7 @@ class WebCouponController extends Controller
 {
     public function index() {
 
-        $slider = Slider::select('id', 'image', 'title', 'description', 'url', 'status')->get();
+        $slider = Slider::select('id', 'image', 'title', 'description', 'url', 'status')->where('is_coupon', 1)->get();
 
         $top_stores = Store::where('type', 1)->where('top', 1)->where('status', 1)
             ->select(

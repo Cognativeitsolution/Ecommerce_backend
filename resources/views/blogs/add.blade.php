@@ -173,6 +173,21 @@
 
             </select>
           </div>
+
+          <hr>
+          <h4>Display To</h4>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" value="1" class="form-check-input" checked="checked" name="is_coupon_site">Coupon Site
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" value=0 class="form-check-input" name="is_coupon_site">Blog Site
+            </label>
+          </div>
+          <hr>
+
           <!-- <form role="form">
             <input id="sample_input" type="hidden" name="test[image]">
           </form> -->

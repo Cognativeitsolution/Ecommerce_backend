@@ -38,7 +38,8 @@ class BlogController extends Controller
         $search = request('search');
 
         if (!empty($search)) {
-            $record = Blog::where('is_coupon_site', '!=', 0)
+            $record = Blog::whereNotIn('id', [1,2,3,4])
+                // where('is_coupon_site', '!=', 0)
                 ->where(function($query) use ($search) {
                     $query->where('blogs.title', 'like', '%'.$search.'%')
                     ->orWhere('blogs.name', 'like', '%'.$search.'%')
@@ -46,11 +47,13 @@ class BlogController extends Controller
                     ->orWhere('blogs.long_description', 'like', '%'.$search.'%');
                 })                
                 ->orderBy('blogs.id','DESC')
-                ->paginate(5);
+                ->paginate(10);
             return view('blogs.index', compact('record') );
         }else{
 
-            $record = Blog::where('is_coupon_site', '!=', 0)->orderBy('blogs.id','DESC')->paginate(10);
+            $record = Blog::whereNotIn('id', [1,2,3,4])
+                            // ->where('parent_id', '!=', 0)
+                            ->orderBy('blogs.id','DESC')->paginate(15);
 
             if($record != false){
                 return view('blogs.index', compact('record') );
@@ -142,7 +145,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        $record = Blog::select('blogs.id', 'blogs.parent_id', 'blogs.name', 'blogs.title', 'blogs.reading_time', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
+        $record = Blog::select('blogs.id', 'blogs.parent_id', 'blogs.is_coupon_site', 'blogs.name', 'blogs.title', 'blogs.reading_time', 'blogs.short_description', 'blogs.long_description', 'blogs.blog_image', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
                 ->where('blogs.id', $blog->id)
                 ->first();
 

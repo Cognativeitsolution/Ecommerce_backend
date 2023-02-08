@@ -76,7 +76,7 @@
                     <th>Name</th>
                     <th style="text-align:center;">Title</th>
                     <th style="text-align:center;">Short Description</th>
-                    <th>Belongs To</th>
+                    <th>Display To</th>
                     <th style="text-align:center;">Updated</th>
                     <th width="150" style="text-align:center;">Action</th>
                   </tr>

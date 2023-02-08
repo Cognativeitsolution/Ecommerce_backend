@@ -74,7 +74,7 @@
                     <th>Image</th>
                     <th>Title</th>
                     <th style="text-align:center;">Description</th>
-                    <th>Belongs To</th>
+                    <th>Display To</th>
                     <th style="text-align:center;">Updated</th>
                     <th width="150" style="text-align:center;">Action</th>
                   </tr>

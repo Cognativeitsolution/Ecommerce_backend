@@ -18,7 +18,7 @@ class WebHomeController extends Controller
             ->get();
 
         $main_blog_with_category = DB::table('blogs as blog')
-            ->join('blogs as category','category.id','=','blog.parent_id')
+            ->join('blogs as category', 'category.id', '=', 'blog.parent_id')
             ->select(
                 'blog.id',
                 'blog.name',
@@ -51,16 +51,45 @@ class WebHomeController extends Controller
             ->take(4)
             ->get();
 
-//                dd( $main_blog_with_category->toArray() );
+        //                dd( $main_blog_with_category->toArray() );
 
         return view('index', compact('slider', 'latest_blog_with_category', 'main_blog_with_category'));
     }
 
     public function blog_details($slug)
     {
+        $blog = DB::table('blogs as blog')
+            ->join('blogs as category', 'category.id', '=', 'blog.parent_id')
+            ->select(
+                'blog.*',
+                'category.id as category_id',
+                'category.name as category_name'
+            )
+            ->where('blog.slug', $slug)
+            ->first();
 
-        //        dd($slug);
-        return view('blog_detail');
+        if (!$blog) {
+            return redirect()->route('web.home');
+        }
+
+        Blog::find($blog->id)->increment('views');
+
+        $latest_blog_with_category = DB::table('blogs as blog')
+            ->join('blogs as category', 'category.id', '=', 'blog.parent_id')
+            ->select(
+                'blog.*',
+                'category.id as category_id',
+                'category.name as category_name'
+            )
+            ->where('blog.status', 1)
+            ->where('blog.is_coupon_site', 0)
+            ->orderBy('blog.id', 'DESC')
+            ->take(4)
+            ->get();
+
+
+        //    dd($latest_blog_with_category);
+        return view('blog_detail', compact('blog', 'latest_blog_with_category'));
     }
 
     public function blog_category($slug)
@@ -72,7 +101,7 @@ class WebHomeController extends Controller
 
             return view('blog_category', compact('category', 'blogs'));
         }
-        
+
         return redirect()->route('web.home');
     }
 }

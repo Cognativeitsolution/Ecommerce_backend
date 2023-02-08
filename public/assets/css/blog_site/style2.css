@@ -75,7 +75,7 @@ body{
     display:inline-block
 }
 header{
-    background:linear-gradient(to right, #ffffff , #daad51);
+    background:#008784;
     color:#fff;
     padding:3px 0;
 }
@@ -112,25 +112,32 @@ header{
 }
 .nav_bar ul li.active{
     background-color:#daad51;
+    
     padding:4px 8px;
     border-radius:5px;
     transition:0.5s;
 }
+.nav_bar ul li.active a{
+    color: #000;
+}
+.nav_bar ul li.active:hover a{
+    color: #ffd071;
+}
 .nav_bar ul li.active:hover{
-    background-color:#fff;
+    background-color:#000;
     transition:0.5s;
 }
 
 .nav_bar ul li a{
     padding: 4px 6px;
-    color: #000;
+    color: #fff;
     transition: 0.5s;
     font-size: 17px;
     letter-spacing: 1px;
     font-weight:500;
 }
 .nav_bar ul li a:hover{
-    color:#fff;
+    color:#ffd071;
     transition:0.5s;
 }
 .btn_head_wrapper{
@@ -419,7 +426,7 @@ nav.primary-navigation{
     width:150px
 }
 .primary_heading h2{
-    color:#333;
+    color:#008784;
     display:flex;
     font-size:24px;
     align-items:center;
@@ -830,7 +837,7 @@ h4.show_coupon{
     grid-gap:10px
 }
 .footer{
-    background:#000;
+    background:#008784;
     padding-top: 20px;
 }
 .footer hr{
@@ -1170,7 +1177,7 @@ h4.show_coupon{
     display:flex;
     flex:0 0 calc(100% / 2 - 15px);
     box-shadow:0 0 10px #0002;
-    background-color:#000;
+    background-color:#008784;
     transition:.5s
 }
 .icon-area{
@@ -2882,12 +2889,24 @@ a:focus, a:hover{
 .header_line{
     background: linear-gradient(to left, #a98949 , #daad51);
     width:100%;
-    height:3px;
+    height:0px;
     display: block;
     float: left;
 }
 .blog_list-container{
     padding:20px;
+}
+.blog_list-container .seprator{
+    margin-top:10px;
+    margin-bottom:40px;
+    text-align: center;
+}
+.blog_list-container .seprator hr{
+    width:30%;
+    margin:auto;
+    margin-top:10px;
+    border:2px solid #000;
+    border-radius:10px;
 }
 @media only screen and (max-width:1200px){
     .head_search_bar{

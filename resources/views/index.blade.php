@@ -1,7 +1,7 @@
 @extends('layouts.app_blog')
 
 @section('seo')
-   <title>{{ $settings->title }}</title>
+   <title>Blogs Listing </title>
    <meta name="keywords" content="{{ $settings->keywords }}"/>
    <meta name="description" content="{{ $settings->description }}"/>
 @endsection
@@ -42,32 +42,38 @@
 
    <section class="blog_list-container">
             <div class="container">
+
+               <div class="seprator">
+                  <h2>Our Blogs</h2>
+                  <hr>
+               </div>
+
                <div class="row">
                   <div class="col-md-8">
 
-                  @foreach($latest_blog_with_category as $latest_blog)
+                  @foreach($main_blog_with_category as $main_blog)
                      <div class="single_post_container">
                         <div class="img_content">
-                        <h3>{{ Str::of( $latest_blog->name )->limit(200, '') }}</h3>
-                           <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image ) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                        <h3>{{ Str::of( $main_blog->name )->limit(200, '') }}</h3>
+                           <img data-src="{{ asset('thumbnail/' .$main_blog->blog_image ) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
                         </div>
                         <div class="main_content">
                            <div class="date">
-                              {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $latest_blog->created_at)->format('d M, Y') }}
+                              {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $main_blog->created_at)->format('d M, Y') }}
                            </div>
                            <div class="views"><i class="fa fa-eye"></i>
-                           {{ $latest_blog->views }}
+                           {{ $main_blog->views }}
                         </div>
                            <label>
-                           {{ $latest_blog->category_name }}
+                           {{ $main_blog->category_name }}
                            </label>
                            
                            <p>
 
-                              {!! Str::words( $latest_blog->long_description, 60, ' ...') !!}
+                              {!! Str::words( $main_blog->long_description, 60, ' ...') !!}
                               
                            </p>
-                           <a href="#" class="btn btn_readmore">READ MORE</a>
+                           <a href="{{ route('web.blog_details', $main_blog->slug) }}" class="btn btn_readmore">READ MORE</a>
                         </div>
                      </div>
                   @endforeach              
@@ -96,7 +102,7 @@
                      <h2>Blog Categories</h2>
 
                      @foreach($blog_categories as $category)
-                        <a href="#" class="btn btn_tag">{{ $category->name }}</a>
+                        <a href="{{ route('web.blog_category', $category->slug ) }}" class="btn btn_tag">{{ $category->name }}</a>
                      @endforeach
                         
                      </div>

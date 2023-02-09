@@ -71,7 +71,7 @@ $user_email = Crypt::decryptString(Cookie::get('user_r'));
                                     @enderror
                                 </div>
                                 <div class="form_group">
-                                    <input type="password" required name="password" placeholder="Enter the password" class="input user_sub">
+                                    <input type="password" required name="password" placeholder="Enter the password" class="input2 user_sub">
 
                                     @error('password')
                                     <div class="error">

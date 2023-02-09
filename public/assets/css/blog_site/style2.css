@@ -3029,4 +3029,19 @@ a:focus, a:hover{
     .search-cubes{
         grid-template-columns: 1fr 1fr 1fr;
     }
+    .latest_post_container {
+        
+        margin: 8px 0;
+    }
+    .latest_post_container .img_content {
+        
+        width: 40%;
+    }
+    .latest_post_container .main_content {
+        
+        width: 50%;
+    }
+    .latest_post_container .main_content h3 {
+        font-size:18px;
+    }
 }

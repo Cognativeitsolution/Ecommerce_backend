@@ -92,7 +92,7 @@
                         <div class="main_content">
                            <label>{{ $latest_blog->category_name }}</label>
                            <h3>{{ Str::of( $latest_blog->name )->limit(10, '...') }}</h3>
-                           <p>{{ Str::of( $latest_blog->short_description )->limit(60, '...') }}</p>
+                           <p>{{ Str::of( $latest_blog->short_description )->limit(45, '...') }}</p>
                         </div>
                      </div>
                      @endforeach

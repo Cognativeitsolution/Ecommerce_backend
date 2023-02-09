@@ -12,10 +12,10 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      <!-- Anything you want -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; {{ Carbon\Carbon::now()->year }} <a href="{{ url('/admin/home') }}">Cognitive IT Solutions</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ Carbon\Carbon::now()->year }} <a href="{{ url('/admin/home') }}">E Commerce</a>.</strong> All rights reserved.
   </footer>
   
 </div>

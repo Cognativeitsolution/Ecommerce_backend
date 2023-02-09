@@ -27,14 +27,14 @@ class CategoriesController extends Controller
                     ->orWhere('blogs.short_description', 'like', '%'.$search.'%')
                     ->orWhere('blogs.long_description', 'like', '%'.$search.'%');
                 })                
-                ->orderBy('blogs.id','DESC')
+                ->orderBy('blogs.sort','ASC')
                 ->paginate(10);
             return view('categories.index', compact('record') );
         }else{
 
             $record = Blog::where('parent_id', 0)
                             ->where('is_coupon_site', 0)
-                            ->orderBy('blogs.id','DESC')->paginate(15);
+                            ->orderBy('blogs.sort','ASC')->paginate(15);
 
             if($record != false){
                 return view('categories.index', compact('record') );
@@ -66,12 +66,18 @@ class CategoriesController extends Controller
             'name'                  => 'required|min:3|max:150|string|unique:blogs',
             'title'                 => 'required|min:3|max:150|string',
             'short_description'     => 'required|min:3|max:200|string',
+            'meta_keywords'         => 'required|min:3|max:160',
+            'meta_description'      => 'required|min:3|max:160'
         ]);
+
+        $max_sort = Blog::max('sort');
+        $max_sort++;
 
         $details['parent_id'] = 0;
         $details['is_coupon_site'] = 0;
+        $details['sort'] = $max_sort;        
 
-        $category = Blog::create($details);
+        Blog::create($details);
 
         return redirect()->route('categories.index')->with('success','Record Added !');
     }
@@ -127,6 +133,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Blog::find($id);
+
+        $category->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Record Deleted !');
     }
 }

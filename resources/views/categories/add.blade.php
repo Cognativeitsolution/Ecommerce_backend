@@ -69,6 +69,18 @@
             @error('short_description')<div class="error">{{ $message }}</div>@enderror
           </div>
 
+          <div class="form-group">
+            <label for="meta_keywords">Meta Keywords</label>
+            <input type="text" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords') }}" class="form-control" placeholder="Enter minimum 3 characters and maximum 160 characters">
+            @error('meta_keywords')<div class="error">{{ $message }}</div>@enderror
+          </div>
+
+          <div class="form-group">
+            <label for="meta_description">Meta Description</label>
+            <input type="text" id="meta_description" name="meta_description" value="{{ old('meta_description') }}" class="form-control" placeholder="Enter minimum 3 characters and maximum 160 characters">
+            @error('meta_description')<div class="error">{{ $message }}</div>@enderror
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>

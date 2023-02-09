@@ -71,6 +71,7 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
+                    <th>Sort</th>
                     <th>Name</th>
                     <th style="text-align:center;">Title</th>
                     <th style="text-align:center;">Short Description</th>
@@ -91,6 +92,7 @@
                   @foreach( $record as $category)
                   <tr>
                     <td>{{ $no++ }}</td>
+                    <td>{{ $category->sort }}</td>
 
                     <td>{!! Str::words( $category->name, 3, ' ...') !!}</td>
                     <td style="text-align:center;">{!! Str::words( $category->title, 3, ' ...') !!}</td>

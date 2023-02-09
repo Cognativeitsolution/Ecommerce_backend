@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
 use App\Models\Logs;
+use App\Models\BlogMetas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -77,7 +78,13 @@ class CategoriesController extends Controller
         $details['is_coupon_site'] = 0;
         $details['sort'] = $max_sort;        
 
-        Blog::create($details);
+        $category = Blog::create($details);
+
+        $metaData = $request->only('meta_keywords', 'meta_description');
+
+        $metaData['blog_id'] = $category->id;
+
+        BlogMetas::create($metaData);
 
         return redirect()->route('categories.index')->with('success','Record Added !');
     }
@@ -101,13 +108,15 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Blog::find($id)->select('blogs.id', 'blogs.name', 'blogs.title', 'blogs.short_description', 'blogs.status')
+        $category = Blog::select('blogs.sort', 'blogs.id', 'blogs.name', 'blogs.title', 'blogs.short_description', 'blogs.status', 'blog_metas.meta_keywords', 'blog_metas.meta_description')
+                ->join('blog_metas', 'blog_metas.blog_id', 'blogs.id')
+                ->where('blogs.id', $id)
                 ->where('parent_id', 0)
                 ->where('is_coupon_site', 0)
                 ->first();
 
         if($category != false){
-            return view('blogs.edit', compact('record','logs','blogs','blog_categories','related_blog_ids','tags','blogTag'));
+            return view('categories.edit', compact('category'));
         }else{
             abort(404);
         }
@@ -122,7 +131,64 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $details = $request->validate([
+        //     'name'                  => 'required|min:3|max:150|string|unique:blogs',
+        //     'title'                 => 'required|min:3|max:150|string',
+        //     'short_description'     => 'required|min:3|max:200|string',
+        //     'meta_keywords'         => 'required|min:3|max:160',
+        //     'meta_description'      => 'required|min:3|max:160'
+        // ]);
+
+        // $details['sort'] = $request->sort;
+        // $details['status'] = $request->status;
+
+        // $category = Blog::find($id);
+
+        // $metaData = BlogMetas::select('meta_keywords', 'meta_description')->where('blog_id', $blog->id);
+
+        // $status = $request->status == "on" ? 1 : 0 ;
+        // $request['status'] = $status ;
+
+        // $related_blogs = $request->related_blogs ;
+        // unset( $request['related_blogs'] );
+
+        // $blog->update($request->except(['meta_keywords', 'meta_description']));
+
+        // $metaData->update($request->only('meta_keywords', 'meta_description'));
+
+        // if(!empty($related_blogs)){
+        //     BlogRelated::where('blog_id', $blog->id)->delete();
+
+        //     foreach($related_blogs as $key => $value){
+
+        //         BlogRelated::create([
+        //             'blog_id' => $blog->id,
+        //             'related_blog_id' => $value,
+        //         ]);
+        //     }
+        // } else {
+        //     BlogRelated::where('blog_id', $blog->id)->delete();
+        // }
+
+        // if(isset($request['blog_image'])){
+
+        //     $blog_image = Helper::upload_banner_image($request->file('blog_image'));
+
+        //     $data2 = array(
+        //         'blog_image'        => $blog_image,
+        //     );
+
+        //     $blog->update($data2);
+
+        // }
+
+        // if ($request->has('tags')) {
+        //     DB::table('blog_tag')->where('blog_id',$blog->id)->delete();
+        //     $blog->tags()->attach($request->tags);
+        // }
+        
+        // Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'edit', 1);
+        // return redirect()->route('blogs.index')->with('success','Record Updated !');
     }
 
     /**

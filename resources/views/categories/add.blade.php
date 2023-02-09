@@ -69,6 +69,9 @@
             @error('short_description')<div class="error">{{ $message }}</div>@enderror
           </div>
 
+          <hr>
+          <h3>Seo Section </h3>
+
           <div class="form-group">
             <label for="meta_keywords">Meta Keywords</label>
             <input type="text" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords') }}" class="form-control" placeholder="Enter minimum 3 characters and maximum 160 characters">
@@ -91,7 +94,7 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('cropper/build/jquery.awesome-cropper.js') }}"></script> 
+<script src="{{ asset('cropper/build/jquery.awesome-cropper.js') }}"></script>
 <script src="{{ asset('cropper/components/imgareaselect/scripts/jquery.imgareaselect.js') }}"></script>
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script>
@@ -101,13 +104,13 @@
   });
 </script>
 <script>
-$(document).ready(function () {
-  
-$('#sample_input').awesomeCropper({ 
-width: 150, 
-height: 150, 
-debug: false
-});
-});
+  $(document).ready(function() {
+
+    $('#sample_input').awesomeCropper({
+      width: 150,
+      height: 150,
+      debug: false
+    });
+  });
 </script>
 @endsection

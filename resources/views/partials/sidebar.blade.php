@@ -121,6 +121,15 @@
 
               @can('blog-list')
               <li class="nav-item">
+                <a href="{{ url('/admin/categories')}}" class="nav-link {{ Request::is('admin/categories') ? 'active' : '' }}">
+                  <i class="fa fa-list-alt nav-icon"></i>
+                  <p>Categories</p>
+                </a>
+              </li>
+              @endcan
+
+              @can('blog-list')
+              <li class="nav-item">
                 <a href="{{ url('/admin/blogs')}}" class="nav-link {{ Request::is('admin/blogs') ? 'active' : '' }}">
                   <i class="fa fa-cubes nav-icon"></i>
                   <p>Blogs</p>

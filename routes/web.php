@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\AdminsController;
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\CouponController;
 // use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
@@ -69,6 +70,7 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/sliders', SliderController::class);
     Route::resource('admin/stores', StoreController::class);
     Route::resource('admin/coupons', CouponController::class);
+    Route::resource('admin/categories', CategoriesController::class);
     Route::resource('admin/blogs', BlogController::class);
     Route::resource('admin/comments', CommentController::class);
     Route::post('admin/old_comment/{id}', [CommentController::class, 'old_comment'])->name('old_comment');

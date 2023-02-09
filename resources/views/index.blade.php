@@ -85,7 +85,8 @@
                      <h2>Latest Blog Post</h2>
 
                      @foreach($latest_blog_with_category as $latest_blog)
-                     <div class="latest_post_container">
+                     <a href="{{ route('web.blog_details', $latest_blog->slug) }}" class="latest_post_container">
+
                         <div class="img_content">
                            <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
                         </div>
@@ -94,7 +95,8 @@
                            <h3>{{ Str::of( $latest_blog->name )->limit(10, '...') }}</h3>
                            <p>{{ Str::of( $latest_blog->short_description )->limit(45, '...') }}</p>
                         </div>
-                     </div>
+                        
+                     </a>
                      @endforeach
 
                      

@@ -30,15 +30,16 @@
                   <div class="col-md-4">
                      <h2>Latest Blog Post</h2>
                      @foreach ($latest_blog_with_category as $latest_blog)
-                     <div class="latest_post_container">
+                     <a href="{{ route('web.blog_details', $latest_blog->slug) }}" class="latest_post_container">
                         <div class="img_content"><img src="{{ asset('thumbnail/' . $latest_blog->blog_image) }}" width="100%"></div>
                         <div class="main_content">
                            <label>{{ $latest_blog->category_name }}</label>
                            <h3>{{ Str::of( $latest_blog->name )->limit(10, '...') }}</h3>
                            <p>{{ Str::of( $latest_blog->short_description )->limit(60, '...') }}</p>
                         </div>
-                     </div>
-                     @endforeach                     
+                     </a>
+                     @endforeach   
+
                      <div class="blogs_tags">
                      <h2>Blog Categories</h2>
                         @foreach($blog_categories as $category)

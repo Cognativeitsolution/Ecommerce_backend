@@ -17,6 +17,9 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->tinyInteger('parent_id')->default(0);
             $table->tinyInteger('is_coupon_site')->default(1);
+
+            $table->tinyInteger('sort')->nullable();
+
             $table->string('name')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();

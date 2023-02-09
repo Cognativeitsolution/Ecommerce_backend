@@ -51,7 +51,7 @@ class WebHomeController extends Controller
             ->take(4)
             ->get();
 
-        //                dd( $main_blog_with_category->toArray() );
+//                        dd( $latest_blog_with_category->toArray() );
 
         return view('index', compact('slider', 'latest_blog_with_category', 'main_blog_with_category'));
     }

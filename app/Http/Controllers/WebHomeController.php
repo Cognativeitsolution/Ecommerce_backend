@@ -51,9 +51,12 @@ class WebHomeController extends Controller
             ->take(4)
             ->get();
 
+        $all_categories = Blog::select('id','name','slug')->where('parent_id', 0)->where('is_coupon_site', 0)
+                            ->where('status', 1)->orderBy('sort','ASC')->get();
+
 //                        dd( $latest_blog_with_category->toArray() );
 
-        return view('index', compact('slider', 'latest_blog_with_category', 'main_blog_with_category'));
+        return view('index', compact('slider', 'latest_blog_with_category', 'main_blog_with_category', 'all_categories'));
     }
 
     public function blog_details($slug)
@@ -87,9 +90,11 @@ class WebHomeController extends Controller
             ->take(4)
             ->get();
 
+        $all_categories = Blog::select('id','name','slug')->where('parent_id', 0)->where('is_coupon_site', 0)
+                            ->where('status', 1)->orderBy('sort','ASC')->get();
 
         //    dd($latest_blog_with_category);
-        return view('blog_detail', compact('blog', 'latest_blog_with_category'));
+        return view('blog_detail', compact('blog', 'latest_blog_with_category', 'all_categories'));
     }
 
     public function blog_category($slug)

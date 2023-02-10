@@ -103,7 +103,7 @@
                      <div class="blogs_tags">
                      <h2>Blog Categories</h2>
 
-                     @foreach($blog_categories as $category)
+                     @foreach($all_categories as $category)
                         <a href="{{ route('web.blog_category', $category->slug ) }}" class="btn btn_tag">{{ $category->name }}</a>
                      @endforeach
                         
@@ -113,6 +113,4 @@
             </div>
    </section>
          
-
-
 @endsection

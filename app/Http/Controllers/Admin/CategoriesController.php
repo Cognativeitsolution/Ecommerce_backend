@@ -15,6 +15,16 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $this->middleware('permission:blog-list|blog-create|blog-edit|blog-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:blog-create', ['only' => ['create','store']]);
+        $this->middleware('permission:blog-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:blog-delete', ['only' => ['destroy']]);
+
+    }
     public function index()
     {
         $search = request('search');
@@ -76,6 +86,7 @@ class CategoriesController extends Controller
 
         $details['parent_id'] = 0;
         $details['is_coupon_site'] = 0;
+        $details['is_category'] = 1 ;
         $details['sort'] = $max_sort;        
 
         $category = Blog::create($details);
@@ -131,64 +142,33 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $details = $request->validate([
-        //     'name'                  => 'required|min:3|max:150|string|unique:blogs',
-        //     'title'                 => 'required|min:3|max:150|string',
-        //     'short_description'     => 'required|min:3|max:200|string',
-        //     'meta_keywords'         => 'required|min:3|max:160',
-        //     'meta_description'      => 'required|min:3|max:160'
-        // ]);
+         $details = $request->validate([
+             'name'                  => 'required|min:3|max:150|string',
+             'title'                 => 'required|min:3|max:150|string',
+             'short_description'     => 'required|min:3|max:200|string',
+             'meta_keywords'         => 'required|min:3|max:160',
+             'meta_description'      => 'required|min:3|max:160'
+         ]);
 
-        // $details['sort'] = $request->sort;
-        // $details['status'] = $request->status;
+         $details['sort'] = $request->sort;
+         $status = $request->status == "on" ? 1 : 0 ;
 
-        // $category = Blog::find($id);
+         $details['status'] = $status ;
+         $details['is_category'] = 1 ;
 
-        // $metaData = BlogMetas::select('meta_keywords', 'meta_description')->where('blog_id', $blog->id);
+         $category = Blog::find($id);
+         $metaData = BlogMetas::select('meta_keywords', 'meta_description')->where('blog_id', $category->id);
 
-        // $status = $request->status == "on" ? 1 : 0 ;
-        // $request['status'] = $status ;
+         $category->update($details) ;
+         $metas = [
+             'meta_keywords' => $request->meta_keywords,
+             'meta_description' => $request->meta_description
+         ];
 
-        // $related_blogs = $request->related_blogs ;
-        // unset( $request['related_blogs'] );
+         $metaData->update($metas);
 
-        // $blog->update($request->except(['meta_keywords', 'meta_description']));
-
-        // $metaData->update($request->only('meta_keywords', 'meta_description'));
-
-        // if(!empty($related_blogs)){
-        //     BlogRelated::where('blog_id', $blog->id)->delete();
-
-        //     foreach($related_blogs as $key => $value){
-
-        //         BlogRelated::create([
-        //             'blog_id' => $blog->id,
-        //             'related_blog_id' => $value,
-        //         ]);
-        //     }
-        // } else {
-        //     BlogRelated::where('blog_id', $blog->id)->delete();
-        // }
-
-        // if(isset($request['blog_image'])){
-
-        //     $blog_image = Helper::upload_banner_image($request->file('blog_image'));
-
-        //     $data2 = array(
-        //         'blog_image'        => $blog_image,
-        //     );
-
-        //     $blog->update($data2);
-
-        // }
-
-        // if ($request->has('tags')) {
-        //     DB::table('blog_tag')->where('blog_id',$blog->id)->delete();
-        //     $blog->tags()->attach($request->tags);
-        // }
-        
-        // Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'edit', 1);
-        // return redirect()->route('blogs.index')->with('success','Record Updated !');
+         //Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'edit', 1);
+         return redirect()->route('categories.index')->with('success','Record Updated !');
     }
 
     /**

@@ -42,11 +42,11 @@ class StoreController extends Controller
                 ->orWhere('stores.short_description', 'like', '%'.$search.'%')
                 ->orWhere('stores.long_description', 'like', '%'.$search.'%')
                 ->orderBy('stores.id','DESC')
-                ->paginate(5);
+                ->paginate(15);
             return view('stores.index', compact('record') );
         }else{
 
-            $record = Store::orderBy('stores.id', 'DESC')->paginate(10);
+            $record = Store::orderBy('stores.id', 'DESC')->paginate(15);
 
             if ($record != false) {
                 return view('stores.index', compact('record'));

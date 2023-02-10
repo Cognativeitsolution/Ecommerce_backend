@@ -27,6 +27,7 @@ class BlogsSeeder extends Seeder
                 'short_description'=> "Short Description",
                 'long_description'=> "Long Description",
                 'views'=> 100,
+                'is_category' => 1,
                 'status'=> 1,
             ],            
             [
@@ -39,6 +40,7 @@ class BlogsSeeder extends Seeder
                 'short_description'=> "Short Description",
                 'long_description'=> "Long Description",
                 'views'=> 100,
+                'is_category' => 1,
                 'status'=> 1,
             ],           
             [
@@ -51,6 +53,7 @@ class BlogsSeeder extends Seeder
                 'short_description'=> "Short Description",
                 'long_description'=> "Long Description",
                 'views'=> 100,
+                'is_category' => 1,
                 'status'=> 1,
             ],
             [
@@ -63,6 +66,7 @@ class BlogsSeeder extends Seeder
                 'short_description'=> "Short Description",
                 'long_description'=> "Long Description",
                 'views'=> 100,
+                'is_category' => 1,
                 'status'=> 1,
             ],
             

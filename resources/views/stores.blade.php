@@ -88,25 +88,21 @@
           <div class="store_grid-container">
 
             @foreach($record as $data)
-            <div class="box_parent-wrapper">
-              <a href="{{ url('stores/' .$data->slug) }}" class="stlist_grid-item">
-                <div class="column-md">
-                  <div class="class_effect">
-                    <div class="resp_img"><img src="{{ asset('thumbnail/' . $data->banner_image) }}" width="100%"></div>
-                    <div class="date_box-c">
-                      <img class="round_list-img lazy" src="{{ asset('thumbnail/' . $data->image) }}">
-                    </div>
-                  </div>
-                  <div class="box_details">
-                    <div class="blog_detail-inner">
-                      <h6 class="lowest_h">{{ $data->name }}</h6>
-                      <p>{{ $data->coupon_count }} Offers</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+            
+            
+            <div class="store_container"><a href="{{ url('stores/' .$data->slug) }}" class="stlist_grid-item">
+              <div class="image">
+                <img class="lazy" src="{{ asset('thumbnail/' . $data->image) }}">
+              </div>
+              <div class="content">
+                <h2>{{ $data->name }}</h2>
+                <p>{{ $data->coupon_count }} Offers</p>
+              </div>
+            </a></div>
+            
             @endforeach
+
+            
 
             @if ($record->count() == 0)
             <span>No Stores Found.</span>

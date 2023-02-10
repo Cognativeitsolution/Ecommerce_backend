@@ -39,7 +39,7 @@ class BlogController extends Controller
 
         if (!empty($search)) {
             $record = Blog::whereNotIn('id', [1,2,3,4])
-                // where('is_coupon_site', '!=', 0)
+                ->where('is_category', '!=', 1)
                 ->where(function($query) use ($search) {
                     $query->where('blogs.title', 'like', '%'.$search.'%')
                     ->orWhere('blogs.name', 'like', '%'.$search.'%')
@@ -52,7 +52,7 @@ class BlogController extends Controller
         }else{
 
             $record = Blog::whereNotIn('id', [1,2,3,4])
-                            // ->where('parent_id', '!=', 0)
+                            ->where('is_category', '!=', 1)
                             ->orderBy('blogs.id','DESC')->paginate(15);
 
             if($record != false){

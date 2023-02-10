@@ -75,6 +75,7 @@
                     <th>Name</th>
                     <th style="text-align:center;">Title</th>
                     <th style="text-align:center;">Short Description</th>
+                    <th style="text-align:center;">Status</th>
                     <th style="text-align:center;">Updated</th>
                     <th width="150" style="text-align:center;">Action</th>
                   </tr>
@@ -97,6 +98,12 @@
                     <td>{!! Str::words( $category->name, 3, ' ...') !!}</td>
                     <td style="text-align:center;">{!! Str::words( $category->title, 3, ' ...') !!}</td>
                     <td style="text-align:center;">{!! Str::words( $category->short_description, 5, ' ...') !!}</td>
+
+                    <td style="text-align:center;">
+                      <label class="badge {{ $category->status == 1 ? 'badge-success' : 'badge-danger' }}">
+                        {{ $category->status == 1 ? 'active' : 'inactive' }}
+                      </label>
+                    </td>
 
                     <td style="text-align:center;">{{ $category->updated_at->format('Y-m-d H:i:s') }}</td>
                     <td width="150" style="text-align:center;">

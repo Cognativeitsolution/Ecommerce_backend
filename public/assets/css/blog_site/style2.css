@@ -2823,8 +2823,15 @@ a:focus, a:hover{
     display: block;
     margin:15px 0;
     float: left;
-    background: #f3e3c3;
+    border: 2px dashed #cdcdcd;
+    border-radius: 10px;
     padding-bottom: 20px;
+    transition:0.7s;
+}
+.single_cat_post_container:hover{
+    
+    border: 2px dashed #008784;
+    transition:0.7s;
 }
 .single_cat_post_container .img_content{
     display: block;
@@ -2838,7 +2845,7 @@ a:focus, a:hover{
     text-align: center;
 }
 .single_cat_post_container .main_content h3{
-    font-weight: bold;
+    
     margin:15px;
 }
 .single_cat_post_container a{

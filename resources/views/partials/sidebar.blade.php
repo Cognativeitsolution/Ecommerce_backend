@@ -127,6 +127,7 @@
                 </a>
               </li>
               @endcan
+              
 
               @can('blog-list')
               <li class="nav-item">

@@ -92,11 +92,11 @@
             @error('image')<div class="error">{{ $message }}</div>@enderror
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="banner_image">Banner Image</label>
             <input type="file" class="form-control" id="banner_image" name="banner_image" class="form-control">
             @error('banner_image')<div class="error">{{ $message }}</div>@enderror
-          </div>
+          </div> -->
 
           <hr>
           <h4>Select Type</h4>

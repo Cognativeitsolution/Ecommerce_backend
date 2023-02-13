@@ -111,17 +111,17 @@ class StoreController extends Controller
 
         }
 
-        if(isset($request['banner_image'])){
+        // if(isset($request['banner_image'])){
 
-            $banner_image = Helper::upload_banner_image($request->file('banner_image'));
+        //     $banner_image = Helper::upload_banner_image($request->file('banner_image'));
 
-            $data2 = array(
-                'banner_image'        => $banner_image,
-            );
+        //     $data2 = array(
+        //         'banner_image'        => $banner_image,
+        //     );
 
-            $store->update($data2);
+        //     $store->update($data2);
 
-        }
+        // }
 
         Logs::add_log(Store::getTableName(), $store->id, $request->all(), 'add', '');
         return redirect()->route('stores.index')->with('success','Record Added !');
@@ -222,17 +222,17 @@ class StoreController extends Controller
 
         }
 
-        if(isset($request['banner_image'])){
+        // if(isset($request['banner_image'])){
 
-            $banner_image = Helper::upload_banner_image($request->file('banner_image'));
+        //     $banner_image = Helper::upload_banner_image($request->file('banner_image'));
 
-            $data2 = array(
-                'banner_image'        => $banner_image,
-            );
+        //     $data2 = array(
+        //         'banner_image'        => $banner_image,
+        //     );
 
-            $store->update($data2);
+        //     $store->update($data2);
 
-        }
+        // }
 
         Logs::add_log(Store::getTableName(), $store->id, $request->all(), 'edit', 1);
         return redirect()->route('stores.index')->with('success','Record Updated !');

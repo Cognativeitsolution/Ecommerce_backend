@@ -29,7 +29,7 @@ class StoreCouponRequest extends FormRequest
             'short_description' => 'required|string|min:3|max:200',
             'long_description' => ['required'],
             'image' => ['required'],
-            'banner_image' => ['required'],
+            // 'banner_image' => ['required'],
             'start_date' => ['required'],
             'expire_date' => ['required'],
             'redirect_site_name' => ['required'],

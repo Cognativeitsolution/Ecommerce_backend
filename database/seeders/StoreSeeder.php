@@ -27,7 +27,7 @@ class StoreSeeder extends Seeder
             $store->short_description = $faker->text(100);
             $store->long_description = $faker->paragraph(18);
             $store->image = "store_image.png";
-            $store->banner_image = "banner_image.jpg";
+            // $store->banner_image = "banner_image.jpg";
             $store->type = $faker->numberBetween(1,2); // Like 1 Stores / 2 Category
             
             $store->save();

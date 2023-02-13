@@ -91,17 +91,17 @@ class CouponController extends Controller
             $coupon->update($data2);
 
         }
-        if(isset($request['banner_image'])){
+        // if(isset($request['banner_image'])){
 
-            $banner_image = Helper::upload_banner_image($request->file('banner_image'));
+        //     $banner_image = Helper::upload_banner_image($request->file('banner_image'));
 
-            $data2 = array(
-                'banner_image'        => $banner_image,
-            );
+        //     $data2 = array(
+        //         'banner_image'        => $banner_image,
+        //     );
 
-            $coupon->update($data2);
+        //     $coupon->update($data2);
 
-        }
+        // }
 
         Logs::add_log(Coupon::getTableName(), $coupon->id, $request->all(), 'add', '');
         return redirect()->route('coupons.index')->with('success','Record Added !');
@@ -173,17 +173,17 @@ class CouponController extends Controller
 
         }
 
-        if(isset($request['banner_image'])){
+        // if(isset($request['banner_image'])){
 
-            $banner_image = Helper::upload_banner_image($request->file('banner_image'));
+        //     $banner_image = Helper::upload_banner_image($request->file('banner_image'));
 
-            $data2 = array(
-                'banner_image'        => $banner_image,
-            );
+        //     $data2 = array(
+        //         'banner_image'        => $banner_image,
+        //     );
 
-            $coupon->update($data2);
+        //     $coupon->update($data2);
 
-        }
+        // }
 
         Logs::add_log(Coupon::getTableName(), $coupon->id, $request->all(), 'edit', 1);
         return redirect()->route('coupons.index')->with('success','Record Updated !');
@@ -200,11 +200,11 @@ class CouponController extends Controller
         $coupon = Coupon::find($coupon->id);
 
         $image = public_path("images\\") .$coupon->image ;
-        $banner_image = public_path("images\\") .$coupon->banner_image ;
+        // $banner_image = public_path("images\\") .$coupon->banner_image ;
 
         if(File::exists($image)) {
             File::delete($image);
-            File::delete($banner_image);
+            // File::delete($banner_image);
         }
 
         $coupon->delete();

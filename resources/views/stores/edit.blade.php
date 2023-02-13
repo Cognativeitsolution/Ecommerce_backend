@@ -100,7 +100,7 @@
             </div>
             @endif
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="banner_image">Banner Image</label>
               <input type="file" class="form-control" id="banner_image" name="banner_image" class="form-control">
             </div>
@@ -111,7 +111,7 @@
               <br />
               <img src="{{ url('/thumbnail/') }}/{{ $record->banner_image }}">
             </div>
-            @endif
+            @endif -->
 
             <hr>
             <h4>Select Type</h4>

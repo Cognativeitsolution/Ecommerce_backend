@@ -31,7 +31,7 @@ class CouponSeeder extends Seeder
             $coupon->views = $faker->unique()->numberBetween(20,1000);
 
             $coupon->image = "coupon_image.png";
-            $coupon->banner_image = "coupon_banner_image.jpg";
+            // $coupon->banner_image = "coupon_banner_image.jpg";
 
             $coupon->redirect_site_name = $faker->name();
             $coupon->redirect_site_url = $faker->url(); // "https://www.google.com";

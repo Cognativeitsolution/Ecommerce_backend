@@ -29,7 +29,7 @@ class StoreStoreRequest extends FormRequest
             'short_description' => 'required|string|min:3|max:200',
             'long_description' => ['required'],
             'image' => ['required'],
-            'banner_image' => ['required'],
+            // 'banner_image' => ['required'],
             'meta_keywords' => ['required', 'min:3', 'max:160'],
             'meta_description' => ['required', 'min:3', 'max:160']
         ];

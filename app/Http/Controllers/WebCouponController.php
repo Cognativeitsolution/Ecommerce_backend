@@ -18,6 +18,7 @@ class WebCouponController extends Controller
                 'id',
                 'name',
                 'slug',
+                'short_description',
                 'image',
                 'banner_image'
             )

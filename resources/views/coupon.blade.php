@@ -53,7 +53,9 @@
                            <div class="web_imagebox">
                               <img src="{{ asset('/thumbnail/' .$top_store->image) }}" alt="">
                            </div>
-                           <h4 class="bnr_heading">{{ Str::of( $top_store->name )->limit(25, '') }}</h4>
+                           <h4 class="bnr_heading">{{ Str::of( $top_store->name )->limit(25, ' ') }}</h4>
+
+                           <p class="bnr_heading">{{ Str::of( $top_store->short_description )->limit(50, ' ') }}</p>
                         </div>
                      </a>
                   </div>

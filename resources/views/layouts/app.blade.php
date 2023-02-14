@@ -160,9 +160,9 @@
                               </svg>
                               <div class="post_box_content">
                                  <h4 class="stats_number">
-                                    Merchants
+                                 Retailers
                                  </h4>
-                                 <p>We've Partnered With Over 3576+ Merchants</p>
+                                 <p>We have collaborated with more than 3576 retailers.</p>
                               </div>
                            </div>
                            <div class="post_box">
@@ -180,7 +180,7 @@
                                     Categories
                                  </h4>
                                  <p>
-                                    We Have More Than 83+ Categories To Choose From
+                                 We offer a selection of over 83 categories to choose from.
                                  </p>
                               </div>
                            </div>
@@ -193,10 +193,10 @@
                               </svg>
                               <div class="post_box_content">
                                  <h4 class="stats_number">
-                                    Coupons
+                                    Vouchers
                                  </h4>
                                  <p>
-                                    Coupons
+                                    Vouchers
                                  </p>
                               </div>
                            </div>
@@ -208,9 +208,9 @@
                               </svg>
                               <div class="post_box_content">
                                  <h4 class="stats_number">
-                                    Users
+                                 Consumers
                                  </h4>
-                                 <p>We're A Growing Family Of Over 342+ Users Daily</p>
+                                 <p>Our user base is growing and we now have over 342 daily active users in our community.</p>
                               </div>
                            </div>
                         </div>
@@ -609,6 +609,17 @@ source: function(query, process) {
                                              copyText.select();
                                              copyText.setSelectionRange(0, 99999); // For mobile devices
                                              navigator.clipboard.writeText(copyText.value);
+                                             // document.execCommand("copy");
+                                                
+
+                                             //    console.time('time1');
+                                             //    var temp = $("<input>");
+                                             // $("body").append(temp);
+                                             // temp.val($('#myInput'+n).text()).select();
+                                             // document.execCommand("copy");
+                                             // temp.remove();
+                                             //    console.timeEnd('time1');
+
                                                 setTimeout(function(){
                                                    $("#ctc"+n).css("border","2px dashed #daad51");
                                                 }, 1000);

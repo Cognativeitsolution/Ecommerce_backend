@@ -48,14 +48,14 @@
                <div class="pop-store-item">
                   <div class="store_img">
                      <a href="{{ url('stores/' .$top_store->slug) }}" class="bnr_item bg_img bg bg2">
-                        <img src="{{ asset('/thumbnail/' .$top_store->banner_image) }}" class="top_bg_img" />
+                        
                         <div class="bnr_content">
                            <div class="web_imagebox">
                               <img src="{{ asset('/thumbnail/' .$top_store->image) }}" alt="">
                            </div>
                            <h4 class="bnr_heading">{{ Str::of( $top_store->name )->limit(25, ' ') }}</h4>
 
-                           <p class="bnr_heading">{{ Str::of( $top_store->short_description )->limit(50, ' ') }}</p>
+                           <p>{{ Str::of( $top_store->short_description )->limit(50, ' ') }}</p>
                         </div>
                      </a>
                   </div>
@@ -73,13 +73,12 @@
       <div class="row">
          <div class="col-md-12">
             <div class="primary_heading">
-               <h2>Featured Offer</h2>
+               <h2>Featured Offers</h2>
             </div>
             <div class="featured_grid">
                @foreach($featured_offers as $featured_offer)
                <div class="featured_cpn_wrapper">
-                  <div class="featured_grad lazy"><img src="{{ asset('/thumbnail/' .$featured_offer->banner_image) }}" width="100%">
-                  </div>
+                  
                   <div class="f_o_img">
                      <a href="#" class="web_imagebox">
                         <img src="{{ asset('/thumbnail/' .$featured_offer->image) }}" alt="{{ $featured_offer->name }}">
@@ -97,7 +96,7 @@
                         <p class="uses"><i class="fa fa-user"></i> Uses : {{ $featured_offer->views }} Uses</p>
                      </div>
                      <div class="code_btn_container">
-                        <a href="javascript:void(0);" onclick="myFunction({{ $featured_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $featured_offer->id }})" data-target="#{{ $featured_offer->id }}" class="coupon_btn_a <?php echo ($featured_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="WELCOME10" "="" data-text=" **LCOME10">
+                        <a href="javascript:void(0);" onclick="copy_code({{ $featured_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $featured_offer->id }})" data-target="#{{ $featured_offer->id }}" class="coupon_btn_a <?php echo ($featured_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="WELCOME10" "="" data-text=" **LCOME10">
                            <?php echo ($featured_offer->code == 1) ? 'Get Code' : 'Get Deal'; ?>
                         </a>
                      </div>
@@ -114,7 +113,7 @@
                               <div class="store_title_modal">
                                  <div class="modal_title_img">
                                     <div class="web_imagebox">
-                                       <img src="{{ asset('/thumbnail/store_image.png') }}" width="100%" />
+                                       <img src="{{ asset('/thumbnail/' .$featured_offer->image) }}" width="100%" />
                                     </div>
                                  </div>
                                  <div class="modal_title_content">
@@ -133,7 +132,7 @@
                                  <div class="modal_code" id="ctc{{ $featured_offer->id }}">
                                     {{ $featured_offer->coupon_code }}
                                     <input type="text" class="text hide" id="myInput{{ $featured_offer->id }}" value="{{ $featured_offer->coupon_code }}" />
-                                    <button class="button_clone" onclick="myFunction({{ $featured_offer->id }})"><i class="fa fa-clone"></i></button>
+                                    <button class="button_clone" onclick="copy_code({{ $featured_offer->id }})"><i class="fa fa-clone"></i></button>
                                  </div>
                                  <a href="{{ $featured_offer->redirect_site_url }}" class="visit_site">Go to the {{ $featured_offer->redirect_site_name }}<i class=" fa fa-arrow-right"></i></a>
                               </div>
@@ -194,7 +193,7 @@
       <div class="row">
          <div class="col-md-12">
             <div class="primary_heading">
-               <h2>Popular Category</h2>
+               <h2>Popular Categories</h2>
             </div>
             <div class="category_grid-container">
                @foreach($popular_categories as $popular_category)
@@ -223,7 +222,7 @@
       <div class="row">
          <div class="col-md-12">
             <div class="primary_heading">
-               <h2>HOW TO SAVE WITH SAVENBUY ?</h2>
+               <h2>HOW TO SAVE WITH INFINITE VOUCHERS ?</h2>
             </div>
             <div class="how_to_wrpaer">
                <div class="how_to_item">
@@ -272,14 +271,13 @@
       <div class="row">
          <div class="col-md-12">
             <div class="primary_heading">
-               <h2>Latest Offer</h2>
+               <h2>Latest Offers</h2>
             </div>
             <div class="featured_grid">
 
                @foreach($latest_offers as $latest_offer)
                <div class="featured_cpn_wrapper">
-                  <div class="featured_grad lazy"><img src="{{ asset('/thumbnail/' .$latest_offer->banner_image) }}" width="100%">
-                  </div>
+                  
                   <div class="f_o_img">
                      <a href="#" class="web_imagebox">
                         <img src="{{ asset('/thumbnail/' .$latest_offer->image) }}" alt="{{ $latest_offer->name }}">
@@ -297,7 +295,7 @@
                         <p class="uses"><i class="fa fa-user"></i> Uses : {{ $latest_offer->views }} Uses</p>
                      </div>
                      <div class="code_btn_container">
-                        <a href="javascript:void(0);" onclick="myFunction({{ $latest_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $latest_offer->id }})" data-target="#{{ $latest_offer->id }}" class="coupon_btn_a <?php echo ($latest_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="WELCOME10" "="" data-text=" **LCOME10">
+                        <a href="javascript:void(0);" onclick="copy_code({{ $latest_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $latest_offer->id }})" data-target="#{{ $latest_offer->id }}" class="coupon_btn_a <?php echo ($latest_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="WELCOME10" "="" data-text=" **LCOME10">
                            <?php echo ($latest_offer->code == 1) ? 'Get Code' : 'Get Deal'; ?>
                         </a>
                      </div>
@@ -314,7 +312,7 @@
                               <div class="store_title_modal">
                                  <div class="modal_title_img">
                                     <div class="web_imagebox">
-                                       <img src="{{ asset('/thumbnail/store_image.png') }}" width="100%" />
+                                       <img src="{{ asset('/thumbnail/' .$latest_offer->image) }}" width="100%" />
                                     </div>
                                  </div>
                                  <div class="modal_title_content">
@@ -333,7 +331,7 @@
                                  <div class="modal_code" id="ctc{{ $latest_offer->id }}">
                                     {{ $latest_offer->coupon_code }}
                                     <input type="text" class="text hide" id="myInput{{ $latest_offer->id }}" value="{{ $latest_offer->coupon_code }}" />
-                                    <button class="button_clone" onclick="myFunction({{ $latest_offer->id }})"><i class="fa fa-clone"></i></button>
+                                    <button class="button_clone" onclick="copy_code({{ $latest_offer->id }})"><i class="fa fa-clone"></i></button>
                                  </div>
                                  <a href="{{ $latest_offer->redirect_site_url }}" class="visit_site">Go to the {{ $latest_offer->redirect_site_name }}<i class=" fa fa-arrow-right"></i></a>
                               </div>
@@ -396,20 +394,20 @@
             <div class="f_a_q_container">
                <div class="f_a_q_wrapper">
                   <div class="question">
-                     <h4>What is the difference between a deal and a kazim? <i class="fa fa-caret-down"></i></h4>
-                     <p class="hide_text" style="display: block;">A coupon is a code which needs to be applied at the checkout page to avail the discount whereas a deal is a discounted price on a product or a range of products.</p>
+                     <h4>What is the expiration date of my voucher? <i class="fa fa-caret-down"></i></h4>
+                     <p class="hide_text" style="display: block;">The expiration date of the voucher will be clearly stated in the voucher details. Please be sure to use your voucher before the expiration date.</p>
                   </div>
                   <div class="question">
-                     <h4>How can I avail a deal from <i class="fa fa-caret-down"></i></h4>
-                     <p class="hide_text" style="display: none;">To avail a deal or an offer customers need to simply click on the coupon and buy the product/service at the discounted price mentioned in the coupon.</p>
+                     <h4>What happens if I lose my voucher? <i class="fa fa-caret-down"></i></h4>
+                     <p class="hide_text" style="display: none;">Lost or stolen vouchers cannot be replaced, so please keep your voucher in a safe place.</p>
                   </div>
                   <div class="question">
-                     <h4>How can I use a coupon code? <i class="fa fa-caret-down"></i></h4>
-                     <p class="hide_text" style="display: none;">To avail the discount via a coupon code customers need to click on the view code option and copy the coupon code. From there they will be redirected to the website. At the checkout page customers need to paste the coupon code click on apply to avail the discount.</p>
+                     <h4>Can I combine my voucher with other offers or discounts? <i class="fa fa-caret-down"></i></h4>
+                     <p class="hide_text" style="display: none;">Vouchers cannot be combined with other offers or discounts, unless specifically stated in the voucher details.</p>
                   </div>
                   <div class="question">
-                     <h4>Can customers use multiple coupons on a single order? <i class="fa fa-caret-down"></i></h4>
-                     <p class="hide_text" style="display: none;">Most brands allow only one coupon per order/transaction but this can vary from brand to brand.</p>
+                     <h4>What if the business or service provider no longer accepts my voucher? <i class="fa fa-caret-down"></i></h4>
+                     <p class="hide_text" style="display: none;">If a business or service provider no longer accepts your voucher, please contact us and we will work with you to resolve the issue.</p>
                   </div>
                </div>
                <div class="faq_image">

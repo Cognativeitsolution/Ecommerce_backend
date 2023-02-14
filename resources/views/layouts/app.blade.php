@@ -42,6 +42,7 @@
             <li class="side-list"><a href="{{ url('pages/about-us') }}" class="side-list-link">About Us</a></li>
             <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
             <li class="side-list"><a href="{{ url('categories') }}" class="side-list-link">Category</a></li>
+            <li class="side-list"><a href="{{ url('blogs') }}" class="side-list-link">Blog</a></li>
             <li class="side-list"><a href="{{ url('contact_us') }}" class="side-list-link">Contact Us</a></li>
          </ul>
       </div>
@@ -80,9 +81,9 @@
                               <li class="{{ Request::is('pages/about-us') ? 'active' : '' }}"><a href="{{ url('pages/about-us') }}">About Us</a></li>
                               <li class="{{ Request::is('stores') ? 'active' : '' }}"><a href="{{ url('stores') }}">Stores</a></li>
                               <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Category</a></li>
-
-                              <li class="{{ Request::is('contact_us') ? 'active' : '' }}"><a href="{{ url('contact_us') }}">Contact Us</a></li>
                               <li class="{{ Request::is('blogs') ? 'active' : '' }}"><a href="{{ url('blogs') }}">Blog</a></li>
+                              <li class="{{ Request::is('contact_us') ? 'active' : '' }}"><a href="{{ url('contact_us') }}">Contact Us</a></li>
+                              
                            </ul>
                         </nav>
                      </div>
@@ -217,8 +218,7 @@
                            <div class="subscription_text">
                               <div class="subscribe__title">Subscribe To Our Newsletter</div>
                               <p>Sign up for our weekly email newsletter with the best money saving coupons.</p>
-                           </div>
-                           <div id="mc_embed_signup">
+                              <div id="mc_embed_signup">
                               <form action="{{ url('subscribers/store') }}" class="submit-form sb_form" form-type="subscribeform" method="post" accept-charset="utf-8">
                                  @csrf
                                  <div class="response-box"></div>
@@ -231,6 +231,8 @@
                                  @enderror
                               </form>
                            </div>
+                           </div>
+                           
                         </div>
                         <div class="nav_links">
                            <div class="single_prop first-order">
@@ -601,7 +603,7 @@ source: function(query, process) {
 
    }
    
-                                             function myFunction(n) {
+                                             function copy_code(n) {
                                              var copyText = document.getElementById("myInput"+n);
                                              $("#ctc"+n).css("border","2px dashed #111");
                                              copyText.select();

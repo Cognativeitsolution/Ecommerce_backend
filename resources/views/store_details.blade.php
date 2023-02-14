@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="ss_coupon-code">
-                                    <a href="javascript:void(0);" onclick="myFunction({{ $coupon->id }})" data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage" data-text="No Code!">
+                                    <a href="javascript:void(0);" onclick="copy_code({{ $coupon->id }})" data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage" data-text="No Code!">
                                     <?php echo ($coupon->code == 1) ? 'Get Code' : 'Get Deal'; ?> 
                                     </a>
                                 </div>
@@ -126,7 +126,7 @@
                                                 <div class="modal_code" id="ctc{{ $coupon->id }}">
                                                    {{ $coupon->coupon_code }}
                                                    <input type="text" class="text hide" id="myInput{{ $coupon->id }}" value="{{ $coupon->coupon_code }}" />
-                                                    <button class="button_clone" onclick="myFunction({{ $coupon->id }})"><i class="fa fa-clone"></i></button>
+                                                    <button class="button_clone" onclick="copy_code({{ $coupon->id }})"><i class="fa fa-clone"></i></button>
                                                 </div>
                                                 <a href="{{ $coupon->redirect_site_url }}" target="_blank" class="visit_site">Go to the {{ $coupon->redirect_site_name }} <i class=" fa fa-arrow-right"></i></a>
                                              </div>

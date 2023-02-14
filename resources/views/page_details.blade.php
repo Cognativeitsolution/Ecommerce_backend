@@ -58,16 +58,10 @@
                     <div class="right_bar">
                         <div class="why_us_wrapper">
                             <div class="why-us_heading">
-                                Why savenbuy ?
+                            What Infinite Vouchers is all about?
                             </div>
                             <div class="why_us_detail">
-                                Get instant access to verified coupons from top retailers on a single
-                                platform,
-                                Buy your favorite items at deep discounts with our coupons &amp; shop
-                                more by spending little,
-                                Acquire your dream products you were yearning for a long time at
-                                discounted rates with our
-                                coupons.
+                            At Infinite Vouchers, we believe in providing our customers with the best possible shopping experience. That's why we offer a wide range of vouchers and discount codes to help you save big on your purchases. 
                             </div>
                         </div>
                         <div class="single-progressbar">

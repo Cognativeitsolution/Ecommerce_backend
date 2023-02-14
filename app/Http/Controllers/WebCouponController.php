@@ -39,13 +39,13 @@ class WebCouponController extends Controller
             ->limit(7)
             ->get();
 
-        $featured_offers = Coupon::where('featured', 1)
+        $featured_offers = Coupon::active()->where('featured', 1)
             ->where('latest', 0)
             ->take(4)
             ->inRandomOrder()
             ->get();
 
-        $latest_offers = Coupon::where('latest', 1)
+        $latest_offers = Coupon::active()->where('latest', 1)
             ->where('featured', 0)
             ->take(4)
             ->inRandomOrder()

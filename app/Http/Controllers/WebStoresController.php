@@ -61,10 +61,6 @@ class WebStoresController extends Controller
 
     public function stores_slug($slug){
 
-//        $date = \Carbon\Carbon::today()->toDateString();
-//
-//        dd( $date );
-
         $store = Store::whereSlug($slug)
             ->withCount('coupon','code','deal')
             ->with('meta:store_id,meta_keywords,meta_description')

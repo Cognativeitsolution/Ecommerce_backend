@@ -19,6 +19,10 @@ class Coupon extends Model
         return with(new static)->getTable();
     }
 
+    public function scopeActive($query){
+        return $query->where('expire_date', '>=', \Carbon\Carbon::today()->toDateString() );
+    }
+
     public function store(){
         return $this->belongsTo(Store::class);
     }

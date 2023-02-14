@@ -36,15 +36,15 @@ class Store extends Model
     }
 
     public function coupon(){
-        return $this->hasMany(Coupon::class);
+        return $this->hasMany(Coupon::class)->where('expire_date', '>=', \Carbon\Carbon::today()->toDateString() );
     }
 
     public function code(){
-        return $this->hasMany(Coupon::class)->where('code', 1);
+        return $this->hasMany(Coupon::class)->where('code', 1)->where('expire_date', '>=', \Carbon\Carbon::today()->toDateString() );
     }
 
     public function deal(){
-        return $this->hasMany(Coupon::class)->where('code', 0);
+        return $this->hasMany(Coupon::class)->where('code', 0)->where('expire_date', '>=', \Carbon\Carbon::today()->toDateString() );
     }
 
 }

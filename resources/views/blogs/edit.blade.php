@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/style-example.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/jquery.Jcrop.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 <style>
   .error {
     color: red;
@@ -195,18 +199,35 @@
             </div>
             <hr>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="blog_image">Blog Image</label>
               <input type="file" class="form-control" id="blog_image" name="blog_image" class="form-control">
-            </div>
+            </div> -->
 
+            <div class="form-group">
             @if( !empty($record->blog_image) )
-            <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
+            <!-- <div class="form-group col-md-6 col-sm-6 col-lg-6 col-xs-6">
               <strong>Thumbnail Blog Image </strong>
               <br />
-              <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}">
+              <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}" width="500px">
+            </div> -->
+
+            <label for="blog_image">Thumbnail Blog Image</label>
+            <div class="clear"></div>
+            <div class="cropme" id="img_crop" style="width: 600px; height: 350px;">
+            <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}">
             </div>
+      
+      
+            <div class="clear"></div>
+            
+            <input type="hidden" id="blogimgsrc" name="blogimgsrc"  class="form-control">
+            @error('blogimgsrc')<div class="error">{{ $message }}</div>@enderror
             @endif
+
+            </div>
+
+            
 
             <div class="form-group">
               <div class="custom-control custom-switch">
@@ -267,13 +288,26 @@
 @endsection
 
 @section('js')
+<!-- Js files-->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="{{ asset('cropper/scripts/jquery.Jcrop.js') }}"></script>
+<script type="text/javascript" src="{{ asset('cropper/scripts/jquery.SimpleCropper.js') }}"></script>
+<script>
+              // Init Simple Cropper
+              $('.cropme').simpleCropper();
+              
+              $(".ok").click(function(){
+                
+                  setTimeout(function(){
+                    $('#blogimgsrc').val($('.cropme img').attr('src'));
+                  }, 1000);
+              });
+            </script>
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script>
   $(function() {
     //Initialize Select2 Elements
-    $('.select2').select2()
-
-
-  })
+    $('.select2').select2();
+  });
 </script>
 @endsection

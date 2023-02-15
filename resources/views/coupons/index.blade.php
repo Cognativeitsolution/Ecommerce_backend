@@ -77,6 +77,7 @@
                     <th style="text-align:center;">Title</th>
                     <th>Expire Coupon</th>
                     <th style="text-align:center;">Short Description</th>
+                    <th style="text-align:center;">Type</th>
                     <th style="text-align:center;">Updated</th>
                     <th width="150" style="text-align:center;">Action</th>
                   </tr>
@@ -114,6 +115,16 @@
                       @endif
                     </td>
                     <td style="text-align:center;">{!! Str::words( $coupon->short_description, 4, ' ...') !!}</td>
+
+                    <td style="text-align:center;">
+                      @if( $coupon->featured == 1)
+                      <label class="badge badge-pill badge-success">Featured</label>
+                      @endif
+
+                      @if( $coupon->latest == 1)
+                      <label class="badge badge-pill badge-info">Latest</label>
+                      @endif
+                    </td>
 
                     <td style="text-align:center;">{{ $coupon->updated_at->format('d-m-Y H:i:s') }}</td>
                     <td width="150" style="text-align:center;">

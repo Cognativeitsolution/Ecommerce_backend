@@ -113,7 +113,7 @@
                               <div class="store_title_modal">
                                  <div class="modal_title_img">
                                     <div class="web_imagebox">
-                                       <img src="{{ asset('/thumbnail/store_image.png') }}" width="100%" />
+                                       <img src="{{ asset('/thumbnail/' .$featured_offer->image) }}" width="100%" />
                                     </div>
                                  </div>
                                  <div class="modal_title_content">
@@ -312,7 +312,7 @@
                               <div class="store_title_modal">
                                  <div class="modal_title_img">
                                     <div class="web_imagebox">
-                                       <img src="{{ asset('/thumbnail/store_image.png') }}" width="100%" />
+                                       <img src="{{ asset('/thumbnail/' .$latest_offer->image) }}" width="100%" />
                                     </div>
                                  </div>
                                  <div class="modal_title_content">

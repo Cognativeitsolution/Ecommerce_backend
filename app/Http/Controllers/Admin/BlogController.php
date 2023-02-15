@@ -106,12 +106,33 @@ class BlogController extends Controller
             }
         }
 
-        if(isset($request['blog_image'])){
+//        if(isset($request['blog_image'])){
+//
+//            $blog_image = Helper::upload_banner_image($request->file('blog_image'));
+//
+//            $data2 = array(
+//                'blog_image'        => $blog_image,
+//            );
+//
+//            $blog->update($data2);
+//
+//        }
 
-            $blog_image = Helper::upload_banner_image($request->file('blog_image'));
+        if(isset($request['blogimgsrc'])){
+
+            $data1 = $request->blogimgsrc;
+            $image_array1 = explode(";",$data1);
+            $image_array2 = explode(",",$image_array1[1]);
+            $randomString = hexdec(uniqid());
+            $image_decode = base64_decode($image_array2[1]);
+            $image_name = public_path().'/thumbnail/' . $randomString . '.png';
+            $blog_image = file_put_contents($image_name, $image_decode);
+            $blog_image_name = $randomString.'.png' ;
+
+            unset( $request->blogimgsrc );
 
             $data2 = array(
-                'blog_image'        => $blog_image,
+                'blog_image'        => $blog_image_name,
             );
 
             $blog->update($data2);
@@ -122,7 +143,7 @@ class BlogController extends Controller
             $blog->tags()->attach($request->tags);
         }
 
-        Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'add', '');
+        Logs::add_log(Blog::getTableName(), $blog->id, $request->except(['blogimgsrc']) , 'add', '');
         return redirect()->route('blogs.index')->with('success','Record Added !');
     }
 
@@ -205,16 +226,36 @@ class BlogController extends Controller
             BlogRelated::where('blog_id', $blog->id)->delete();
         }
 
-        if(isset($request['blog_image'])){
+//        if(isset($request['blog_image'])){
+//
+//            $blog_image = Helper::upload_banner_image($request->file('blog_image'));
+//
+//            $data2 = array(
+//                'blog_image'        => $blog_image,
+//            );
+//
+//            $blog->update($data2);
+//
+//        }
 
-            $blog_image = Helper::upload_banner_image($request->file('blog_image'));
+        if(isset($request['blogimgsrc']) && $request['blogimgsrc'] != '' && !empty($request['blogimgsrc'])){
+
+            $data1 = $request->blogimgsrc;
+            $image_array1 = explode(";",$data1);
+            $image_array2 = explode(",",$image_array1[1]);
+            $randomString = hexdec(uniqid());
+            $image_decode = base64_decode($image_array2[1]);
+            $image_name = public_path().'/thumbnail/' . $randomString . '.png';
+            $blog_image = file_put_contents($image_name, $image_decode);
+            $blog_image_name = $randomString.'.png' ;
+
+            unset( $request->blogimgsrc );
 
             $data2 = array(
-                'blog_image'        => $blog_image,
+                'blog_image'        => $blog_image_name,
             );
 
             $blog->update($data2);
-
         }
 
         if ($request->has('tags')) {
@@ -222,7 +263,7 @@ class BlogController extends Controller
             $blog->tags()->attach($request->tags);
         }
         
-        Logs::add_log(Blog::getTableName(), $blog->id, $request->all(), 'edit', 1);
+        Logs::add_log(Blog::getTableName(), $blog->id, $request->except(['blogimgsrc']), 'edit', 1);
         return redirect()->route('blogs.index')->with('success','Record Updated !');
     }
 

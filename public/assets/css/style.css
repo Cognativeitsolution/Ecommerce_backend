@@ -97,9 +97,11 @@ header{
     align-items:center
 }
 .blog_info-detail,.lower_primary-header{
-    /* display:flex;
-    justify-content:space-between */
     padding: 3px;
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
 }
 .header_logo-link{
     
@@ -1879,20 +1881,24 @@ h4.show_coupon{
     box-shadow:0 4px 60px 0 rgba(0,0,0,.2)!important
 }
 .blog_img-box{
-    width:100%;
-    background-size:cover;
-    background-position:50%;
-    background-repeat:no-repeat;
-    border-radius:10px 10px 0 0
+    width: 100%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border-radius: 10px 10px 0 0;
+    height: 220px;
+    overflow: hidden;
 }
 .blog_content-box{
-    background:#fff;
-    padding:20px;
-    border-radius:0 0 10px 10px;
-    box-shadow:0 0 10px #0002;
-    display:inline-block;
-    flex-direction:column;
-    grid-gap:15px
+    background: #fff;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 10px #0002;
+    display: block;
+    flex-direction: column;
+    grid-gap: 15px;
+    float: left;
+    width: 100%;
 }
 .blog-tag{
     color: #daad51;
@@ -1936,13 +1942,16 @@ h4.show_coupon{
     overflow:hidden
 }
 .blog-detail-box,.comment_form,.sec_form{
-    display:flex;
-    flex-direction:column;
-    grid-gap:15px
+    display: block;
+    flex-direction: column;
+    grid-gap: 15px;
 }
 .blog_head{
-    font-size:24px;
-    margin-top:10px
+    font-size: 22px;
+    display: block;
+    margin-top: 10px;
+    height: 50px;
+    overflow: hidden;
 }
 .latest_post-container{
     display:flex;
@@ -1984,8 +1993,8 @@ h4.show_coupon{
     grid-gap:5px
 }
 .lpi_sub-heading{
-    font-size:28px;
-    line-height:1.5
+    font-size: 26px;
+    overflow: hidden;
 }
 .lpi_content .text{
     font-size:14px;
@@ -2844,15 +2853,21 @@ a:focus, a:hover{
     margin-top: 5px;
 }
 .blog_views{
-    float:right;
-    color:#008784 !important;
+    float: right;
+    color: #008784 !important;
+    font-weight: bold;
 }
 .blog_date{
-    color:#008784 !important;
+    color: #008784 !important;
+    width: 55%;
+    display: block;
+    float: left;
+    font-weight: bold;
 }
 .blog_time{
-    color:#008784 !important;
-    margin-left:10px;
+    color: #008784 !important;
+    text-align: right;
+    float: right;
 }
 @media only screen and (max-width:1300px){
     .bnr_heading{

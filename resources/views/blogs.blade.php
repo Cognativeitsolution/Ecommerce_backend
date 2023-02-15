@@ -50,11 +50,11 @@
                      @endforeach
                      </div>
                      <div class="blog-detail-box">
-                        <h3 class="blog_head">{{ $blog->name }}</h3>
+                        <h3 class="blog_head">{{ Str::of( $blog->name )->limit(65, ' ...') }}</h3>
                         <div class="blog_info-detail">
-                           <span class="blog_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $blog->created_at)->format('d M, Y') }}</span>
-                           <span class="blog_time">{{ $blog->reading_time }}</span>
-                           <span class="blog_views">{{ $blog->views }} views</span>
+                           <div class="blog_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $blog->created_at)->format('d M, Y') }} <span class="blog_time">{{ $blog->reading_time }}</span></div>
+                           
+                           <div class="blog_views">{{ $blog->views }} views</div>
                         </div>
                      </div>
                   </div>

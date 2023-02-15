@@ -96,12 +96,15 @@ header{
     justify-content:space-between;
     align-items:center
 }
-.blog_info-detail,.lower_primary-header{
+.blog_info-detail{
     padding: 3px;
     display: block;
     width: 100%;
     float: left;
     margin-top: 10px;
+}
+.lower_primary-header{
+    padding: 0px;
 }
 .header_logo-link{
     
@@ -2911,6 +2914,20 @@ a:focus, a:hover{
         height: 40px;
         overflow: hidden;
     }
+    .ss_coupon-container{
+        display: block;
+    }
+    .ss_main {
+        display: block;
+        width: 100%;
+        float: left;
+    }
+    .ss_sidebar {
+        
+        display: block;
+        width: 100%;
+        float: left;
+    }
 }
 @media only screen and (max-width:1000px){
     .pop-store-item {
@@ -3106,6 +3123,24 @@ a:focus, a:hover{
         height: 40px;
         overflow: hidden;
     }
+    .lower_primary-header{
+        padding: 3px;
+    }
+    .blog_date{
+        width: 63%;
+    }
+    .ss_info {
+        grid-gap: 20px;
+        width: 100%;
+        float: left;
+        display: block;
+    }
+    .st.st_uses {
+        /* flex: 0 0 auto; */
+        width: 100%;
+        float: left;
+        display: block;
+    }
 }
 @media only screen and (max-width:480px){
     .pc{
@@ -3146,5 +3181,8 @@ a:focus, a:hover{
         width: 220px;
         height: 40px;
         overflow: hidden;
+    }
+    .blog_date{
+        width: 70%;
     }
 }

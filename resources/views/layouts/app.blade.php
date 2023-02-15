@@ -33,7 +33,6 @@
          </span>
       </div>
       <div class="sd_img_box">
-         <!-- <img src="{{ asset('assets/images/logowhite.png') }}" alt="sd-header-logo"> -->
          <img src="{{ asset('images/' . $settings->header_logo) }}" alt="sd-header-logo">
       </div>
       <div class="sidebar__list">
@@ -41,8 +40,8 @@
             <li class="side-list"><a href="{{ route('web.coupon') }}" class="side-list-link">Home</a></li>
             <li class="side-list"><a href="{{ url('pages/about-us') }}" class="side-list-link">About Us</a></li>
             <li class="side-list"><a href="{{ url('stores') }}" class="side-list-link">Stores</a></li>
-            <li class="side-list"><a href="{{ url('categories') }}" class="side-list-link">Category</a></li>
-            <li class="side-list"><a href="{{ url('blogs') }}" class="side-list-link">Blog</a></li>
+            <li class="side-list"><a href="{{ url('categories') }}" class="side-list-link">Categories</a></li>
+            <li class="side-list"><a href="{{ url('blogs') }}" class="side-list-link">Blogs</a></li>
             <li class="side-list"><a href="{{ url('contact_us') }}" class="side-list-link">Contact Us</a></li>
          </ul>
       </div>
@@ -80,8 +79,8 @@
                               <li class="{{ Request::is('coupon') ? 'active' : '' }}"><a href="{{ route('web.coupon') }}">Home</a></li>
                               <li class="{{ Request::is('pages/about-us') ? 'active' : '' }}"><a href="{{ url('pages/about-us') }}">About Us</a></li>
                               <li class="{{ Request::is('stores') ? 'active' : '' }}"><a href="{{ url('stores') }}">Stores</a></li>
-                              <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Category</a></li>
-                              <li class="{{ Request::is('blogs') ? 'active' : '' }}"><a href="{{ url('blogs') }}">Blog</a></li>
+                              <li class="{{ Request::is('categories') ? 'active' : '' }}"><a href="{{ url('categories') }}">Categories</a></li>
+                              <li class="{{ Request::is('blogs') ? 'active' : '' }}"><a href="{{ url('blogs') }}">Blogs</a></li>
                               <li class="{{ Request::is('contact_us') ? 'active' : '' }}"><a href="{{ url('contact_us') }}">Contact Us</a></li>
                               
                            </ul>

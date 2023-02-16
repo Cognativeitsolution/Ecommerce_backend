@@ -2600,7 +2600,7 @@ img.avatar_img{
     display:flex;
     grid-gap:20px;
     align-items:center;
-    margin-top:-10px;
+    margin-top:0px;
     padding:0 20px 15px
 }
 .store_modal{
@@ -2977,6 +2977,7 @@ a:focus, a:hover{
         height: 40px;
         overflow: hidden;
     }
+    .abu_wrpr{flex-direction:row}
 }
 .pc{
     display: block;
@@ -3021,6 +3022,40 @@ a:focus, a:hover{
         width: 150px;
         height: 40px;
         overflow: hidden;
+    }
+
+
+
+
+
+    .coupon.coupon_card{
+        display: block;
+        float: left;
+        width: 100%;
+    }
+    .ss_coupon-content{
+        display: block;
+        flex-direction: column;
+        grid-gap: 5px;
+        row-gap: 5px;
+        column-gap: 5px;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 15px 0;
+        flex: 1;
+        float: left;
+    }
+    .ss_coupon-code {
+        width: auto;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        display: block;
+        float: right;
+    }
+    .coupon_btn_a.show_coupon{
+        width: 110px;
     }
 }
 @media only screen and (max-width:600px){
@@ -3141,6 +3176,36 @@ a:focus, a:hover{
         float: left;
         display: block;
     }
+    .ss_coupon-content{
+        width: 100%;
+    }
+    .ss_coupon-head{
+        text-align: center;
+        margin: auto;
+    }
+    .ss_coupon-text p{
+        text-align: center;
+    }
+    .ss_info{
+        text-align: center;
+    }
+    .ss_coupon-code {
+        width: 150px;
+        padding: 5px 15px;
+        margin: auto;
+        float: none;
+    }
+    .sidebar__container.active {
+        
+        z-index: 99999;
+    }
+    .nav_links{
+        margin-top: 0px;
+    }
+    .abu_wrpr{flex-direction:column;}
+    .abu_item, .au_item{
+        display: block;
+    }
 }
 @media only screen and (max-width:480px){
     .pc{
@@ -3162,7 +3227,7 @@ a:focus, a:hover{
         margin-bottom:1%;
     }
     .search-cubes{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     .store_container {
         width: 97%;

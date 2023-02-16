@@ -12,8 +12,8 @@ class WebSubscriberController extends Controller
             'email' => 'required|email|unique:subscribers,email',
         ]);
 
-        $record = Subscriber::create($details);
+        Subscriber::create($details);
 
-        return redirect('/')->with('message', 'You have subscribed successfully!')->with('status', 'success');
+        return redirect()->route('web.coupon')->with('message', 'You have subscribed successfully!')->with('status', 'success');
     }
 }

@@ -195,7 +195,7 @@
                                     Vouchers
                                  </h4>
                                  <p>
-                                    Vouchers
+                                 Redeem the voucher and use it as soon as possible to take advantage of the savings. 
                                  </p>
                               </div>
                            </div>
@@ -602,27 +602,18 @@ source: function(query, process) {
 
    }
    
-                                             function copy_code(n) {
-                                             var copyText = document.getElementById("myInput"+n);
-                                             $("#ctc"+n).css("border","2px dashed #111");
-                                             copyText.select();
-                                             copyText.setSelectionRange(0, 99999); // For mobile devices
-                                             navigator.clipboard.writeText(copyText.value);
-                                             // document.execCommand("copy");
-                                                
+   function copy_code(n) {
+   var copyText = document.getElementById("myInput"+n);
+   $("#ctc"+n).css("border","2px dashed #111");
+   copyText.select();
+   copyText.setSelectionRange(0, 99999); // For mobile devices
+   navigator.clipboard.writeText(copyText.value);
+   
 
-                                             //    console.time('time1');
-                                             //    var temp = $("<input>");
-                                             // $("body").append(temp);
-                                             // temp.val($('#myInput'+n).text()).select();
-                                             // document.execCommand("copy");
-                                             // temp.remove();
-                                             //    console.timeEnd('time1');
-
-                                                setTimeout(function(){
-                                                   $("#ctc"+n).css("border","2px dashed #daad51");
-                                                }, 1000);
-                                             }
+      setTimeout(function(){
+         $("#ctc"+n).css("border","2px dashed #daad51");
+      }, 1000);
+   }
                                           
 </script>
 

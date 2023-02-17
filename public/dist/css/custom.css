@@ -104,6 +104,7 @@ label.table-badge {
 
 .lbl{
 	cursor:default;
+  margin-top:10px;
 }
 
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active{

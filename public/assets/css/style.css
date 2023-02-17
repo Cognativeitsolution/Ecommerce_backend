@@ -319,7 +319,8 @@ header{
     height:100%
 }
 .search-cubes a .web_imagebox{
-    width:100%;
+    width: 80%;
+    margin: auto;
     height:60px;
     margin-top:12px
 }
@@ -522,7 +523,7 @@ nav.primary-navigation{
     height:70px;
     width:70px;
     border-radius:8px;
-    margin-bottom:auto;
+    margin-bottom:13px;
     float:left;
     display: block;
 }
@@ -1117,9 +1118,9 @@ h4.show_coupon{
 .footer-props{
     display:grid;
     grid-gap:20px;
-    padding:30px 0;
+    padding:15px 0;
     grid-template-columns:repeat(auto-fill,minmax(500px,1fr));
-    align-items:center
+    align-items:center;
 }
 .subscribe__title{
     font-size:22px;
@@ -1934,8 +1935,8 @@ h4.show_coupon{
     border-radius:50%
 }
 .sb_img img,.sb_img.sb_img{
-    max-height:400px;
-    height:400px;
+    display: block;
+    height: auto;
     box-shadow:3px 3px 7px -1px #0001;
     background-color:#000
 }
@@ -2027,14 +2028,17 @@ h4.show_coupon{
     border-radius:5px
 }
 .sidebar_blog{
-    flex:0 0 400px;
+    flex:0 0 500px;
     flex-direction:column;
     grid-gap:30px
 }
 .sb_img img{
     overflow:hidden;
     border-radius:5px;
-    width:100%
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
 }
 .tertiary_header,.user_name{
     font-weight:600
@@ -2560,11 +2564,15 @@ img.avatar_img{
 }
 .swiper-button-next,.swiper-rtl .swiper-button-prev{
     right:30px!important;
-    color:#fff!important
+    color:#fff!important;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .swiper-button-prev,.swiper-rtl .swiper-button-next{
     left:30px!important;
-    color:#fff!important
+    color:#fff!important;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .modal-header{
     padding:0!important
@@ -2665,7 +2673,7 @@ img.avatar_img{
 }
 .modal_code{
     padding:8px 0;
-    max-width:200px;
+    max-width:250px;
     width:100%;
     border:2px dashed #daad51;
     background:#daad5117;
@@ -2836,6 +2844,13 @@ a:focus, a:hover{
     width: auto;
     float: left;
     margin-top: 6px;
+    margin-bottom: 6px;
+}
+.store_container .image img{
+    width: 64px;
+    float: left;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 .store_container .content{
     display: block;
@@ -2872,6 +2887,51 @@ a:focus, a:hover{
     text-align: right;
     float: right;
 }
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+    top:50% !important;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next{
+    top:50% !important;
+}
+.modal_main{
+    width:100%;
+}
+.modal_body_main{
+    width:100%;
+}
+@media only screen and (max-width:1920px){
+    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+        top:35% !important;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+        top:35% !important;
+    }
+}
+@media only screen and (max-width:1800px){
+    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+        top:40% !important;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+        top:40% !important;
+    }
+}
+@media only screen and (max-width:1600px){
+    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+        top:45% !important;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+        top:45% !important;
+    }
+}
+@media only screen and (max-width:1440px){
+    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+        top:50% !important;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+        top:50% !important;
+    }
+}
+
 @media only screen and (max-width:1300px){
     .bnr_heading{
         width:135px;
@@ -2927,6 +2987,17 @@ a:focus, a:hover{
         display: block;
         width: 100%;
         float: left;
+    }
+    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+        top:50% !important;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+        top:50% !important;
+    }
+    .sidebar_blog{
+        flex:0 0 400px;
+        flex-direction:column;
+        grid-gap:30px
     }
 }
 @media only screen and (max-width:1000px){
@@ -3057,6 +3128,9 @@ a:focus, a:hover{
     .coupon_btn_a.show_coupon{
         width: 110px;
     }
+    .store_container .image img {
+        width: 58px;
+    }
 }
 @media only screen and (max-width:600px){
     .pop-store-item {
@@ -3098,7 +3172,6 @@ a:focus, a:hover{
         display:flex;
         grid-gap:15px;
         position:relative;
-        padding:140px 100px;
         flex-direction:column;
         align-items:flex-start;
         justify-content:flex-end
@@ -3123,6 +3196,7 @@ a:focus, a:hover{
         display: block;
         border-radius: 10px;
         float: left;
+        width:100%;
     }
     .modal_main{
         width: 100%;
@@ -3205,6 +3279,18 @@ a:focus, a:hover{
     .abu_wrpr{flex-direction:column;}
     .abu_item, .au_item{
         display: block;
+    }
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+        font-size: 30px !important;
+    }
+    .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+        font-size: 30px !important;
+    }
+    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+        top:55% !important;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+        top:55% !important;
     }
 }
 @media only screen and (max-width:480px){

@@ -198,8 +198,7 @@
           <div class="form-group">
             <label for="blog_image">Blog Image</label>
             <div class="clear"></div>
-            <div class="cropme" id="img_crop" style="width: 600px; height: 350px;"></div>
-      
+            <div class="cropme" id="img_crop" style="width: 370px; height: 225px;"></div>      
       
             <div class="clear"></div>
             

@@ -214,7 +214,7 @@
 
             <label for="blog_image">Thumbnail Blog Image</label>
             <div class="clear"></div>
-            <div class="cropme" id="img_crop" style="width: 600px; height: 350px;">
+            <div class="cropme" id="img_crop" style="width: 370px; height: 225px;">
             <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}">
             </div>
       

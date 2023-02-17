@@ -12,7 +12,7 @@
 <section class="blog_list-container">
             <div class="container">
                <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                      <div class="single_post_container">
                      <h3>{{ $blog->name }}</h3>
                         <div class="img_content"><img src="{{ asset('thumbnail/' . $blog->blog_image) }}" width="100%"></div>
@@ -27,7 +27,7 @@
                      </div>
                      
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-5">
                      <h2>Latest Blog Post</h2>
                      @foreach ($latest_blog_with_category as $latest_blog)
                      <a href="{{ route('web.blog_details', $latest_blog->slug) }}" class="latest_post_container">
@@ -42,7 +42,7 @@
 
                      <div class="blogs_tags">
                      <h2>Blog Categories</h2>
-                        @foreach($all_categories as $category)
+                        @foreach($blog_categories as $category)
                            <a href="{{ route('web.blog_category', $category->slug) }}" class="btn btn_tag">{{ $category->name }}</a>
                         @endforeach                        
                      </div>

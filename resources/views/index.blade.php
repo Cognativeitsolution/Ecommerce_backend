@@ -49,7 +49,7 @@
                </div>
 
                <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-7">
 
                   @foreach($main_blog_with_category as $main_blog)
                      <div class="single_post_container">
@@ -81,7 +81,7 @@
 
                      
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-5">
                      <h2>Latest Blog Post</h2>
 
                      @foreach($latest_blog_with_category as $latest_blog)
@@ -103,7 +103,7 @@
                      <div class="blogs_tags">
                      <h2>Blog Categories</h2>
 
-                     @foreach($all_categories as $category)
+                     @foreach($blog_categories as $category)
                         <a href="{{ route('web.blog_category', $category->slug ) }}" class="btn btn_tag">{{ $category->name }}</a>
                      @endforeach
                         
@@ -113,4 +113,6 @@
             </div>
    </section>
          
+
+
 @endsection

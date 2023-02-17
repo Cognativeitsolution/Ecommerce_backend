@@ -85,7 +85,7 @@
                      </a>
                   </div>
                   <div class="featured_details">
-                     <h4 class="show_coupon" data-id="24303" data-clipboard-text="WELCOME10">
+                     <h4 class="show_coupon" data-id="24303" data-clipboard-text="{{ Str::mask($featured_offer->coupon_code, '*', 0, 2) }}">
                         {{ Str::words( $featured_offer->title, 10, ' ..')  }}
                      </h4>
                      <p class="featured_desc">
@@ -96,7 +96,7 @@
                         <p class="uses"><i class="fa fa-user"></i> Uses : {{ $featured_offer->views }} Uses</p>
                      </div>
                      <div class="code_btn_container">
-                        <a href="javascript:void(0);" onclick="copy_code({{ $featured_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $featured_offer->id }})" data-target="#{{ $featured_offer->id }}" class="coupon_btn_a <?php echo ($featured_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="WELCOME10" "="" data-text=" **LCOME10">
+                        <a href="javascript:void(0);" onclick="copy_code({{ $featured_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $featured_offer->id }})" data-target="#{{ $featured_offer->id }}" class="coupon_btn_a <?php echo ($featured_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="{{ $featured_offer->coupon_code }}" "="" data-text="{{ Str::mask($featured_offer->coupon_code, '*', 0, 2) }}">
                            <?php echo ($featured_offer->code == 1) ? 'Get Code' : 'Get Deal'; ?>
                         </a>
                      </div>
@@ -284,7 +284,7 @@
                      </a>
                   </div>
                   <div class="featured_details">
-                     <h4 class="show_coupon" data-id="24303" data-clipboard-text="WELCOME10">
+                     <h4 class="show_coupon" data-id="24303" data-clipboard-text="{{ Str::mask($latest_offer->coupon_code, '*', 0, 2) }}">
                         {{ Str::words( $latest_offer->title, 10, ' ..')  }}
                      </h4>
                      <p class="featured_desc">
@@ -295,7 +295,7 @@
                         <p class="uses"><i class="fa fa-user"></i> Uses : {{ $latest_offer->views }} Uses</p>
                      </div>
                      <div class="code_btn_container">
-                        <a href="javascript:void(0);" onclick="copy_code({{ $latest_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $latest_offer->id }})" data-target="#{{ $latest_offer->id }}" class="coupon_btn_a <?php echo ($latest_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="WELCOME10" "="" data-text=" **LCOME10">
+                        <a href="javascript:void(0);" onclick="copy_code({{ $latest_offer->id }})" data-toggle="modal" onclick="getCodeDeal({{ $latest_offer->id }})" data-target="#{{ $latest_offer->id }}" class="coupon_btn_a <?php echo ($latest_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="{{ $latest_offer->coupon_code }}" "="" data-text="{{ Str::mask($latest_offer->coupon_code, '*', 0, 2) }}">
                            <?php echo ($latest_offer->code == 1) ? 'Get Code' : 'Get Deal'; ?>
                         </a>
                      </div>

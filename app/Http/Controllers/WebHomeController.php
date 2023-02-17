@@ -86,6 +86,7 @@ class WebHomeController extends Controller
             )
             ->where('blog.status', 1)
             ->where('blog.is_coupon_site', 0)
+            ->whereNotIn('blog.id', [ $blog->id ])
             ->orderBy('blog.id', 'DESC')
             ->take(4)
             ->get();

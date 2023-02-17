@@ -111,7 +111,7 @@ label.table-badge {
 }
 
 [class*=sidebar-dark-] {
-    background-color: #000;
+    background-color: #008784;
 }
  
 /* sidebar nav */
@@ -384,6 +384,34 @@ body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-fo
     margin-top: 15px;
     margin-right: 15px;
   }
+  .lightbox{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    z-index: 9999;
+    display: none;
+    overflow: auto;
+  }
+  .modal-positioner {
+    background-color: #fff;
+    width: 50%;
+    padding: 50px;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 25px;
+}
+.modal-positioner .cropper-container{
+  width: 90% !important;
+  margin: auto;
+}
+.btn_content{
+    width:100%;
+    margin-top:20px;
+}
 @media only screen and (max-width: 1000px) {
     .push_menu{
         display:block;

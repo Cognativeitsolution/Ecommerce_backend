@@ -17,7 +17,7 @@
                             <div class="ss_main-wrapper">
                                 <div class="ss_profile-img">
                                     <a href="#" class="web_imagebox">
-                                        <img src="{{ asset('images/' . $store->image) }}" alt="ss-img" class="store_image">
+                                        <img src="{{ asset('thumbnail/' . $store->image) }}" alt="ss-img" class="store_image">
                                     </a>
                                 </div>
                                 <div class="ss_profile-content">

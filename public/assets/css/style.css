@@ -2898,6 +2898,22 @@ a:focus, a:hover{
 .modal_body_main{
     width:100%;
 }
+.sw_offer2{
+    color:#000;
+    text-decoration: none;
+}
+.sw_offer2:hover{
+    color:#008784;
+    text-decoration: none;
+}
+.sw_offer2:focus{
+    color:#000;
+    text-decoration: none;
+}
+.linkActive{
+    color:#008784;
+    text-decoration: none;
+}
 @media only screen and (max-width:1920px){
     .swiper-button-next, .swiper-rtl .swiper-button-prev{
         top:35% !important;

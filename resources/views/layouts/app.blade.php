@@ -585,8 +585,6 @@ source: function(query, process) {
 
    function getCodeDeal(id) {
 
-      // copy_code(id);
-
       var url = "{{ url('stores/views') }}";
 
       $.ajax({
@@ -603,9 +601,32 @@ source: function(query, process) {
       });
 
    }
+
+   function setLink(n){
+      if(n == 1){
+         $(".all_btn").css("color","#008784");
+         $(".codes").css("color","#000");
+         $(".deals").css("color","#000");
+      }
+      if(n == 2){
+         $(".all_btn").css("color","#000");
+         $(".codes").css("color","#008784");
+         $(".deals").css("color","#000");
+      }
+      if(n == 3){
+         $(".all_btn").css("color","#000");
+         $(".codes").css("color","#000");
+         $(".deals").css("color","#008784");
+      }
+   }
    
    function copy_code(n) {
    var copyText = document.getElementById("myInput"+n);
+   var siteURL = document.getElementById("siteURL"+n).value;
+   window.open(
+      siteURL,
+   '_blank'
+   );
    $("#ctc"+n).css("border","2px dashed #111");
    copyText.select();
    copyText.setSelectionRange(0, 99999); // For mobile devices

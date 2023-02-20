@@ -585,6 +585,8 @@ source: function(query, process) {
 
    function getCodeDeal(id) {
 
+      // copy_code(id);
+
       var url = "{{ url('stores/views') }}";
 
       $.ajax({

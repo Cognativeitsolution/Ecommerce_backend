@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="ss_coupon-code">
-                                    <a href="javascript:void(0);" onclick="copy_code({{ $coupon->id }})" data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage" data-text="No Code!">
+                                    <a href="javascript:void(0);" data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage" data-text="No Code!">
                                     <?php echo ($coupon->code == 1) ? 'Get Code' : 'Get Deal'; ?> 
                                     </a>
                                 </div>

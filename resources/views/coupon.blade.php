@@ -51,7 +51,7 @@
                         
                         <div class="bnr_content">
                            <div class="web_imagebox">
-                              <img src="{{ asset('/thumbnail/' .$top_store->image) }}" alt="">
+                              <img src="{{ asset('/images/' .$top_store->image) }}" alt="">
                            </div>
                            <h4 class="bnr_heading">{{ Str::of( $top_store->name )->limit(25, ' ') }}</h4>
 
@@ -81,7 +81,7 @@
                   
                   <div class="f_o_img">
                      <a href="#" class="web_imagebox">
-                        <img src="{{ asset('/thumbnail/' .$featured_offer->image) }}" alt="{{ $featured_offer->name }}">
+                        <img src="{{ asset('/images/' .$featured_offer->image) }}" alt="{{ $featured_offer->name }}">
                      </a>
                   </div>
                   <div class="featured_details">
@@ -113,7 +113,7 @@
                               <div class="store_title_modal">
                                  <div class="modal_title_img">
                                     <div class="web_imagebox">
-                                       <img src="{{ asset('/thumbnail/' .$featured_offer->image) }}" width="100%" />
+                                       <img src="{{ asset('/images/' .$featured_offer->image) }}" width="100%" />
                                     </div>
                                  </div>
                                  <div class="modal_title_content">
@@ -204,7 +204,7 @@
                         <p class="categories_offer">({{ $popular_category->coupon_count }}) Offers</p>
                      </div>
                      <div class="category_img ">
-                        <img src="{{ asset('/thumbnail/' .$popular_category->image) }}" alt="cat_img" class="category_image">
+                        <img src="{{ asset('/images/' .$popular_category->image) }}" alt="cat_img" class="category_image">
                      </div>
                   </a>
                </div>
@@ -280,7 +280,7 @@
                   
                   <div class="f_o_img">
                      <a href="#" class="web_imagebox">
-                        <img src="{{ asset('/thumbnail/' .$latest_offer->image) }}" alt="{{ $latest_offer->name }}">
+                        <img src="{{ asset('/images/' .$latest_offer->image) }}" alt="{{ $latest_offer->name }}">
                      </a>
                   </div>
                   <div class="featured_details">
@@ -312,7 +312,7 @@
                               <div class="store_title_modal">
                                  <div class="modal_title_img">
                                     <div class="web_imagebox">
-                                       <img src="{{ asset('/thumbnail/' .$latest_offer->image) }}" width="100%" />
+                                       <img src="{{ asset('/images/' .$latest_offer->image) }}" width="100%" />
                                     </div>
                                  </div>
                                  <div class="modal_title_content">

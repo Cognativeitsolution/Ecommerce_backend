@@ -17,7 +17,7 @@
                             <div class="ss_main-wrapper">
                                 <div class="ss_profile-img">
                                     <a href="#" class="web_imagebox">
-                                        <img src="{{ asset('thumbnail/' . $store->image) }}" alt="ss-img" class="store_image">
+                                        <img src="{{ asset('images/' . $store->image) }}" alt="ss-img" class="store_image">
                                     </a>
                                 </div>
                                 <div class="ss_profile-content">
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="coupon_dis">
                                     <a href="#" class="web_imagebox">
-                                        <img src="{{ asset('thumbnail/' .$coupon->image ) }}" alt="coupon">
+                                        <img src="{{ asset('images/' .$coupon->image ) }}" alt="coupon">
                                     </a>
                                 </div>
                                 <div class="ss_coupon-content">
@@ -107,7 +107,7 @@
                                              <div class="store_title_modal">
                                                 <div class="modal_title_img">
                                                    <div class="web_imagebox">
-                                                      <img src="{{ asset('thumbnail/' .$coupon->image ) }}" width="100%"  />
+                                                      <img src="{{ asset('images/' .$coupon->image ) }}" width="100%"  />
                                                    </div>
                                                 </div>
                                                 <div class="modal_title_content">

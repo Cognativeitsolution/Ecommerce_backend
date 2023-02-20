@@ -40,7 +40,7 @@
                         <a href="{{ url('stores/' .$category->slug) }}" class="category_item-link">
                             <div class="category_img-box">
                                 <div class="web_imagebox">
-                                    <img class="lazy" src="{{ asset('thumbnail/' .$category->image) }}" style="">
+                                    <img class="lazy" src="{{ asset('images/' .$category->image) }}" style="">
                                 </div>
                             </div>
                             <div class="cat_head_name">{{ $category->name }}</div>

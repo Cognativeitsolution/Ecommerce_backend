@@ -92,7 +92,7 @@
             
             <div class="store_container"><a href="{{ url('stores/' .$data->slug) }}" class="stlist_grid-item">
               <div class="image">
-                <img class="lazy" src="{{ asset('thumbnail/' . $data->image) }}">
+                <img class="lazy" src="{{ asset('images/' . $data->image) }}">
               </div>
               <div class="content">
                 <h2>{{ $data->name }}</h2>

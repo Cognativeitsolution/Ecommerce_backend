@@ -50,7 +50,7 @@
                      @endforeach
                      </div>
                      <div class="blog-detail-box">
-                        <h3 class="blog_head">{{ Str::of( $blog->name )->limit(65, ' ...') }}</h3>
+                        <h3 class="blog_head">{{ Str::of( $blog->name )->limit(70, ' ...') }}</h3>
                         <div class="blog_info-detail">
                            <div class="blog_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $blog->created_at)->format('d M, Y') }} <span class="blog_time">{{ $blog->reading_time }}</span></div>
                            
@@ -63,6 +63,11 @@
 
             </div>
          </div>
+
+         @if(!empty($record))
+            {!! $record->appends(Request::all())->links() !!}
+         @endif
+
       </div>
    </div>
 </section>
@@ -81,7 +86,7 @@
                <a href="{{ url('blogs/' .$latest_blog->slug ) }}" class="latest_post-item">
                   <div class="lpi_img">
                      <div class="banner_two blog_img">
-                        <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image ) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                        <img src="{{ asset('thumbnail/' .$latest_blog->blog_image ) }}" width="100%">
                      </div>
                   </div>
                   <div class="lpi_content">
@@ -97,13 +102,5 @@
       </div>
    </div>
 </section>
-
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<!-- IMAGES LOAD ON SCROLL  -->
-<script src="{{ asset('assets/js/images_on_scroll.js') }}"></script>
-
-<script>
-   $('img').loadScroll(200);// in ms
-</script>
 
 @endsection

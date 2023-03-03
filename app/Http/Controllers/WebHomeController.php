@@ -34,9 +34,11 @@ class WebHomeController extends Controller
             )
             ->where('blog.status', 1)
             ->where('blog.is_coupon_site', 0)
-            ->inRandomOrder()
-            ->take(4)
-            ->get();
+            //->inRandomOrder()
+            //->take(4)
+            //->get();
+            ->orderBy('id', 'DESC')
+            ->paginate(4);
 
         $latest_blog_with_category = DB::table('blogs as blog')
             ->join('blogs as category', 'category.id', '=', 'blog.parent_id')

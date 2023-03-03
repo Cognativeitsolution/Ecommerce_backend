@@ -413,6 +413,61 @@ body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-fo
     width:100%;
     margin-top:20px;
 }
+.result{
+  margin:auto;
+  margin-top: 10px;
+  width:100%;
+}
+.img-result{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.hide,.options{
+  display: none;
+}
+#save{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.page {
+	margin: 1em auto;
+	max-width: 768px;
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.box {
+	padding: 0em;
+	width: 100%;
+	margin:0em;
+}
+
+.box-2 {
+	padding: 0.5em;
+	width: calc(100%/2 - 1em);
+}
+#uploaded_image{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.options label,
+.options input{
+	width:4em;
+	padding:0.5em 1em;
+}
+
+
+.hide {
+	display: none;
+}
+
+img {
+	max-width: 100%;
+}
+
 @media only screen and (max-width: 1000px) {
     .push_menu{
         display:block;

@@ -30,6 +30,7 @@ use App\Http\Controllers\PagesController as WebPagesController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\WebCommentController;
 use App\Http\Controllers\WebCouponController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('clear_cache', function () {
 
@@ -75,6 +76,7 @@ Route::middleware([IsAdmin::class])->group(function(){
     Route::resource('admin/comments', CommentController::class);
     Route::post('admin/old_comment/{id}', [CommentController::class, 'old_comment'])->name('old_comment');
     Route::post('admin/comments/multi_delete', [CommentController::class, 'multi_delete'])->name('comments.multi_delete');
+    Route::resource('admin/categories_stores', CategoryController::class);
 
     // old_comment
     Route::resource('admin/settings', SettingController::class);

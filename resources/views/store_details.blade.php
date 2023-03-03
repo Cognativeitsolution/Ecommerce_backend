@@ -52,13 +52,13 @@
                             </div>
                         </div>
                         <div class="offer_switcher">
-                            <a href="#" class="sw_offer all all_btn active">
+                            <a href="#" class="sw_offer all all_btn sw_offer2 linkActive" onclick="setLink(1)">
                                 All ({{ $store->coupon_count }})
                             </a>
-                            <a href="#" class="sw_offer codes codes_btn">
+                            <a href="#" class="sw_offer codes sw_offer2 codes_btn" onclick="setLink(2)">
                                 Codes ({{ $store->code_count }})
                             </a>
-                            <a href="#" class="sw_offer deals deals_btn">
+                            <a href="#" class="sw_offer deals sw_offer2 deals_btn" onclick="setLink(3)">
                                 Deals ({{ $store->deal_count }})
                             </a>
                         </div>
@@ -88,11 +88,21 @@
                                         <div class="st st_expiry"><i class="far fa-clock"></i> &nbsp; Expiry: {{ date('d-m-Y', strtotime($coupon->expire_date)) }}</div>
                                     </div>
                                 </div>
-                                <div class="ss_coupon-code">
-                                    <a href="javascript:void(0);" data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage" data-text="No Code!">
-                                    <?php echo ($coupon->code == 1) ? 'Get Code' : 'Get Deal'; ?> 
+                                
+                                <?php if(($coupon->code == 1)){ ?>
+                                    <div class="ss_coupon-code">
+                                    <a href="javascript:void(0);"  data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }}),copy_code({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage get_code_color" data-text="No Code!">
+                                    Get Code
                                     </a>
-                                </div>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="ss_coupon-code">
+                                    <a href="javascript:void(0);"  data-toggle="modal" onclick="getCodeDeal({{ $coupon->id }}),copy_code({{ $coupon->id }})" data-target="#{{ $coupon->id }}" class="show_coupon coupon_btn_a deal show_coupon homepage get_deal_color" data-text="No Code!">
+                                    Get Deal
+                                    </a>
+                                    </div>
+                                <?php } ?>
+                                
                             </div>
 
 
@@ -128,6 +138,7 @@
                                                    <input type="text" class="text hide" id="myInput{{ $coupon->id }}" value="{{ $coupon->coupon_code }}" />
                                                     <button class="button_clone" onclick="copy_code({{ $coupon->id }})"><i class="fa fa-clone"></i></button>
                                                 </div>
+                                                <input type="hidden" id="siteURL{{ $coupon->id }}" value="{{ $coupon->redirect_site_url }}"/>
                                                 <a href="{{ $coupon->redirect_site_url }}" target="_blank" class="visit_site">Go to the {{ $coupon->redirect_site_name }} <i class=" fa fa-arrow-right"></i></a>
                                              </div>
                                           </div>

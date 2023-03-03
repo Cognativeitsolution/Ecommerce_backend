@@ -82,6 +82,8 @@ class BlogsSeeder extends Seeder
         for($i = 1; $i<=15; $i++){
 
             $blog = new Blog;
+
+            $blog->is_coupon_site = $faker->numberBetween(0,1);
             $blog->title = $faker->realText(90);
             $blog->name = $faker->realText(90); // $faker->sentence(6);
 

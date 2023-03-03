@@ -15,7 +15,7 @@
       <!-- Anything you want -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; {{ Carbon\Carbon::now()->year }} <a href="{{ url('/admin/home') }}">E Commerce</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ Carbon\Carbon::now()->year }} <a href="{{ url('/admin/home') }}">Infinite Vouchers</a>.</strong> All rights reserved.
   </footer>
   
 </div>

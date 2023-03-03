@@ -103,7 +103,7 @@ header{
 .header_logo-link{
     
     flex:0 0 150px;
-    width:150px;
+    width:170px;
     display:flex;
     align-items:center;
     justify-content:flex-start
@@ -2930,6 +2930,161 @@ a:focus, a:hover{
 }
 .swiper-button-prev, .swiper-rtl .swiper-button-next{
     top:50% !important;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span{
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: #d8d8d8;
+    color: #000;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.pagination>li:first-child>a:hover, .pagination>li:first-child>span{
+    font-size: 40px;
+    border-radius: 50px;
+    background-color: #daad51;
+    color: #fff;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #008784;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left:10px;
+    border-radius: 50px;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 1.8;
+    text-align: center;
+}
+.pagination>li>a, .pagination>li>span{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-left:10px;
+    border-radius: 50px;
+    background-color: #d8d8d8;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 1.8;
+    text-align: center;
+}
+.pagination>li>a:hover, .pagination>li>span{
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50px;
+    background-color: #daad51;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 1.7;
+    text-align: center;
+}
+.pagination>li:last-child>a, .pagination>li:last-child>span{
+    font-size: 20px;
+    color: #000;
+    border-radius: 50px;
+    background-color: #daad51;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 1.7;
+    text-align: center;
+}
+.pagination>li:last-child>a, .pagination>li:last-child>span{
+    font-size: 40px;
+    border-radius: 50px;
+    background-color: #d8d8d8;
+    color: #000;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover{
+    font-size: 40px;
+    border-radius: 50px;
+    background-color: #daad51;
+    color: #fff;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.pagination>li:first-child>a:hover, .pagination>li:first-child>span{
+    font-size: 40px;
+    border-radius: 50px;
+    background-color: #d8d8d8;
+    color: #000;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.pagination>li:last-child>a:hover{
+    font-size: 40px;
+    border-radius: 50px;
+    background-color: #daad51;
+    color: #fff;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.pagination>li:first-child>a:hover{
+    font-size: 40px;
+    border-radius: 50px;
+    background-color: #daad51;
+    color: #fff;
+    border:none;
+    width: 50px;
+    height: 50px;
+    line-height: 0.7;
+    text-align: center;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+    color: #111;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 24px !important;
+}
+.swiper-button-prev{
+    background-color:rgba(255,255,255,0.6);
+    width:42px !important;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+.swiper-button-next{
+    background-color:rgba(255,255,255,0.6);
+    width:42px !important;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+.swiper-button-prev:hover{
+    background-color:rgba(255,255,255,1);
+    transition: 0.5s;
+}
+.swiper-button-next:hover{
+    background-color:rgba(255,255,255,1);
+    transition: 0.5s;
+}
+.single_post_container p img{
+    width:100%;
 }
 @media only screen and (max-width:1920px){
     .swiper-button-next, .swiper-rtl .swiper-button-prev{

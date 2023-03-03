@@ -25,10 +25,11 @@ class BlogController extends Controller
             ->with('tags:id,name')
             ->where('status', 1)
             ->where('is_coupon_site', 1)
-            ->skip(5)
-            ->take(6)
+            //->skip(5)
+//            ->take(6)
             ->orderBy('id', 'DESC')
-            ->get();
+            ->paginate(6);
+            //->get();
 
         $latest = Blog::select(
             'id',

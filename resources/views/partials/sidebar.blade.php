@@ -19,7 +19,12 @@
       
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image user_image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+          @if(Auth::user()->email == "rahatmirza@admin.com")
+            <img src="{{ asset('dist/img/user4-128x128.jpg') }}" class="img-circle elevation-2" alt="{{ Auth::user()->name }}">
+          @else
+            <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="{{ Auth::user()->name }}">
+          @endif
+          
           <a href="#" class="d-block user_info">{{ Auth::user()->name }}</a>
         </div>
         
@@ -56,15 +61,6 @@
               </li>
               @endcan
 
-              <!-- user-list can permission -->
-              <!-- <li class="nav-item">
-                <a href="{{ url('/admin/users') }}" class="nav-link {{ Request::is('admin/users') ? 'active' : '' }}">
-                  <i class="fa fa-users nav-icon"></i>
-                  <p>Users</p>
-                </a>
-              </li> -->
-              
-
               @can('subscriber-list')
               <li class="nav-item">
                 <a href="{{ url('admin/subscribers') }}" class="nav-link {{ Request::is('admin/subscribers') ? 'active' : '' }}">
@@ -88,6 +84,15 @@
                 <a href="{{ url('/admin/sliders')}}" class="nav-link {{ Request::is('admin/sliders') ? 'active' : '' }}">
                   <i class="fa fa-newspaper nav-icon"></i>
                   <p>Sliders</p>
+                </a>
+              </li>
+              @endcan
+
+              @can('store-list')
+              <li class="nav-item">
+                <a href="{{ url('/admin/categories_stores')}}" class="nav-link {{ Request::is('admin/categories_stores') ? 'active' : '' }}">
+                  <i class="fa fa-list-alt nav-icon"></i>
+                  <p>Category Stores</p>
                 </a>
               </li>
               @endcan
@@ -118,16 +123,15 @@
                 </a>
               </li>
               @endcan
-
+              
               @can('blog-list')
               <li class="nav-item">
                 <a href="{{ url('/admin/categories')}}" class="nav-link {{ Request::is('admin/categories') ? 'active' : '' }}">
                   <i class="fa fa-list-alt nav-icon"></i>
-                  <p>Categories</p>
+                  <p>Blog Categories</p>
                 </a>
               </li>
               @endcan
-              
 
               @can('blog-list')
               <li class="nav-item">

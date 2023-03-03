@@ -256,6 +256,7 @@ class BlogController extends Controller
             );
 
             $blog->update($data2);
+
         }
 
         if ($request->has('tags')) {
@@ -263,7 +264,7 @@ class BlogController extends Controller
             $blog->tags()->attach($request->tags);
         }
         
-        Logs::add_log(Blog::getTableName(), $blog->id, $request->except(['blogimgsrc']), 'edit', 1);
+        Logs::add_log(Blog::getTableName(), $blog->id, $request->except(['blogimgsrc']) , 'edit', 1);
         return redirect()->route('blogs.index')->with('success','Record Updated !');
     }
 

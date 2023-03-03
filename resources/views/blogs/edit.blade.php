@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/style.css') }}" />
+<!-- <link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/style-example.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/jquery.Jcrop.min.css') }}" />
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('cropper/css/jquery.Jcrop.min.css') }}" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 <style>
   .error {
@@ -17,13 +17,6 @@
 @endsection
 
 @section('content')
-
-<?php
-// echo "<pre>";
-// print_r( $tags );
-// die();
-?>
-
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -212,10 +205,31 @@
               <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}" width="500px">
             </div> -->
 
-            <label for="blog_image">Thumbnail Blog Image</label>
-            <div class="clear"></div>
-            <div class="cropme" id="img_crop" style="width: 370px; height: 225px;">
-            <img src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}">
+            
+            
+            
+            <label for="blog_image">Blog Image (Recommend Size : 500 x 350)</label>                                   
+            <div class="box">
+            <input type="file" id="file-input"/>
+            </div>
+            <!-- leftbox -->
+            <div class="box-2">
+                <div class="result"></div>
+                <img id="uploaded_image" src="{{ url('/thumbnail/') }}/{{ $record->blog_image }}">
+            </div>
+            <!--rightbox-->
+            <div class="box-2 img-result hide">
+                <!-- result of crop -->
+                <img class="cropped" id="img_crop" src="" alt="">
+            </div>
+            <!-- input file -->
+            <div class="box">
+                <div class="options hide">
+                    <label> Width</label>
+                    <input type="number" class="img-w" value="500" min="100" max="800" />
+                </div>
+                <!-- save btn -->
+                <button class="btn btn-primary save hide" id="save">Crop Image</button>
             </div>
       
       
@@ -289,10 +303,13 @@
 
 @section('js')
 <!-- Js files-->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="{{ asset('cropper/scripts/jquery.Jcrop.js') }}"></script>
-<script type="text/javascript" src="{{ asset('cropper/scripts/jquery.SimpleCropper.js') }}"></script>
-<script>
+<script type="text/javascript" src="{{ asset('cropper/scripts/jquery.SimpleCropper.js') }}"></script> -->
+
+<script src="{{ asset('cropper/app.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
+<!-- <script>
               // Init Simple Cropper
               $('.cropme').simpleCropper();
               
@@ -302,6 +319,16 @@
                     $('#blogimgsrc').val($('.cropme img').attr('src'));
                   }, 1000);
               });
+            </script> -->
+
+            <script>
+              $("#save").click(function(){
+                $('#uploaded_image').hide();
+                setTimeout(function(){
+                  $('#blogimgsrc').val($('#img_crop').attr('src'));
+                }, 1000);
+              });
+              
             </script>
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script>

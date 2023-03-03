@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Slider;
 use App\Models\Store;
 use App\Models\Coupon;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 

@@ -55,7 +55,7 @@
                      <div class="single_post_container">
                         <div class="img_content">
                         <h3>{{ Str::of( $main_blog->name )->limit(200, '') }}</h3>
-                           <img data-src="{{ asset('thumbnail/' .$main_blog->blog_image ) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                           <img src="{{ asset('thumbnail/' .$main_blog->blog_image ) }}" width="100%">
                         </div>
                         <div class="main_content">
                            <div class="date">
@@ -76,11 +76,16 @@
                            <a href="{{ route('web.blog_details', $main_blog->slug) }}" class="btn btn_readmore">READ MORE</a>
                         </div>
                      </div>
-                  @endforeach              
+                  @endforeach    
 
-
+                  @if(!empty($main_blog_with_category))
+                     {!! $main_blog_with_category->appends(Request::all())->links() !!}
+                  @endif
                      
                   </div>
+
+                  
+
                   <div class="col-md-5">
                      <h2>Latest Blog Post</h2>
 
@@ -88,12 +93,12 @@
                      <a href="{{ route('web.blog_details', $latest_blog->slug) }}" class="latest_post_container">
 
                         <div class="img_content">
-                           <img data-src="{{ asset('thumbnail/' .$latest_blog->blog_image) }}" src="{{ asset('thumbnail/dot.png') }}" width="100%">
+                           <img src="{{ asset('thumbnail/' .$latest_blog->blog_image) }}" width="100%">
                         </div>
                         <div class="main_content">
                            <label>{{ $latest_blog->category_name }}</label>
-                           <h3>{{ Str::of( $latest_blog->name )->limit(10, '...') }}</h3>
-                           <p>{{ Str::of( $latest_blog->short_description )->limit(45, '...') }}</p>
+                           <h3>{{ Str::of( $latest_blog->name )->limit(15, '...') }}</h3>
+                           <p>{{ Str::of( $latest_blog->short_description )->limit(60, '...') }}</p>
                         </div>
                         
                      </a>
@@ -112,7 +117,5 @@
                </div>
             </div>
    </section>
-         
-
 
 @endsection

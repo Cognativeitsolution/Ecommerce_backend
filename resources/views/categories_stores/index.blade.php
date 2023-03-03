@@ -18,9 +18,9 @@
           <div class="col-sm-6">
             <div class="col-sm-4"></div>
 
-           @can('coupon-create')
+           @can('store-create')
             <div class="col-sm-4">
-              <a href="{{ route('coupons.create') }}" class="btn btn-block btn-primary main-btn">Add Coupon</a>
+              <a href="{{ route('categories_stores.create') }}" class="btn btn-block btn-primary main-btn">Add</a>
             </div>
            @endcan
             
@@ -28,7 +28,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-              <li class="breadcrumb-item">All Coupons</li>
+              <li class="breadcrumb-item">All Categories</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,11 +45,11 @@
                 <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                    <span class="tbl-head">Displaying {{$record->count()}} of {{ $record->total() }} coupon(s).</span> 
+                    <span class="tbl-head">Displaying {{$record->count()}} of {{ $record->total() }} categories.</span> 
 
                     </div>
                     <div class="col-sm-6">
-                    <form class="float-right" name="user_search" id="" method="get" action="{{ route('coupons.index')}}">
+                    <form class="float-right" name="user_search" id="" method="get" action="{{ route('categories_stores.index')}}">
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 250px;">
                       <input type="text" name="search" class="form-control float-right" placeholder="{{ app('request')->input('search') }} Search">
@@ -73,11 +73,10 @@
                       <tr>
                         <th>S.No</th>
                         <th>Image</th>
-                        <th>Coupon Code</th>
-                        <th style="text-align:center;">Title</th>
-                        <th>Expire Coupon</th>
-                        <th style="text-align:center;">Short Description</th>
+                        <th>Name</th>
+                        <th  style="text-align:center;">Title</th>
                         <th style="text-align:center;">Type</th>
+
                         <th style="text-align:center;">Updated</th>
                         <th width="150" style="text-align:center;">Action</th>
                       </tr>
@@ -86,56 +85,44 @@
 
                     @if ($record->count() == 0)
                     <tr>
-                        <td colspan="6">No coupons to display.</td>
+                        <td colspan="6">No categories to display.</td>
                     </tr>
                     @endif
                     
                     @if(!empty($record) && $record->count())
                     @php $no=1; @endphp
-                      @foreach( $record as $coupon)
+                      @foreach( $record as $category)
                         <tr>
                           <td>{{ $no++ }}</td>
                           <td>
-                            @if( !empty($coupon->image) )
-                            <img width="50px" src="{{ url('/thumbnail/') }}/{{ $coupon->image }}" >
+                            @if( !empty($category->image) )
+                            <img width="40px" src="{{ url('/images/') }}/{{ $category->image }}" >
                             @else
                               &nbsp;&nbsp;
                             @endif
                           </td>
 
-                          <td>{{ $coupon->coupon_code }}</td>
-                          <td style="text-align:center;">{!! Str::words( $coupon->title, 7, ' ...') !!}</td>
-                          <td>{{ \Carbon\Carbon::parse($coupon->expire_date)->format('d-M-Y') }}
-                          
-                          @if ($coupon->expire_date < \Carbon\Carbon::now()->toDateString())
-                          <label class="badge badge-danger">
-                            Expired
-                          </label>
-                          @endif
-                          
+                          <td>{!! Str::words( $category->name, 4, ' ...') !!}</td>
+                          <td  style="text-align:center;">{!! Str::words( $category->title, 4, ' ...') !!}</td>
+
+                          <td style="text-align:center;">
+
+                            @if( $category->popular == 1)
+                            <label class="badge badge-pill badge-success">Popular</label>
+                            @endif                            
+
                           </td>
-                          <td style="text-align:center;">{!! Str::words( $coupon->short_description, 4, ' ...') !!}</td>
-                          
-                        <td style="text-align:center;">
-                          @if( $coupon->featured == 1)
-                            <label class="badge badge-pill badge-success">Featured</label>
-                          @endif
-    
-                          @if( $coupon->latest == 1)
-                            <label class="badge badge-pill badge-info">Latest</label>
-                          @endif
-                        </td>
-                    
-                        
-                          <td style="text-align:center;">{{ $coupon->updated_at->format('d-m-Y H:i:s') }}</td>
+
+
+                          <td style="text-align:center;">{{ $category->updated_at->format('Y-m-d H:i:s') }}</td>
                           <td width="150" style="text-align:center;">
-                            @can('coupon-edit')
-                            <a href="{{ route('coupons.edit', $coupon->id)}}" class="btn btn-primary tableaction">Edit</a>
+                            @can('store-edit')
+                            <a href="{{ route('categories_stores.edit', $category->id)}}" class="btn btn-primary tableaction">Edit</a>
                             @endcan
                             
-                            @can('coupon-delete')
+                            @can('store-delete')
                               
-                              <form class="tableaction" action="{{ route('coupons.destroy', $coupon->id)}}" method="post">
+                              <form class="tableaction" action="{{ route('categories_stores.destroy', $category->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger del-btn" onclick="return confirm('Are you sure to delete record?')" type="submit">Delete</button>

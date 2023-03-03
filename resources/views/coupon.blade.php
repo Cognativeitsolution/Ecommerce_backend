@@ -80,9 +80,9 @@
                <div class="featured_cpn_wrapper">
                   
                   <div class="f_o_img">
-                     <a href="#" class="web_imagebox">
+                     <span class="web_imagebox">
                         <img src="{{ asset('/images/' .$featured_offer->image) }}" alt="{{ $featured_offer->name }}">
-                     </a>
+                  </span>
                   </div>
                   <div class="featured_details">
                      <h4 class="show_coupon" data-id="24303" data-clipboard-text="{{ Str::mask($featured_offer->coupon_code, '*', 0, 2) }}">
@@ -279,9 +279,9 @@
                <div class="featured_cpn_wrapper">
                   
                   <div class="f_o_img">
-                     <a href="#" class="web_imagebox">
+                     <span class="web_imagebox">
                         <img src="{{ asset('/images/' .$latest_offer->image) }}" alt="{{ $latest_offer->name }}">
-                     </a>
+                     </span>
                   </div>
                   <div class="featured_details">
                      <h4 class="show_coupon" data-id="24303" data-clipboard-text="{{ Str::mask($latest_offer->coupon_code, '*', 0, 2) }}">

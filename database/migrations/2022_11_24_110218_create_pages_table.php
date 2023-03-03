@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('name')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
+            $table->tinyInteger('type')->default(1);
             $table->string('short_description')->nullable();
             $table->text('long_description')->nullable();
             $table->tinyInteger('status')->default(1);

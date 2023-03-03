@@ -107,7 +107,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        $record = Page::select('pages.id','pages.parent_id','pages.name','pages.title','pages.short_description','pages.long_description','pages.status', 'page_metas.meta_keywords', 'page_metas.meta_description')
+        $record = Page::select('pages.id','pages.parent_id','pages.name','pages.title', 'pages.type', 'pages.short_description','pages.long_description','pages.status', 'page_metas.meta_keywords', 'page_metas.meta_description')
             ->join('page_metas', 'page_metas.page_id', 'pages.id')
             ->where('pages.id', $page->id)
             ->first();

@@ -74,6 +74,7 @@
                         <th>Name</th>
                         <th style="text-align:center;">Title</th>
                         <th style="text-align:center;">Short Description</th>
+                        <th style="text-align:center;">Type</th>
                         <th style="text-align:center;">Updated</th>
                         <th width="150" style="text-align:center;">Action</th>
                       </tr>
@@ -94,6 +95,13 @@
                           <td>{!! Str::words( $page->name, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{!! Str::words( $page->title, 3, ' ...') !!}</td>
                           <td style="text-align:center;">{!! Str::words( $page->short_description, 5, ' ...') !!}</td>
+                          <td style="text-align:center;">
+                            @if ($page->type == 1)
+                              <label class="badge badge-info">Coupon</label>
+                            @else
+                              <label class="badge badge-info">Blog</label>
+                            @endif
+                        </td>
                         
                           <td style="text-align:center;">{{ $page->updated_at->format('Y-m-d H:i:s') }}</td>
                           <td width="150" style="text-align:center;float:right;">

@@ -280,15 +280,17 @@
                               <h2 class="ftr_heading">More Links</h2>
                               <ul class="ftr_links_wrpr">
                                  @foreach ($footer_pages as $page)
-                                 <li>
-                                    <a href="{{ route('web.page_detail', $page->slug) }}">
-                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                          <polyline points="9 6 15 12 9 18"></polyline>
-                                       </svg>
-                                       {{ $page->name }}
-                                    </a>
-                                 </li>
+                                    @if ($page->type == 1 && $page->parent_id == 1)
+                                       <li>
+                                          <a href="{{ route('web.page_detail', $page->slug) }}">
+                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <polyline points="9 6 15 12 9 18"></polyline>
+                                             </svg>
+                                             {{ $page->name }}
+                                          </a>
+                                       </li>
+                                    @endif
                                  @endforeach
 
                                  <li>

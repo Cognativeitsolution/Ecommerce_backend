@@ -111,7 +111,9 @@
                         <h4>company</h4>
                         <div class="abu_wrpr">
                             @foreach ($footer_pages as $page)
-                            <a class="abu_item {{ Request::is('pages/' . $page->slug) ? 'active' : '' }}" href="{{ route('web.page_detail', $page->slug) }}">{{ $page->name }} </a>
+                                @if ($page->type == 1 && $page->parent_id != 0)
+                                    <a class="abu_item {{ Request::is('pages/' . $page->slug) ? 'active' : '' }}" href="{{ route('web.page_detail', $page->slug) }}">{{ $page->name }} </a>
+                                @endif
                             @endforeach
 
                             <a class="abu_item" href="{{ url('contact_us') }}">Contact Us </a>

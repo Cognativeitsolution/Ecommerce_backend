@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         $settings = Setting::first();
-        $footer_pages = Page::select('id','parent_id','name','slug')->where('parent_id', 1)->where('status',1)->get();
+        $footer_pages = Page::select('id','parent_id','name','slug', 'type')->where('status',1)->get();
         $popular_stores = Store::where('popular', 1)->where('type', 1)->select('id','name','slug')->take(4)->inRandomOrder()->get();
         $top_stores_footer = Store::where('top', 1)->select('id','name','slug')->withCount('coupon')->take(3)->inRandomOrder()->get();
         $new_comments = Comment::where('new_comment', 1)->count();

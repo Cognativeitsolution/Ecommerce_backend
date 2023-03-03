@@ -5,6 +5,7 @@ use App\Models\Store;
 use App\Models\StoreRelated;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class WebStoresController extends Controller
 {
@@ -47,15 +48,29 @@ class WebStoresController extends Controller
     }
 
     public function categories(){
-        $record = Store::select(
+//        $record = Store::select(
+//            'id',
+//            'name',
+//            'slug',
+//            'image'
+//        )
+//            ->where('type', 2) // type 2 Categories
+//            ->orderBy('stores.id','DESC')
+//            ->get();
+
+        $record = Category::select(
             'id',
             'name',
+            'title',
             'slug',
             'image'
         )
-            ->where('type', 2) // type 2 Categories
-            ->orderBy('stores.id','DESC')
+            ->where('status', 1)
+            ->orderBy('categories.name','ASC')
             ->get();
+
+//        dd( $record );
+
         return view('categories', compact('record') );
     }
 

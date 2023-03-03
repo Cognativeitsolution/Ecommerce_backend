@@ -3085,6 +3085,7 @@ a:focus, a:hover{
 }
 .single_post_container p img{
     width:100%;
+    height:auto;
 }
 @media only screen and (max-width:1920px){
     .swiper-button-next, .swiper-rtl .swiper-button-prev{

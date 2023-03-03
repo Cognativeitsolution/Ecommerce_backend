@@ -33,30 +33,24 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="cat_wrapper">
-
-                @if(!empty($record) && $record->count())
+                <div class="category_wrapper">
+                    @if(!empty($record) && $record->count())
                     @foreach($record as $category)
-
-                    <div class="secondary_cat_item">
-
-                        <a href="#" class="cat_item-link">
-                            <div class="cat_image-box">
+                    <div class="category_item">
+                        <a href="{{ url('stores/' .$category->slug) }}" class="category_item-link">
+                            <div class="category_img-box">
                                 <div class="web_imagebox">
-                                <img src="{{ asset('images/' .$category->image ) }}" class="lazy_cat-image"/>
+                                    <img class="lazy" src="{{ asset('images/' .$category->image) }}" style="">
                                 </div>
                             </div>
-                            <div class="cat_desc">
-                                {{ $category->name }}
+                            <div class="cat_head_name">{{ $category->name }}</div>
+                            <div class="cat_head_viewmore-btn">
+                                View All Offers <i class="fa fa-angle-double-right"></i>
                             </div>
                         </a>
-
                     </div>
-
                     @endforeach
-                @endif
-
-                 
+                    @endif
                 </div>
             </div>
         </div>

@@ -732,7 +732,8 @@ h4.show_coupon{
 .category_img{
     transition:.5s;
     flex:0 0 80px;
-    height:80px;
+    height: 100px;
+    max-height: 150px;
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
@@ -3142,9 +3143,20 @@ img.lazy_cat-image {
     background-color:rgba(255,255,255,1);
     transition: 0.5s;
 }
-.single_post_container p img{
+.main_blog p img{
     width:100%;
     height:auto;
+}
+#siteseal{
+    margin-top:20px;
+}
+.link{
+    display: block;
+    margin: auto;
+    width: 150px;
+    color: #008784;
+    font-size: 25px;
+    text-decoration: none;
 }
 @media only screen and (max-width:1920px){
     .swiper-button-next, .swiper-rtl .swiper-button-prev{

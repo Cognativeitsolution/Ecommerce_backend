@@ -211,7 +211,11 @@
 
                @endforeach
             </div>
+
          </div>
+
+         <a href="{{ url('categories') }}">All Categories</a>
+
       </div>
    </div>
 </section>

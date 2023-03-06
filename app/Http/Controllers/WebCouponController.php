@@ -48,7 +48,7 @@ class WebCouponController extends Controller
                 'image'
             )
             ->withCount('stores')
-            ->orderBy('id','DESC')
+            ->orderBy('name','ASC')
             ->limit(8)
             ->get();
 

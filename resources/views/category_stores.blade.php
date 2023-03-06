@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('seo')
-<title>E Commerce All Categories</title>
-<meta name="keywords" content="E Commerce shopping categories, E Commerce keywords" />
-<meta name="description" content="E Commerce shopping categories, E Commerce description" />
+<title>Infinite Vouchers - Categories</title>
+<meta name="keywords" content="Infinite Vouchers shopping categories, Infinite Vouchers" />
+<meta name="description" content="Infinite Vouchers shopping categories, Infinite Vouchers" />
 @endsection
 
 @section('content')
@@ -16,11 +16,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="store_main-title">
-                                    <h2 class="store_title sl_page">All Categories</h2>
+                                    <h2 class="store_title sl_page">Category / {{ $category->name }}</h2>
                                     <ul class="store_breadcrumbs store_list">
                                         <li><a href="{{ route('web.coupon') }}">Home</a></li>
                                         <li><i class="fa fa-angle-right"></i></li>
-                                        <li>All Categories</li>
+                                        <li>Category </li>
+                                        <li> <i class="fa fa-angle-right"></i> &nbsp; {{ $category->name }}</li>
                                     </ul>
                                 </div>
                             </div>

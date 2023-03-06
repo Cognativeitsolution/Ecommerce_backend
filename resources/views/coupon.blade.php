@@ -198,10 +198,10 @@
             <div class="category_grid-container">
                @foreach($popular_categories as $popular_category)
                <div class="cat_item cat_item-one">
-                  <a href="{{ url('stores/' .$popular_category->slug) }}">
+                  <a href="{{ url('category/' .$popular_category->slug) }}">
                      <div class="categories_main_content">
-                        <h3 class="categories_title">{{ Str::of( $popular_category->name )->limit(8, '') }}</h3>
-                        <p class="categories_offer">({{ $popular_category->coupon_count }}) Offers</p>
+                        <h3 class="categories_title">{{ Str::of( $popular_category->name )->limit(10, '') }}</h3>
+                        <p class="categories_offer">({{ $popular_category->stores_count }}) Stores</p>
                      </div>
                      <div class="category_img ">
                         <img src="{{ asset('/images/' .$popular_category->image) }}" alt="cat_img" class="category_image">

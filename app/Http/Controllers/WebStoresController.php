@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\CategoryRelated;
 use App\Models\Store;
 use App\Models\StoreRelated;
 use App\Models\Coupon;
@@ -72,6 +73,31 @@ class WebStoresController extends Controller
 //        dd( $record );
 
         return view('categories', compact('record') );
+    }
+
+    public function category_slug($slug){
+        $category = Category::whereSlug($slug)
+            ->withCount('stores')
+            ->first();
+
+        if( $category != false){
+
+            $related_store_ids = CategoryRelated::where('category_id', $category->id)
+                ->pluck('related_store_id')
+                ->toArray();
+
+            $record = Store::select('id','name','slug','image')
+                ->where('status', 1)
+                ->withCount('coupon')
+                ->whereIn('id', $related_store_ids)
+                ->get();
+
+            return view('category_stores', compact('record', 'category') );
+
+        }else {
+            abort(404);
+        }
+
     }
 
     public function stores_slug($slug){

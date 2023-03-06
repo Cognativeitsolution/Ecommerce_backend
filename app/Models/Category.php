@@ -33,6 +33,10 @@ class Category extends Model
         });
     }
 
+    public function stores(){
+        return $this->hasMany(CategoryRelated::class, 'category_id');
+    }
+
     public static function getTableName()
     {
         return with(new static)->getTable();

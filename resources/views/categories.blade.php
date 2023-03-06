@@ -40,7 +40,7 @@
 
                     <div class="secondary_cat_item">
 
-                        <a href="#" class="cat_item-link">
+                        <a href="{{ url('category/' .$category->slug) }}" class="cat_item-link">
                             <div class="cat_image-box">
                                 <div class="web_imagebox">
                                 <img src="{{ asset('images/' .$category->image ) }}" class="lazy_cat-image"/>

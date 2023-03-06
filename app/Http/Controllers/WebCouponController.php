@@ -28,16 +28,28 @@ class WebCouponController extends Controller
             ->limit(8)
             ->get();
 
-        $popular_categories = Store::where('type', 2)->where('popular', 1)->where('status', 1)
+//        $popular_categories = Store::where('type', 2)->where('popular', 1)->where('status', 1)
+//            ->select(
+//                'id',
+//                'name',
+//                'slug',
+//                'image'
+//            )
+//            ->withCount('coupon')
+//            ->orderBy('id','DESC')
+//            ->limit(7)
+//            ->get();
+
+        $popular_categories = Category::where('popular', 1)->where('status', 1)
             ->select(
                 'id',
                 'name',
                 'slug',
                 'image'
             )
-            ->withCount('coupon')
+            ->withCount('stores')
             ->orderBy('id','DESC')
-            ->limit(7)
+            ->limit(8)
             ->get();
 
         $featured_offers = Coupon::active()->where('featured', 1)

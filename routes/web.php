@@ -50,6 +50,7 @@ Route::get('/blog/category/{slug}', [WebHomeController::class, 'blog_category'])
 Route::get('/coupon', [WebCouponController::class, 'index'])->name('web.coupon');
 Route::get('/stores', [WebStoresController::class, 'index']);
 Route::get('/categories', [WebStoresController::class, 'categories']);
+Route::get('/category/{slug}', [WebStoresController::class, 'category_slug']);
 Route::get('/stores/action', [WebStoresController::class, 'action'])->name('stores.action');
 Route::get('/stores/views', [WebStoresController::class, 'views'])->name('stores.views');
 Route::get('/stores/{slug}', [WebStoresController::class, 'stores_slug'])->name('stores.store_slug');

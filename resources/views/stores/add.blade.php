@@ -99,16 +99,21 @@
           </div> -->
 
           <hr>
+          
+          <div style="display:none;">
           <h4>Select Type</h4>
-          <div class="form-check-inline">
-            <label class="form-check-label">
-              <input type="radio" value=1 class="form-check-input" checked="checked" name="type">Store
-            </label>
-          </div>
-          <div class="form-check-inline">
-            <label class="form-check-label">
-              <input type="radio" value=2 class="form-check-input" name="type">Category
-            </label>
+
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" value=1 class="form-check-input" checked="checked" name="type">Store
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" value=2 class="form-check-input" name="type">Category
+              </label>
+            </div>
+
           </div>
 
           <hr>

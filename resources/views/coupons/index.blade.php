@@ -72,12 +72,16 @@
                     <thead>
                       <tr>
                         <th>S.No</th>
+
+                        <th style="text-align:center;">Sort </th>
+
                         <th>Image</th>
-                        <th>Coupon Code</th>
+                        <th>Code / Deal</th>
                         <th style="text-align:center;">Title</th>
                         <th>Expire Coupon</th>
-                        <th style="text-align:center;">Short Description</th>
+                        
                         <th style="text-align:center;">Type</th>
+                        <th style="text-align:center;">Store Name</th>
                         <th style="text-align:center;">Updated</th>
                         <th width="150" style="text-align:center;">Action</th>
                       </tr>
@@ -95,6 +99,9 @@
                       @foreach( $record as $coupon)
                         <tr>
                           <td>{{ $no++ }}</td>
+
+                          <td style="text-align:center;">{{ $coupon->sort }}</td>
+
                           <td>
                             @if( !empty($coupon->image) )
                             <img width="50px" src="{{ url('/thumbnail/') }}/{{ $coupon->image }}" >
@@ -103,7 +110,16 @@
                             @endif
                           </td>
 
-                          <td>{{ $coupon->coupon_code }}</td>
+                          <td style="text-align:center;">{{ $coupon->coupon_code }}
+
+                              @if( $coupon->code == 1)
+                                <label class="badge badge-pill badge-success">Code</label>
+                              @else
+                              <label class="badge badge-pill badge-info">Deal</label>
+                              @endif
+
+                          </td>
+
                           <td style="text-align:center;">{!! Str::words( $coupon->title, 7, ' ...') !!}</td>
                           <td>{{ \Carbon\Carbon::parse($coupon->expire_date)->format('d-M-Y') }}
                           
@@ -114,7 +130,6 @@
                           @endif
                           
                           </td>
-                          <td style="text-align:center;">{!! Str::words( $coupon->short_description, 4, ' ...') !!}</td>
                           
                         <td style="text-align:center;">
                           @if( $coupon->featured == 1)
@@ -125,6 +140,8 @@
                             <label class="badge badge-pill badge-info">Latest</label>
                           @endif
                         </td>
+
+                        <td style="text-align:center;">{{ $coupon->store_name }}</td>
                     
                         
                           <td style="text-align:center;">{{ $coupon->updated_at->format('d-m-Y H:i:s') }}</td>

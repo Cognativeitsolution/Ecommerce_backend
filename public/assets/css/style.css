@@ -932,7 +932,7 @@ h4.show_coupon{
     color:#daad51
 }
 .post_box_content p{
-    font-size:13px;
+    font-size:15px;
     padding-top:6px;
     color:#ffffff
 }
@@ -2932,128 +2932,141 @@ a:focus, a:hover{
     background: #111 !important;
 }
 .pagination>li:first-child>a, .pagination>li:first-child>span{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     border-radius: 50px;
+    margin-left:5px;
+    margin-bottom:10px;
     background-color: #d8d8d8;
     color: #000;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }
 .pagination>li:first-child>a:hover, .pagination>li:first-child>span{
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 50px;
+    margin-left:5px;
+    margin-bottom:10px;
     background-color: #daad51;
     color: #fff;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
     background-color: #008784;
     font-weight: bold;
-    font-size: 20px;
-    margin-left:10px;
+    font-size: 15px;
+    margin-bottom:10px;
+    margin-left:5px;
     border-radius: 50px;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 1.8;
     text-align: center;
 }
 .pagination>li>a, .pagination>li>span{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     color: #000;
-    margin-left:10px;
+    margin-bottom:10px;
+    margin-left:5px;
     border-radius: 50px;
     background-color: #d8d8d8;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 1.8;
     text-align: center;
 }
 .pagination>li>a:hover, .pagination>li>span{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     color: #fff;
+    margin-bottom:10px;
     border-radius: 50px;
     background-color: #daad51;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 1.7;
     text-align: center;
 }
 .pagination>li:last-child>a, .pagination>li:last-child>span{
-    font-size: 20px;
+    font-size: 15px;
     color: #000;
     border-radius: 50px;
     background-color: #daad51;
     border:none;
-    width: 50px;
-    height: 50px;
+    margin-bottom:10px;
+    width: 40px;
+    height: 40px;
     line-height: 1.7;
     text-align: center;
 }
 .pagination>li:last-child>a, .pagination>li:last-child>span{
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 50px;
     background-color: #d8d8d8;
     color: #000;
+    margin-bottom:10px;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }
 .pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover{
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 50px;
     background-color: #daad51;
     color: #fff;
     border:none;
-    width: 50px;
-    height: 50px;
+    margin-bottom:10px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }
 .pagination>li:first-child>a:hover, .pagination>li:first-child>span{
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 50px;
     background-color: #d8d8d8;
     color: #000;
+    margin-bottom:10px;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }
 .pagination>li:last-child>a:hover{
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 50px;
     background-color: #daad51;
     color: #fff;
+    margin-bottom:10px;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }
 .pagination>li:first-child>a:hover{
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 50px;
     background-color: #daad51;
     color: #fff;
+    margin-bottom:10px;
     border:none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 0.7;
     text-align: center;
 }

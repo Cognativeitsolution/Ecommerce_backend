@@ -77,7 +77,7 @@
           </div>
 
           <div class="form-group">
-            <label>Select Store / Category</label>
+            <label>Select Store</label>
             <select name="store_id" class="form-control" data-placeholder="Select here ...">
 
               @foreach($stores as $data)

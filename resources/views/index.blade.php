@@ -77,10 +77,6 @@
                         </div>
                      </div>
                   @endforeach    
-
-                  @if(!empty($main_blog_with_category))
-                     {!! $main_blog_with_category->appends(Request::all())->links() !!}
-                  @endif
                      
                   </div>
 
@@ -114,6 +110,13 @@
                         
                      </div>
                   </div>
+
+                  <div class="col-md-12">
+                     @if(!empty($main_blog_with_category))
+                        {!! $main_blog_with_category->appends(Request::all())->links() !!}
+                     @endif
+                  </div>
+
                </div>
             </div>
    </section>

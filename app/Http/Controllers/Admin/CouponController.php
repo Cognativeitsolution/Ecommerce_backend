@@ -36,20 +36,36 @@ class CouponController extends Controller
         $search = request('search');
 
         if (!empty($search)) {
-            $record = Coupon::select(
-                'coupons.*',
-                'stores.id as store_id',
-                'stores.name as store_name'
-            )
-                ->join('stores', 'stores.id', 'coupons.store_id')
 
-                ->where('coupons.title', 'like', '%'.$search.'%')
-                ->orWhere('stores.name', 'like', '%'.$search.'%')
-                ->orWhere('coupons.coupon_code', 'like', '%'.$search.'%')
-                ->orWhere('coupons.short_description', 'like', '%'.$search.'%')
-                ->orWhere('coupons.long_description', 'like', '%'.$search.'%')
-                ->orderBy('coupons.id','DESC')
-                ->paginate(20);
+            if( $search == "code"){
+                $record = Coupon::select(
+                    'coupons.*',
+                    'stores.id as store_id',
+                    'stores.name as store_name'
+                )
+                    ->join('stores', 'stores.id', 'coupons.store_id')
+
+                    ->where('coupons.code', 1)
+                    ->orderBy('coupons.id','DESC')
+                    ->paginate(20);
+            }else{
+                $record = Coupon::select(
+                    'coupons.*',
+                    'stores.id as store_id',
+                    'stores.name as store_name'
+                )
+                    ->join('stores', 'stores.id', 'coupons.store_id')
+
+                    ->where('coupons.title', 'like', '%'.$search.'%')
+                    ->orWhere('stores.name', 'like', '%'.$search.'%')
+                    ->orWhere('coupons.coupon_code', 'like', '%'.$search.'%')
+                    ->orWhere('coupons.short_description', 'like', '%'.$search.'%')
+                    ->orWhere('coupons.long_description', 'like', '%'.$search.'%')
+                    ->orderBy('coupons.id','DESC')
+                    ->paginate(20);
+                }
+
+            
             return view('coupons.index', compact('record') );
         }else{
             $record = Coupon::select(

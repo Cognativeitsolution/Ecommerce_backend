@@ -267,11 +267,11 @@
                                     @endif
 
                                     @if ($settings->pinterest_account_link)
-                                    <a href="{{ $settings->pinterest_account_link }}" class="au_item">
+                                    <!-- <a href="{{ $settings->pinterest_account_link }}" class="au_item">
                                        <div class="icon pt">
                                           <i class="fab fa-pinterest"></i>
                                        </div>
-                                    </a>
+                                    </a> -->
                                     @endif
                                  </div>
                               </div>
@@ -642,6 +642,29 @@ source: function(query, process) {
                                           
 </script>
 
+<script>
+   $(document).ready(function(){
+
+$('#itemslider').carousel({ interval: 3000 });
+
+$('.carousel-showmanymoveone .item').each(function(){
+var itemToClone = $(this);
+
+for (var i=1;i<6;i++) {
+itemToClone = itemToClone.next();
+
+if (!itemToClone.length) {
+itemToClone = $(this).siblings(':first');
+}
+
+itemToClone.children(':first-child').clone()
+.addClass("cloneditem-"+(i))
+.appendTo($(this));
+}
+});
+});
+
+</script>
 </html>
 
 @yield('js')

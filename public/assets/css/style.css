@@ -3171,6 +3171,320 @@ img.lazy_cat-image {
     font-size: 25px;
     text-decoration: none;
 }
+
+.vs_btn{
+    background-color: #008784;
+    border: #008784;
+    color: #fff !important;
+}
+.vs_btn:hover{
+    background-color: #111;
+}
+.tcb-product-item{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.tcb-product-slider {
+    background: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 0;
+  }
+  .tcb-product-slider .carousel-control {
+    width: 60px;
+    background: none;
+    border-radius: 90px;
+    height: 60px;
+    background-color: #008784;
+    margin-top: 90px;
+    opacity: 0.8;
+  }
+  .tcb-product-slider .carousel-control:hover {
+    opacity: 1;
+  }
+  .tcb-product-slider .carousel-control .glyphicon {
+    position: absolute;
+    left: 25px;
+    top: 23px;
+
+  }
+  .tcb-product-slider .right .glyphicon {
+    position: absolute;
+    left: 15px;
+    top: 23px;
+
+  }
+
+  .tcb-product-item a {
+    color: #111;
+    text-decoration: none;
+    font-size: 18px
+  }
+  .tcb-product-item a:hover {
+    text-decoration: none;
+  }
+  .tcb-product-item .tcb-hline {
+    margin: 10px 0;
+    height: 1px;
+    background: #f0f0f0;
+  }
+  @media all and (max-width: 768px) {
+    .tcb-product-item {
+      margin-bottom: 30px;
+    }
+  }
+  .tcb-product-photo {
+    text-align: center;
+    height: 90px;
+    background: #f0f0f0;
+  }
+  .tcb-product-photo img {
+    height: 100%;
+    display: inline-block;
+    padding:4px;
+  }
+  .tcb-product-info {
+    background: #f0f0f0;
+    padding: 15px;
+  }
+  .tcb-product-title h4 {
+    margin-top: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .tcb-product-rating {
+    color: #acacac;
+  }
+  .tcb-product-rating .active {
+    color: #FFB500;
+  }
+  .tcb-product-price {
+    color: firebrick;
+    font-size: 18px;
+  }
+  
+  
+  
+  .details {
+      margin: 50px 0; }
+   .details h1 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 3px; }
+      .details .back-link {
+        text-align: center; }
+        .details .back-link a {
+          display: inline-block;
+          margin: 20px 0;
+          padding: 15px 30px;
+          background: #333;
+          color: #fff;
+          border-radius: 24px; }
+          .details .back-link a svg {
+            margin-right: 10px;
+            vertical-align: text-top;
+            display: inline-block; }
+
+
+
+
+
+
+
+
+
+            #slider-text{
+                padding-top: 40px;
+                display: block;
+              }
+              #slider-text .col-md-6{
+                overflow: hidden;
+              }
+              
+              #slider-text h2 {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 400;
+                font-size: 30px;
+                letter-spacing: 3px;
+                margin: 30px auto;
+                padding-left: 40px;
+              }
+              #slider-text h2::after{
+                border-top: 2px solid #c7c7c7;
+                content: "";
+                position: absolute;
+                bottom: 35px;
+                width: 100%;
+                }
+              
+              #itemslider h4{
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                margin: 10px auto 3px;
+              }
+              #itemslider h5{
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: bold;
+                font-size: 12px;
+                margin: 3px auto 2px;
+              }
+              #itemslider h6{
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 300;;
+                font-size: 10px;
+                margin: 2px auto 5px;
+              }
+              .badge {
+                background: #b20c0c;
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                line-height: 31px;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 300;
+                font-size: 14px;
+                border: 2px solid #FFF;
+                box-shadow: 0 0 0 1px #b20c0c;
+                top: 5px;
+                right: 25%;
+              }
+              #slider-control img{
+                padding-top: 60%;
+                margin: 0 auto;
+              }
+              @media screen and (max-width: 992px){
+              #slider-control img {
+                padding-top: 70px;
+                margin: 0 auto;
+              }
+              }
+              
+              .carousel-showmanymoveone .carousel-control {
+                width: 4%;
+                background-image: none;
+                width: 50px;
+                height: 50px;
+                background: #008784;
+                border-radius: 50px;
+              }
+              .carousel-showmanymoveone .carousel-control.left {
+                margin-left: 5px;
+              }
+              .carousel-showmanymoveone .carousel-control.right {
+                margin-right: 5px;
+              }
+              .carousel-showmanymoveone .cloneditem-1,
+              .carousel-showmanymoveone .cloneditem-2,
+              .carousel-showmanymoveone .cloneditem-3,
+              .carousel-showmanymoveone .cloneditem-4,
+              .carousel-showmanymoveone .cloneditem-5 {
+                display: none;
+              }
+              @media all and (min-width: 768px) {
+                .carousel-showmanymoveone .carousel-inner > .active.left,
+                .carousel-showmanymoveone .carousel-inner > .prev {
+                  left: -50%;
+                }
+                .carousel-showmanymoveone .carousel-inner > .active.right,
+                .carousel-showmanymoveone .carousel-inner > .next {
+                  left: 50%;
+                }
+                .carousel-showmanymoveone .carousel-inner > .left,
+                .carousel-showmanymoveone .carousel-inner > .prev.right,
+                .carousel-showmanymoveone .carousel-inner > .active {
+                  left: 0;
+                }
+                .carousel-showmanymoveone .carousel-inner .cloneditem-1 {
+                  display: block;
+                }
+              }
+              @media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
+                .carousel-showmanymoveone .carousel-inner > .item.active.right,
+                .carousel-showmanymoveone .carousel-inner > .item.next {
+                  -webkit-transform: translate3d(50%, 0, 0);
+                  transform: translate3d(50%, 0, 0);
+                  left: 0;
+                }
+                .carousel-showmanymoveone .carousel-inner > .item.active.left,
+                .carousel-showmanymoveone .carousel-inner > .item.prev {
+                  -webkit-transform: translate3d(-50%, 0, 0);
+                  transform: translate3d(-50%, 0, 0);
+                  left: 0;
+                }
+                .carousel-showmanymoveone .carousel-inner > .item.left,
+                .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+                .carousel-showmanymoveone .carousel-inner > .item.active {
+                  -webkit-transform: translate3d(0, 0, 0);
+                  transform: translate3d(0, 0, 0);
+                  left: 0;
+                }
+              }
+              @media all and (min-width: 992px) {
+                .carousel-showmanymoveone .carousel-inner > .active.left,
+                .carousel-showmanymoveone .carousel-inner > .prev {
+                  left: -16.666%;
+                }
+                .carousel-showmanymoveone .carousel-inner > .active.right,
+                .carousel-showmanymoveone .carousel-inner > .next {
+                  left: 16.666%;
+                }
+                .carousel-showmanymoveone .carousel-inner > .left,
+                .carousel-showmanymoveone .carousel-inner > .prev.right,
+                .carousel-showmanymoveone .carousel-inner > .active {
+                  left: 0;
+                }
+                .carousel-showmanymoveone .carousel-inner .cloneditem-2,
+                .carousel-showmanymoveone .carousel-inner .cloneditem-3,
+                .carousel-showmanymoveone .carousel-inner .cloneditem-4,
+                .carousel-showmanymoveone .carousel-inner .cloneditem-5,
+                .carousel-showmanymoveone .carousel-inner .cloneditem-6  {
+                  display: block;
+                }
+              }
+              @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
+                .carousel-showmanymoveone .carousel-inner > .item.active.right,
+                .carousel-showmanymoveone .carousel-inner > .item.next {
+                  -webkit-transform: translate3d(16.666%, 0, 0);
+                  transform: translate3d(16.666%, 0, 0);
+                  left: 0;
+                }
+                .carousel-showmanymoveone .carousel-inner > .item.active.left,
+                .carousel-showmanymoveone .carousel-inner > .item.prev {
+                  -webkit-transform: translate3d(-16.666%, 0, 0);
+                  transform: translate3d(-16.666%, 0, 0);
+                  left: 0;
+                }
+                .carousel-showmanymoveone .carousel-inner > .item.left,
+                .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+                .carousel-showmanymoveone .carousel-inner > .item.active {
+                  -webkit-transform: translate3d(0, 0, 0);
+                  transform: translate3d(0, 0, 0);
+                  left: 0;
+                }
+              }
+
+              .product_slider{
+                padding:30px 0;
+              }
+              #slider-control{
+                position: relative;
+                bottom: 130px;
+
+              }
+              #slider-control .glyphicon-chevron-left{
+                position: absolute;
+                left: 20px;
+                top: 20px;
+              }
+              #slider-control .glyphicon-chevron-right{
+                position: absolute;
+                left: 10px;
+                top: 20px;
+              }
+              
 @media only screen and (max-width:1920px){
     .swiper-button-next, .swiper-rtl .swiper-button-prev{
         top:35% !important;
@@ -3296,7 +3610,7 @@ img.lazy_cat-image {
         width:100%;
     }
     .effect .buttons{
-        width: 290px;
+        width: 220px;
     }
     .store_container {
         width: 31%;
@@ -3367,6 +3681,21 @@ img.lazy_cat-image {
         overflow: hidden;
     }
 
+    #slider-control{
+        position: relative;
+        bottom: 160px;
+
+      }
+      #slider-control .glyphicon-chevron-left{
+        position: absolute;
+        left: 25px;
+        top: 23px;
+      }
+      #slider-control .glyphicon-chevron-right{
+        position: absolute;
+        left: 13px;
+        top: 23px;
+      }
 
 
 

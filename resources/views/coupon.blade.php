@@ -35,37 +35,63 @@
    </div>
 </section>
 
-<!---Popular Store-->
-<section class="section-popstore">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="primary_heading">
+
+
+
+
+
+  
+<!-- Item slider-->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="product_slider carousel carousel-showmanymoveone slide" id="itemslider">
+      <div class="primary_heading">
                <h2>Top Stores</h2>
             </div>
-            <div class="pop_store_wrapper">
-               @foreach($top_stores as $top_store)
-               <div class="pop-store-item">
-                  <div class="store_img">
-                     <a href="{{ url('stores/' .$top_store->slug) }}" class="bnr_item bg_img bg bg2">
-                        
-                        <div class="bnr_content">
-                           <div class="web_imagebox">
-                              <img src="{{ asset('/images/' .$top_store->image) }}" alt="">
-                           </div>
-                           <h4 class="bnr_heading">{{ Str::of( $top_store->name )->limit(25, ' ') }}</h4>
-
-                           <p>{{ Str::of( $top_store->short_description )->limit(50, ' ') }}</p>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               @endforeach
+        <div class="carousel-inner">
+         <?php $chk = 1; ?>
+        @foreach($top_stores as $top_store)
+          <div class="item <?php if($chk ==1){echo "active"; $chk = 0;} ?>">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+            <div class="tcb-product-item">
+                                       <div class="tcb-product-info">
+                                          <div class="tcb-product-title">
+                                             <h4><a href="#">{{ Str::of( $top_store->name )->limit(25, ' ') }} </a></h4>
+                                          </div>
+                                       </div>
+                                       <div class="tcb-product-photo">
+                                          <a href="#"><img src="{{ asset('/images/' .$top_store->image) }}" class="img-responsive" alt="a" /></a>
+                                       </div>
+                                       <div class="tcb-product-info">
+                                          <a href="{{ url('stores/' .$top_store->slug) }}" class="vs_btn btn btn-info" target="_blank">View Store</a>
+                                       </div>
+                                 </div>
             </div>
-         </div>
+          </div>
+           @endforeach
+          
+         
+          
+        </div>
+
+        <div id="slider-control">
+        <a class="left carousel-control" href="#itemslider" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#itemslider" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
-   </div>
-</section>
+      <br><a class="link" href="{{ url('stores') }}">All Stores</a>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+<!-- Item slider end-->
+
+
+
+
+
 
 <!----Featured Offer-->
 <section class="featured_offer">
@@ -96,7 +122,7 @@
                         <p class="uses"><i class="fa fa-user"></i> Uses : {{ $featured_offer->views }} Uses</p>
                      </div>
                      <div class="code_btn_container">
-                        <a href="javascript:void(0);" data-toggle="modal" onclick="getCodeDeal({{ $featured_offer->id }})" data-target="#{{ $featured_offer->id }}" class="coupon_btn_a <?php echo ($featured_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="{{ $featured_offer->coupon_code }}" "="" data-text="{{ Str::mask($featured_offer->coupon_code, '*', 0, 2) }}">
+                        <a href="javascript:void(0);"  data-toggle="modal" onclick="getCodeDeal({{ $featured_offer->id }}),copy_code({{ $featured_offer->id }})" data-target="#{{ $featured_offer->id }}" class="coupon_btn_a <?php echo ($featured_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="{{ $featured_offer->coupon_code }}" "="" data-text="{{ Str::mask($featured_offer->coupon_code, '*', 0, 2) }}">
                            <?php echo ($featured_offer->code == 1) ? 'Get Code' : 'Get Deal'; ?>
                         </a>
                      </div>
@@ -131,6 +157,7 @@
                                  </p>
                                  <div class="modal_code" id="ctc{{ $featured_offer->id }}">
                                     {{ $featured_offer->coupon_code }}
+                                    <input type="hidden" id="siteURL{{ $featured_offer->id }}" value="{{ $featured_offer->redirect_site_url }}"/>
                                     <input type="text" class="text hide" id="myInput{{ $featured_offer->id }}" value="{{ $featured_offer->coupon_code }}" />
                                     <button class="button_clone" onclick="copy_code({{ $featured_offer->id }})"><i class="fa fa-clone"></i></button>
                                  </div>
@@ -187,38 +214,57 @@
    </div>
 </section>
 
-<!----Popular Category-->
-<section class="pop_cat">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="primary_heading">
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+    
+      <div class="product_slider carousel carousel-showmanymoveone slide" id="itemslider2">
+      <div class="primary_heading">
                <h2>Popular Categories</h2>
             </div>
-            <div class="category_grid-container">
-               @foreach($popular_categories as $popular_category)
-               <div class="cat_item cat_item-one">
-                  <a href="{{ url('category/' .$popular_category->slug) }}">
-                     <div class="categories_main_content">
-                        <h3 class="categories_title">{{ Str::of( $popular_category->name )->limit(10, '') }}</h3>
-                        <p class="categories_offer">({{ $popular_category->stores_count }}) Stores</p>
-                     </div>
-                     <div class="category_img ">
-                        <img src="{{ asset('/images/' .$popular_category->image) }}" alt="cat_img" class="category_image">
-                     </div>
-                  </a>
-               </div>
-
-               @endforeach
+        <div class="carousel-inner">
+        
+         <?php $chk2 = 1; ?>
+         @foreach($popular_categories as $popular_category)
+          <div class="item <?php if($chk2 ==1){echo "active"; $chk2 = 0;} ?>">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+            <div class="tcb-product-item">
+                                       <div class="tcb-product-info">
+                                          <div class="tcb-product-title">
+                                             <h4><a href="#">{{$popular_category->name}}</a></h4>
+                                          </div>
+                                       </div>
+                                       <div class="tcb-product-photo">
+                                          <a href="#"><img src="{{ asset('/images/' .$popular_category->image) }}" class="img-responsive" alt="a" /></a>
+                                       </div>
+                                       <div class="tcb-product-info">
+                                          <a href="{{ url('category/' .$popular_category->slug) }}" class="vs_btn btn btn-info" target="_blank">View Category</a>
+                                       </div>
+                                 </div>
             </div>
+          </div>
+           @endforeach
+          
+         
+          
+        </div>
 
-         </div>
-
-         <a href="{{ url('categories') }}">All Categories</a>
-
+        <div id="slider-control">
+        <a class="left carousel-control" href="#itemslider2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#itemslider2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
-   </div>
-</section>
+      <br><a class="link" href="{{ url('categories') }}">All Categories</a>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+
 
 <!---How to save -->
 <section class="how_to">
@@ -299,7 +345,7 @@
                         <p class="uses"><i class="fa fa-user"></i> Uses : {{ $latest_offer->views }} Uses</p>
                      </div>
                      <div class="code_btn_container">
-                        <a href="javascript:void(0);" data-toggle="modal" onclick="getCodeDeal({{ $latest_offer->id }})" data-target="#{{ $latest_offer->id }}" class="coupon_btn_a <?php echo ($latest_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="{{ $latest_offer->coupon_code }}" "="" data-text="{{ Str::mask($latest_offer->coupon_code, '*', 0, 2) }}">
+                        <a href="javascript:void(0);" data-toggle="modal" onclick="getCodeDeal({{ $latest_offer->id }}),copy_code({{ $latest_offer->id }})" data-target="#{{ $latest_offer->id }}" class="coupon_btn_a <?php echo ($latest_offer->code == 1) ? '' : 'deal'; ?> show_coupon homepage" data-id="24303" data-clipboard-text="{{ $latest_offer->coupon_code }}" "="" data-text="{{ Str::mask($latest_offer->coupon_code, '*', 0, 2) }}">
                            <?php echo ($latest_offer->code == 1) ? 'Get Code' : 'Get Deal'; ?>
                         </a>
                      </div>
@@ -334,6 +380,7 @@
                                  </p>
                                  <div class="modal_code" id="ctc{{ $latest_offer->id }}">
                                     {{ $latest_offer->coupon_code }}
+                                    <input type="hidden" id="siteURL{{ $latest_offer->id }}" value="{{ $featured_offer->redirect_site_url }}"/>
                                     <input type="text" class="text hide" id="myInput{{ $latest_offer->id }}" value="{{ $latest_offer->coupon_code }}" />
                                     <button class="button_clone" onclick="copy_code({{ $latest_offer->id }})"><i class="fa fa-clone"></i></button>
                                  </div>
